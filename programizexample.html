@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// add two number
+// const num1 = parseInt(prompt('Enter the first number '));
+// const num2 = parseInt(prompt('Enter the second number '));
+// const sum = num1 + num2;
+// console.log(`The sum of ${num1} and ${num2} is ${sum}`);
+
+// squre root
+//   const number=prompt('enter your number');
+//   const result=Math.sqrt(number);
+//   document.write(`the square root of ${number}is ${result}`);
+
+// area of triangle
+    // const base=prompt('enter the base value');
+    // const height=prompt('enter the height value');
+    //  const area=(base*height)/2;
+    //  console.log(`area of traingle is ${area}`)
+
+ // swap number
+ 
+// let a = prompt('Enter the first variable: ');
+// let b = prompt('Enter the second variable: ');
+// let temp;
+// temp = a;
+// a = b;
+// b = temp;
+// console.log(`The value of a after swapping: ${a}`);
+// console.log(`The value of b after swapping: ${b}`);
+
+
+// taking kilometers input from the user
+// const kilometers = prompt("Enter value in kilometers: ")
+// // conversion factor
+// const factor = 0.621371
+// // calculate miles
+// const miles = kilometers * factor
+// console.log(`${kilometers} kilometers is equal to ${miles} miles.`);
+
+// program to convert celsius to fahrenheit
+// fahrenheit = celsius * 1.8 + 32
+// const celsius = prompt("Enter a celsius value: ");
+
+// // calculate fahrenheit
+// const fahrenheit = (celsius * 1.8) + 32
+// // display the result
+// console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenheit.`);
+
+// Check Number Type with if...else if...else
+// const number = parseInt(prompt("Enter a number: "));
+// if (number > 0) {
+//     console.log("The number is positive");
+// }
+// else if (number == 0) {
+//   console.log("The number is zero");
+// }
+// else {
+//      console.log("The number is negative");
+// }
+
+// ternary operator
+
+// const number=prompt('enter your number');
+// const result=(number%2==0) ? 'even': 'odd';
+// console.log(`the value is ${result}`)
+
+// largest number
+
+// const num1=parseInt(prompt('enter first value'));
+// const num2=parseInt(prompt('enter second value'));
+// const num3=parseInt(prompt('enter third value'));
+// const result=Math.max(num1,num2,num3);
+// console.log(`largest number is ${result}` );
+
+// ----PRIME NUMBER-----//
+
+// const number=parseInt(prompt('enter your number'))
+// let isprime=true;
+// if(number===1){
+//     console.log('1 is neither prime nor composite number')
+// }
+// else if(number>1){
+//     for(let i=2;i<number;i++){
+//         if(number%i==0){
+//         isprime=false;
+//         break;
+//         }
+//   }
+//   if(isprime){
+//     console.log(`${number} is a prime number`)
+//   }
+//   else{
+//     console.log(`${number} is not a prime number`)
+//   }
+// }
+// else{
+//     console.log('the number is not a prime number')
+// }
+
+// ----FACTORIAL----
+// fact=1 on i=1,1<=5,i++
+// fact=1*1=1
+// i=2,2<=5 i+= on fact=1*2=2
+
+// const number=parseInt(prompt('enter the number'));
+// if(number<0){
+//     console.log('error the factorial is negative');
+// }
+// else if(number===0){
+//     console.log(`the factorial of ${number}is 1`);
+// }
+// else{
+//     let fact=1;
+//     for(i=1;i<=number;i++){
+//         fact*=i;
+//     }
+//   console.log(`the factorial of ${number} is ${fact}`);
+// }
+
+
+// ----fibonaci series----
+// console.log(0)-0
+// nextterm=0+1=1
+// n1=1,n2=1
+// console.log(1)-1  for loop has continued
+// --------------------
+
+const number = parseInt(prompt('Enter the number of terms: '));
+let n1 = 0, n2 = 1, nextTerm;
+console.log('Fibonacci Series:');
+for (let i = 1; i <= number; i++) {
+    console.log(n1);
+    nextTerm = n1 + n2;
+    n1 = n2;
+    n2 = nextTerm;
+}
+
+</script>
+</body>
+</html>

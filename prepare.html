@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <!-- <p id="demo">closure function</p>
+  <button onclick="on()">click</button> -->
+    <script>
+        // <!-- js keyword -->
+        // <!-- var -->
+        // if(true){
+        //     var msg="guna";
+        
+        // }
+        // console.log(msg);
+
+        // let
+        // if(true){
+        //     let msg="guna";
+        
+        // }
+        // console.log(msg);
+
+        // const
+        // if(true){
+        //     const msg="guna";
+        
+        // }
+        // console.log(msg);
+           
+      // arrow function
+    //   let add=()=>1;
+    //      console.log(add());
+
+        //  let add=(a,b)=>a+b;
+        //  console.log(add(1,2));
+
+        // call back function
+        // function seelan(num1,num2,callback){
+        //      var result=num1+num2;
+        //      callback(result);
+        // }
+
+        // function showresult(r){
+        //     console.log("Result is  " + r);
+        // }
+        // seelan(4,4,showresult);
+
+        // call(),apply(),bind()----(oru function ah multiple object ku use pandrathu tha call apply bind use aguthu)
+        // 1.bind() an objevt can borrow method from another object
+
+        // function guna(){
+        //     console.log(this);
+        // }
+        // let obj={
+        //     name:"seelan"
+        // }
+        // guna=guna.bind(obj);
+        // guna();
+
+        // 2.call() use on comma separetly operator
+        // function guna(a,b){
+        //     console.log(this,a+b);
+        // }
+        // let obj={
+        //    name:"seelan"
+        // }
+        // guna.call(obj,4,4)
+        // guna();
+
+        // 3.apply() use on arry separetly operator
+
+        // function guna(a,b){
+        //     console.log(this,a+b);
+        // }
+        // let obj={
+        //    name:"seelan"
+        // }
+        // guna.apply(obj,[4,4])
+        // guna();
+        
+
+        // map, filter,reduce
+        // ---map----
+        // const marks=[56,89,35,56,10]
+        // const grade=marks.map(function(e){
+        //     let result=e>=45?"pass":"fail";
+        //     return result;
+            
+        // }
+        // )
+        // or ---short cut--
+       // const grade=marks.map(e=>e>=45?"pass":"fail");
+       
+      //---filter---
+    //   const pass=marks.filter(e=>e>=45);
+
+    //----Reduce----
+    // const sum=marks.reduce((g,e)=>{
+    //     return g+e;
+    // },0);
+    //   console.log(grade);
+    //     console.log(pass);
+    //     console.log(sum);
+
+  //  deep cpy
+    // var a=[1,3,5,6,7];
+    // var b=a;
+    // console.log(a);
+    // console.log(b);
+
+    // --CLOSURE--
+
+    // var add=(function(){
+    //   var counter=0;
+    //   return function(){
+    //     counter+=1;
+    //     return counter;
+    //   }
+    // })();
+    // function on(){
+    //   document.getElementById("demo").innerHTML=add();
+    // }
+     
+    // const n=10;
+    // for(let i=1;i<=n;i++){
+    //   console.log('welcome on javascript');
+    // }
+    // --if-- 
+    // const number=prompt('enter the given number');
+    // if(number>0){
+    //   console.log('program has sucessful');
+    // }
+    // else{
+    //   console.log('program has failure')
+    // }
+    
+
+    
+
+        
+      
+
+
+
+
+    </script>
+</body>
+</html>
