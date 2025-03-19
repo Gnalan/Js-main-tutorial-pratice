@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const person={
+    name:"guna",
+    deg:"mca",
+    street:"svg",
+    details:{
+        course:{
+         frontend:"react native",
+         backend:"node",
+        },
+        siblings:{
+            bro:"kk",
+            sis:"ra",
+           work:{
+             browork:"teaching",
+             siswork:"studuy"
+            }
+        }
+    }
+}
+  const{details:{course:{backend}}}=person
+  console.log(backend);
+   const{details:{siblings:{work:{siswork}}}}=person
+   console.log(siswork);
+    </script>
+</body>
+</html>

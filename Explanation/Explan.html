@@ -1,0 +1,624 @@
+1.What is HTML.?
+Hyper text markup language.
+text based language
+used to develop & structure website
+
+2.What is doctype html.?
+Browser to understatnd the version of html
+<!DOCTYPE html>
+
+3.Difference btw element and tag.?
+Everthing is an element in html
+we create elements using tags
+<p>Hello</p>
+
+4.What are Attributes.?
+Each element have an attributes
+changes element behaviour
+Generic attributes:class,id and style 
+Specifi attributes:src and href
+
+5.How to creaate link.?
+We create link using <a> tag
+i)<Internal Link <a href="#id">
+ii)<External Link <a href="url">
+
+6.How do you write style in html?
+i)Inline <div style="color:red;">hai</div>
+ii)Internal <style> selector {} </style>
+iii)External <link href="style.css"/>
+
+7.What is semantic elements.?
+To use meaningfull elements in html..
+<nav>,<header>,<main> and <footer>
+
+8.What is forms.?
+To get different input values from user <input type="text"/>
+
+9.What is inline and block elements?
+Inline elements:span and input elements
+Block elements:div and paragraph
+It will take entier with and start on a new line
+
+10.Describe h1 tag.?
+A web page should contain only one <h1> tag/
+Search engine easily identify a page using this tag.
+
+11.How do you create a table.?
+Using <table> element and it's dependent tags <tr><th> and <td>
+For header and content <thead> and <tbody> can be used.
+
+12.What is iframe.?
+<iframe> is used to include other website within a web page
+
+13.What are the html entities.?
+A replecement for reserved character &#lt,&#copy;
+Can be used for special character which is not availble in keyboard
+
+14.What is alternative text in Image.?
+The alt attribute is used show text when image is not loaded.
+Additionally, it helps screen readers to identify the image.
+
+15.What is the use of meta tag?
+<meta> tag is used to describe about the page
+Search engine identify the page using meta information
+
+16.What are empty elements.?
+Empty elements doesn't contain any content
+<br> and <hr> are empty elements,
+which is used to add break and line.
+
+17.Explain about Canvas?
+<canvas> is used to draw graphics using Javascript
+It's pixel based and can't be scaled for larger surface
+
+18.What is SVG?
+<svg> is vector based graphics which is  defined in XML
+It can be scaled for larger size, able to modify using css and script
+
+19.How to include audio and video?
+<audio> and <video> tags are used to include music and video on web
+By using <source> tag insde on video and audio,files can be included
+
+20. What are void elements in HTML?
+HTML elements which do not have closing tags or do not need to be closed are Void elements. For Example <br />, <img />, <hr />, etc.
+
+21. What are the New tags in Media Elements in HTML5?
+<audio> - Used for sounds, audio streams, or music, embed audio content without any additional plug-in.
+<video> - Used for video streams, embed video content etc.
+<source> - Used for multiple media resources in media elements, such as audio, video, etc.
+<embed> - Used for an external application or embedded content.
+<track> - Used for subtitles in the media elements such as video or audio.
+
+22.How to support SVG in old browsers?
+To support old browsers instead of defining the resource of svg in src attribute of <img> tag, it should be defined in srcset attribute and in src the fallback png file should be defined
+
+
+========================================================================
+
+1.What is the purpose of CSS.?
+i)It was created to style the HTML page.
+ii)HTML defines the page structure
+iii)CSS define look and feel of the web page.
+
+2.Explain the different types of CSS Selector.?
+i)Simple selector
+h1,.content,#title
+
+ii)Combinator selector
+decentdent selector - Space
+child selector - >
+adjacemt sibiling selector - +
+general sibiling selector - ~
+
+iii)pseude selector
+a:link
+a:visited
+a:hover
+a:active
+
+iv)pseudeo element selector
+p::first-letter
+p::first-line
+p::before
+
+v)Attribute selector
+a[target]
+
+3.Differenciate ID & Class Selectors?
+i)ID is unique in a HTML page, A separate style for particular element.
+ii)Class can be part of multiple elements, Single style can be used for many elements.
+iii)ID has higher priority over the class
+
+4.What is Box model in CSS.?
+i)Every HTML elements are reactangle box to determine the width and hight
+ii)Initially the size defined based on content of the element
+iii)Box model covers Content,Padding,Border & Margin.
+
+5.What is CSS Pre-Processor?
+i)Used to genereate CSS using the Pre-Processor.
+ii)We can write CSS in programmatic way.
+iii)It's feature rich CSS development, we can store
+values in variable and creation re-usable functions.
+
+6.Explain the use of Float.?
+i)It's used to align the element to left or right
+ii)Floated element has to be cleared using clear property
+iii)Uncleared float elements will affect the following elements flow.
+
+7.What is Absolute & Relative units?
+i)Units are used to define CSS values in some measurement.
+ii)Absolute:It's exact value and won't change on any situation. Eg., 300px, 10cm
+iii)Relative: It will change based on parent or relative element. Eg. 10%,5rem
+
+8.Explain display inline,block, inline-block.?
+i)Inline: Only occupies content space. Can't set width, height and top/bottom of padding/margin.
+ii)Block:Occupies entire width of parent/window, adds new line.
+iii)Inline-Block: combination of both, won't add new line, can
+set width/height and padding/margin
+
+9.Explain Position Property.?
+Position has 4 types of values.
+1)Static
+2)Relative
+3)Absolute
+4)Fixed
+5)sticky	
+i)Static & Relative: 
+By default all the elements are static,Relative only accepts top/left values.
+ii)Absolute:
+It's out of flow and can be positioned based on relative.
+iii)Fixed:
+It's out of flow. It's relative to the window...
+iv)The element is positioned based on the user's scroll position
+
+10.What is Cascading in CSS.?
+i)CSS checks style definition and elements to apply the style
+ii)If two styles are defined for the same elements,
+the latest one will be applied.
+iii)If we need to change the priority,
+can add !important to the style value.
+
+========================================================================
+
+1.What is JavaScript.?
+i)High level, interpreted language
+ii)Creating dynamic in interaction with web pages
+
+2.What is Data Types in JavaScript.?
+i)Primitive Types
+string,number,boolen,null and undefined
+
+ii)Refrence types
+object,functions,arrays
+
+3.Difference between null and undefined.?
+i)Null - Intentional null(empty)value of variable ex:var a=null
+ii)Undefined - Declared variable without any value. ex: var a;
+
+4.How to declare variable in JS.?
+Can declare variable using
+i)var = function - scoped
+{
+    var functionScopedVar = "I'm function-scoped";
+}
+console.log(functionScopedVar); // Accessible here
+
+
+ii)let = block - scoped
+for (let i = 0; i < 3; i++) {
+    console.log(i); // Accessible here
+}
+// console.log(i); // Uncaught ReferenceError: i is not defined
+
+iii)const = block - scoped - cont modify etc
+
+5.What is closure in JS.?
+A function had inner function
+
+inner function has access to outer & global function.
+
+or
+
+JavaScript closure gives you access to an outer function's scope from 
+an inner function
+
+6.Difference between == and ===?
+i)==loose equality - type coerion 
+ii)===Strict equality - without type coericon
+
+7.What is hoisting.?
+i)var and function declarations moved to the top
+
+ex:1
+console.log(a); // undefined (declaration is hoisted, but not the value)
+var a = 5;
+
+ex:2
+greet(); // "Hello"
+function greet() {
+    console.log("Hello");
+}
+
+
+
+8.Ways to loop through an array?
+using various methods such as
+i)for 
+ii)forEach--The forEach() method executes a provided function for each array element.
+2. forEach()
+👉 இந்த முறை array-யில் உள்ள ஒவ்வொரு உறுப்புக்கும் ஒரு function-ஐ இயக்கும்.
+javascript
+Copy
+Edit
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((num) => {
+  console.log(num);
+});
+🔹 forEach() method ஒரு callback function-ஐ பெறும்.
+🔹 Loopல் return செய்ய முடியாது (break / continue வேலை செய்யாது).
+
+
+iii)for of
+
+9.What is Promise in JS.?
+i)Js object and used to contorl asynchronous operation
+ii)methods like .then() and .catch
+It will be in one the 3 possible states
+i)Fullfilled
+ii)Rejected
+iii)Pending.
+
+10.Ways to define function.?
+i)function declaration
+ii)function expression
+iii)self invoking function
+iv)object method
+v)arrow function
+
+11.Carrying?
+Currying is a technique of evaluation function with multiple arguments,
+in to sequence of function with single argument
+
+12.What is this keyword.?
+This keyword is a reference variable that refers to the current object.
+
+13.Diff btwn forEach and map method?
+The map() method returns a new array, whereas the forEach() method does not return a new array
+
+14. apply bind call
+Call invokes the function and allows you to pass in arguments one by one.
+Apply invokes the function and allows you to pass in arguments as an array.
+Bind returns a new function, allowing you to pass in  this array and any number of arguments.
+
+
+15. "async and await make promises easier to write"
+
+async makes a function return a Promise
+
+await makes a function wait for a Promise
+
+16. "use strict"; Defines that JavaScript code should be executed in "strict mode".
+The "use strict" directive was new in ECMAScript version 5.
+
+17.Map
+Map method used to when we want transforamtion of whole array.
+
+18.Filter
+Filter is used to when we want too filter the array to obtain required value
+
+19.Reduce.?
+Reduce is used to when we want to reduce the array to single value.
+
+========================================================================
+1.What is React JS?
+i)It is a JavaScript library created by Facebook in 2011 by jordan Walke.
+ii)It is used for building user interfaces and also used to build single page applications.
+
+2.JSX?
+i)JSX is a shorthand for JavaScript XML
+ii)This makes the HTML file really easy to understand
+
+3.What is the meaning of Virtual DOM.?
+i)A virtual DOM is a simple JavaScript object that is the exact copy of the corresponding real DOM.
+or
+A virtual DOM is a light weight js object.
+
+4.Why use React?
+i)Easy creation of dynamic web apps
+ii)Reusable Components
+iii)Easy Debugging 
+iv)Enhanced Performance
+v)Unidirectional data flow
+
+5.Can browsers read a JSX file.?
+i)No, browsers cannot read JSX files directly.
+ii)It can only read the objects provided by JavaScript.
+or
+No,Browsers can only read JavaScript objects but JSX in not a regular JavaScript object
+
+6.What are States in React.?
+i)States are used to easily create dynamic and interactive components
+or
+The state is a build-in React object that is used to contain data or information about the component
+or
+State of component is an object that holds some data
+This data influences the output of a component
+
+7.What is a higher-order component in React.?
+i)A higher-order component is a function that takes in a component and returns a new component.
+Using code,const newComponent = higherFunction(WrappedComponent);
+
+Higher-Order Component (HOC) என்பது React-இல் உள்ள ஒரு advanced concept ஆகும்.
+இது ஒரு function ஆக செயல்பட்டு, ஒரு component-ஐ input ஆக பெற்று, புதிய component-ஐ return செய்யும்.
+
+8.What are the three phases of a component life cycle in React.?
+Mounting (adding nodes to the DOM)
+Updating (altering existing nodes in the DOM)
+Unmounting (removing nodes from the DOM)
+
+9.What are events in React.?
+i)An envent is an action that can be triggered by a user or any system event like pressing a key, a mouse click,etc
+
+10.What is arrow function?
+Arrow function is a short way of writing a function in React
+
+11.What are components in React?
+Components are independent and reusable bits of code.
+A single app usally consists of multiple components.
+
+Components என்பது React-இல் உள்ள முக்கியமான பகுதி.
+இவை தனி தனியாக செயல்படும், மறுபயன்படுத்தக்கூடிய (reusable) கோடுகளின் தொகுப்பாகும்.
+
+ஒரு React பயன்பாடு (App) பொதுவாக பல components-களால் அமைந்திருக்கும்.
+ஒவ்வொரு component-மும் தனித்துவமான செயல்களை மேற்கொண்டு, பெரிய பயன்பாட்டை உருவாக்க உதவுகிறது.
+
+
+12.What is the use of render() in React?
+The purpose of the function is to display the specified HTML code inside the specified HTML element.
+It is compulsory for each component to have a render() function
+
+13.What are refs in React?
+Refs are a function provided by React to access the DOM element and
+the React element that you might have created on your own
+Main uses:
+i)To initiate imperative animations
+ii)To join third party DOM libraries
+iii)To manage focus and apply media playback
+
+14.What are the components of Redux in React?
+Redux consists of 4 main components as shown below:
+i)Action: An object that describes the call
+ii)Reducer:The state change storage unit
+iii)Store:The state and object tree storage
+iv)View:Displays data provided by the store
+
+15.What are pure components in React?
+The components that do not re-render when the value of props and 
+state has been updated with the same values.
+
+16.What are higher-order components used for?
+i)Manipulation of props
+ii)State manipulation and abstraction
+iii)Render high jacking 
+iv)Code reusing
+v)Bootstrap abstraction
+
+
+17.What are keys in React?
+i)Keys are used to directly check if an item has been
+added or removed from list
+
+18.Props?
+Props stands for propertues
+It gives a way to pass data from one component to other component.
+
+19.Callback function?
+A Callback function is a fun
+ction passed into another function as an argument.
+oru fn ah ye innoru function ku argument ah kudukurathu tha call back function
+
+20.What is props and state in React?
+Props allow you to pass data from one component to other components as an argument. 
+State holds information about the components
+
+21.What are the three types of components?
+Types of React Components Discussed
+Functional Components.
+Class Components.
+Pure Components.
+Higher-Order Components.
+
+22.What is the difference between Real DOM and Virtual DOM?
+Real DOM:
+The real DOM updates slower.
+The real DOM can directly update HTML.
+There is a lot of memory wastage in The real DOM.
+
+Virtual DOM:
+The virtual DOM updates faster
+The virtual DOM cannot directly update HTML.
+There is no memory wastage in the virtual DOM.
+
+23.what is the difference between controlled and uncontrolled components?
+Controlled:
+It does not maintain its internal state.
+data is controlled by the parent component.
+It accepts its current value as a prop.
+It allows validation control.
+
+சிறப்பம்சங்கள்
+✔️ Internal state இல்லை (State-ஐ React-ன் useState மூலம் நிர்வகிக்கலாம்).
+✔️ Parent Component data-ஐ நிர்வகிக்கும் (state update ஆகும்போது value update ஆகும்).
+✔️ Validation (Regex, Required checks) எளிதாக செய்யலாம்.
+✔️ Real-time UI updates செய்யலாம்.
+
+Uncontrolled:
+It maintains its internal states.
+data is controlled by the DOM itself
+It uses a ref for their current values.
+It does not allow validation control.
+
+✔️ Internal state உள்ளது (React-க்கு தெரியாது, useRef மூலம் data-ஐ access செய்யலாம்).
+✔️ DOM-யே value-ஐ நிர்வகிக்கும் (State update தேவையில்லை).
+✔️ Validation-ஐ handling செய்ய கடினம்.
+✔️ Ref மூலம் value-ஐ படிக்க வேண்டும்.
+
+24.What are the feature of React.?
+JSX,Component,one-way data binding,virtual dom,simplicity & performance.
+
+25.What is the biggest limitaition of React?
+React is just library, it is not a complete framework.
+
+26.Flux.?
+Fljux is an application architecture that Facebook uses intrnally for the 
+building the client side web app.
+
+27.Redux.?
+Redux is an open-source JS library used to manage application state.
+React uses redux for building the user interface.
+
+28.Differentiate between States and Props.
+Props:
+Props are read-only
+Props are immutable.
+Props allow you to pass data from one component to other components as an argument.
+
+State:
+State changes can be asynchronous.
+State is mutable.
+State holds information about the components.
+
+
+
+Props	                                                    State
+Read-only  immutable (மாற்ற முடியாது)   	             Mutable (மாற்றக்கூடியது)
+Parent-ல் இருந்து Child-க்கு தரவு அனுப்ப பயன்படும்  	Component-க்குள் உள்ள தரவுகளை நிர்வகிக்க பயன்படும்
+Functional & Class Component இரண்டிலும் பயன்படும்	    Functional Component-ல் useState மூலம் பயன்படும்
+Component-ஐ re-render செய்யாது	                         State update ஆகும் போது component re-render ஆகும்
+
+29.Differentiate between stateless and stateful componen
+ts.
+stateless:
+It is simple and easy to understand.
+It is also known as a functional component.
+
+stateful:
+It is complex as compared to the stateless component.
+It is also known as a class component.
+
+30.Hooks?
+React Hooks are JavaScript functions that allow functional components to use state and lifecycle methods. They help in reusing logic and managing side effects
+useState:
+To manage states. Returns a stateful value and an updater function to update it.
+useEffect: 
+To manage side-effect
+s like API calls, subscriptions, timers, mutations, and more.
+componentDidmount and componentdidupdate - it will be done this work
+useContext: 
+To return the current value for a context.
+
+useContext Hook என்ன?
+useContext Hook-ஐ பயன்படுத்தி, React Context API-யில் உள்ள data-வை direct-ஆக access செய்யலாம். இதனால், parent component-இல் இருந்த data-வை prop drilling இல்லாமல் child component-களில் பயன்படுத்தலாம்.
+
+useContext Hook-ஐ எப்படி பயன்படுத்துவது?
+Context உருவாக்குதல் - createContext()
+Context Provider உருவாக்குதல் - <Context.Provider>
+Context-ஐ access செய்தல் - useContext(MyContext)
+
+useContext Hook-ன் முக்கிய பயன்கள்
+✔ Prop Drilling குறையும் – Parent Component-ல் இருந்து Data-வை child component-களுக்கு direct-ஆக அனுப்பலாம்.
+✔ Code clean & simple – useContext இல்லாமல் props பயன்படுத்தினால், component hierarchy மிகுந்தால் நிரலை நிர்வகிக்க கடினமாக இருக்கும்.
+✔ Global State Management-க்கு உதவுகிறது – useContext Hook-ஐ Redux அல்லது useReducer-ஓடு சேர்த்து பயன்படுத்தலாம்.
+
+
+🔥 Context API-யின் பயன்கள்
+✅ Global State-ஐ எளிதாக மேலாண்மை செய்யலாம்.
+✅ Prop Drilling (ஒரு component-ல் இருந்து மற்றொன்றிற்கு prop அனுப்புவது) குறையும்.
+✅ Lightweight & Fast (Redux போல் அதிக setup தேவையில்லை).
+
+🚀 Context API பயன்படுத்தி React Native-ல் State Management எளிதாக செய்யலாம். உங்களுக்குப் புரியுதா? ஏதாவது specific doubt இருக்கா? 😊
+
+நீங்கள் React Native-ல் Theme, Authentication, Language போன்ற Global State data-வை நிர்வகிக்க useContext மிகவும் பயனுள்ளதாக இருக்கும்.
+
+useMemo:
+It returns a memoized value that helps in performance optimizations.
+The useMemo Hook only runs when one of its dependencies update.
+
+React useMemo Hook
+useMemo என்பது React-இல் உள்ள ஒரு performance optimization hook ஆகும். இது மறுபடி கணிப்பதற்கு (recalculating) அதிக resource தேவைப்படும் செயல்முறைகளை cache செய்து, தேவையான போதுதான் கணிக்க உதவுகிறது.
+
+useMemo எப்போது பயன்படுத்த வேண்டும்?
+Expensive Calculations – கணக்கீடு அதிக resource பயன்படுத்தும் போது.
+Unnecessary Re-Renders – தேவையில்லாத component re-render-ஐ தவிர்க்க.
+Dependent Data Optimization – ஒரு state அல்லது prop மாறும் போதுதான் function மறுபடியும் இயங்க வேண்டும்.
+
+useMemo பயன்படுத்த வேண்டிய நேரம்
+✅ Heavy Computations – சிறிய state மாற்றத்தால் re-compute வேண்டாம்.
+✅ Optimized Render – Parent re-render ஆனாலும் useMemo உள்ள component மறு கணிப்பை தவிர்க்கும்.
+✅ Avoid Unnecessary Function Calls – Function execution-ஐ தேவைப்படும் போது மட்டுமே செய்வது.
+
+React Native-ல் useMemo-வை lists, API calls, calculations, animations போன்றவற்றில் பயன்படுத்தலாம்.
+
+useReducer:
+A useState alternative to help with complex state management.
+useReducer என்பது React Hook ஆகும். இது state management செய்வதற்காக பயன்படுகிறது, குறிப்பாக state மிகவும் complex ஆக இருக்கும் போது useState ஐ விட சிறப்பாக செயல்படுகிறது.
+
+const [state, dispatch] = useReducer(reducer, initialState);
+🔹 reducer - state update செய்வதற்கான function.
+🔹 initialState - state ஆரம்பத்தில் என்ன இருக்க வேண்டும் என்பதை குறிப்பிடும்.
+🔹 state - தற்போதைய state-ஐ return செய்யும்.
+🔹 dispatch - action dispatch செய்ய பயன்படும் function.
+
+useReducer எப்படி வேலை செய்யும்?
+ஒரு reducer function உருவாக்க வேண்டும்.
+useReducer மூலம் state-ஐ நிர்வகிக்க வேண்டும்.
+dispatch மூலம் state-ஐ update செய்ய வேண்டும்.
+
+
+useCallback: 
+It returns a memorized version of a callback to help a child component not re-render unnecessarily.
+useCallback ஒரு callback function-ஐ நினைவில் வைத்து (memoize செய்து) திருப்பி அளிக்கிறது. இதன் முக்கிய பயன்பாடு, ஒரு child component தேவையில்லாமல் மீண்டும் re-render ஆகாமல் பாதுகாக்க உதவுகிறது.
+
+எப்போது பயன்படுத்தலாம்?
+ஒரு parent component re-render ஆனால், அதில் உள்ள functions புதியதாக உருவாகும். இந்த functions child component-க்கு props ஆக அனுப்பினால், அந்த child component தேவையில்லாமல் re-render ஆகும். இதை தவிர்க்க, useCallback மூலம் அந்த function-ஐ நினைவில் வைத்து performance-ஐ மேம்படுத்தலாம்.
+
+useRef:
+It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child component imperatively.
+
+useRef Hook-ன் முக்கிய பயன்பாடுகள்
+DOM Elements-ஐ Direct-ஆக Manipulate செய்ய
+State-ஐ மாற்றாமல் Data-வை Store செய்ய
+Previous State-ஐ நினைவில் வைத்திருக்க
+
+React Native-ல் useRef எப்படி பயன்படும்?
+
+TextInput-ஐ focus() செய்ய
+ScrollView-ஐ auto-scroll செய்ய
+Animation & Gesture Handling (Ex: useRef with Animated.Value)
+இந்த performance optimization-க்கு useRef மிகவும் பயனுள்ளதாக இருக்கும்!
+
+
+useLayoutEffect: 
+It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
+useDebugValue:
+Helps to display a label in React DevTools for custom hooks.
+
+31.What is the diff btwn Clone and Create element in React?
+i)cloneElement is primarily used to clone an element
+& pass it to new props directly
+ii)Whereas, createElemnt is the entity that JSX get complied into.This is also used to create elements in React	
+
+const getChange = (event)=>{
+let {name,value}=event.target;
+let data = {[name]:value}
+setobjec(...obje,...data)
+
+}
+
+32. JSON()-means serverv la irunthu client ku  data va json array or object ah kudukkum 
+ JSON.parse()-function is used to convert the JSON string into a JavaScript object.
+ JSON.stringify() method is used to convert a JavaScript object or value into a JSON string representation.
+
+ 
+

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,4 +101,170 @@ console.log(container)
 
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- PROMISE BASIC EXAMPLES--->
+    <!-- //A promise may have one of three states.
+     1.Pending
+    2.Fulfilled
+    3.Rejected 
+     
+    If the promise returns successfully, the resolve() function is called. And, if an error occurs, the reject() function is called.
+    
+    You can perform an operation after a promise is resolved using methods then(), catch() and finally().
+
+    1.The then() method is used with the callback when the promise is successfully fulfilled or resolved.
+
+   2.The catch() method is used with the callback when the promise is rejected or if an error occurs.
+    -->
+
+    <!-- JavaScript-ல் Promise என்பது நேரம் எடுத்துக் கொள்ளும் operations-ஐ (asynchronous operations) handle செய்ய பயன்படுகிறது.
+    ஒரு Promise return ஆகும்போது, அதற்குள் success ஆகும் (resolve) அல்லது failure ஆகும் (reject) என்பதைக் கண்டுபிடிக்கலாம்.
+    
+    ✅ resolve() மற்றும் ❌ reject()
+    1️⃣ resolve(value) → Operation வெற்றியடையும்போது (Success) resolve() function அழைக்கப்படும்.
+    2️⃣ reject(error) → Operation தோல்வியடையும்போது (Failure/Error) reject() function அழைக்கப்படும்.
+
+    Method Description
+    then() Promise resolve (✅ success) ஆன பிறகு ஒரு function execute செய்யப்படும்.
+    catch() Promise reject (❌ failure/error) ஆன பிறகு error-ஐ handle செய்ய பயன்படும்.
+    finally() Promise resolve ஆகினாலும், reject ஆகினாலும் எப்போதும் நடக்கும்.
+
+    🚀 Promises-ஐ then(), catch(), finally() ஆகியவற்றுடன் சேர்த்து பயன்படுத்தினால், asynchronous operations-ஐ எளிதாக
+    handle செய்யலாம்! 😊 -->
+
+    <script>
+        //   const p1=new Promise((resolve,reject)=>{
+        //       setTimeout(()=>{
+        //         resolve('acccepted'),3000
+        //       });
+
+        //   });
+        //   p1.then((value)=>{
+        //       console.log(value);
+        //   }).catch((value)=>{
+        //       console.log(value);
+        //   });
+
+        // const task=new Promise((resolve,reject)=>{
+        //    resolve('resolve has called')
+        // })
+        // task.then((value)=>{
+        //     console.log(value);
+        // }).catch((value)=>{
+        //     console.log(value)
+        // })
+
+
+        //-----ASYNC AND AWAIT-----
+        //async(The async function returns a promise.) 
+        //await (The await keyword waits for the promise to be complete (resolve or reject).)
+
+        //  const task=new Promise((resolve,reject)=>{
+        //     setTimeout(()=>{
+        //         resolve('resolve has called')
+        //     },5000)})
+        //     async function asyncFun(){
+        //     let result=await task;
+        //     console.log(result)
+        //     console.log('promise resolved')
+        //     }
+
+        // asyncFun()
+
+        //---USE TRY METHOD---
+        // we have used try/catch block to handle the errors. If the program runs successfully, it will go to the try block. And if the program throws an error, it will go to the catch block.
+
+        // const task=new Promise((resolve,reject)=>{
+        //     setTimeout(()=>{resolve('resolve has called')
+        //     },3000)})
+
+        //     async function asyncFun(){
+        //         try{
+        //             let result= await task
+        //             console.log(result, 'output');
+        //             }
+        //        catch(error){
+        //           console.log('ERROR')
+        //        }
+        //     }
+        //     asyncFun();
+
+        //     let arr = ['1','2','3','4','5','6','7','8']
+        //     let container=[];
+        //     for(let i=0; i<arr.length/3;i++){
+        //     let innerShell=[];
+        //     const condition = i===0 ? 3 : (i+1)*3
+        //     for(let j=i*3;j<condition ; j++){
+        //      innerShell.push(arr[j])
+        //     }
+        //    container.push(innerShell)
+
+        //  }
+        // console.log(container)
+
+
+
+
+        //---------------TASK--------------------
+        // COMMON 
+        const task = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('resolve has called')
+            }, 3000)
+        })
+        //  COMMON
+
+        // ---------ASYNC AWAIT------
+        //    async function first(){
+        //     let result=await task;
+        //     console.log(result);
+        //     console.log("promise is successful");
+        //    }
+        //    first()
+
+        // -----THEN CATCH-------
+
+        //   task.then((value)=>{
+        //       console.log(value);
+        //   }).catch((value)=>{
+        //     console.log(value);
+        //   })
+
+
+
+
+        //------TRY CATCH---------
+
+        async function first() {
+            try {
+                let result = await task
+                console.log(result);
+                console.log("promise has successfuly");
+            }
+            catch {
+                console.log('error');
+            }
+        }
+        first()
+
+
+
+
+
+
+    </script>
+</body>
+
+>>>>>>> Stashed changes
 </html>
