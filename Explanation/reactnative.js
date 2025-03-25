@@ -314,3 +314,64 @@
 // ✅ High-Performance Animations
 // ✅ Third-party Native SDK Integration
 
+
+
+// React Native Authentication & Authorization Explained in Tamil
+// React Native-ல் Authentication (அங்கீகாரம்) மற்றும் Authorization (அனுமதி) முக்கியமான security அம்சங்கள். இதைப் புரிந்துகொள்வது React Native mobile apps-ல் user data-வை பாதுகாக்க உதவும்.
+
+// 1. Authentication (அங்கீகாரம்) என்றால் என்ன?
+// 🔹 Authentication என்பது யார் user என்பதை சரிபார்ப்பது.
+// 🔹 இது பொதுவாக login மற்றும் signup வழியாக செய்யப்படுகிறது.
+// 🔹 Example: Email & Password, OTP, Social Login (Google, Facebook).
+
+// React Native-ல் Authentication எப்படி செய்யலாம்?
+// API உருவாக்குதல் – Backend (Node.js, Firebase, Django) மூலம் user authentication செய்யலாம்.
+
+// Login UI உருவாக்குதல் – Email & Password fields, Social login buttons போன்றவை சேர்க்கலாம்.
+
+// Token Management – JWT (JSON Web Token) அல்லது Firebase authentication tokens-ஐ handle செய்யலாம்.
+
+// Secure Storage – AsyncStorage, SecureStore (expo) அல்லது Encrypted Storage பயன்படுத்தலாம்.
+
+// 📌 Example – JWT Authentication
+
+// js
+// Copy
+// Edit
+// fetch('https://example.com/api/login', {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: JSON.stringify({ email: 'test@example.com', password: 'password123' })
+// })
+// .then(response => response.json())
+// .then(data => {
+//   if (data.token) {
+//     AsyncStorage.setItem('userToken', data.token);
+//   }
+// });
+// 2. Authorization (அனுமதி) என்றால் என்ன?
+// 🔹 Authorization என்பது user-க்கு எந்த அளவிற்கான access கொடுக்க வேண்டும் என்பதை தீர்மானிக்கிறது.
+// 🔹 Authentication verified user-யை confirm செய்யும், Authorization அவருக்கு எவ்வளவு privilege வேண்டும் என்று முடிவு செய்யும்.
+
+// React Native-ல் Authorization எப்படி செய்யலாம்?
+// User Roles & Permissions – Admin, User, Moderator போன்ற roles கொடுக்கலாம்.
+
+// Protected Routes – Certain pages-க்கு access JWT Token மூலம் கட்டுப்படுத்தலாம்.
+
+// Backend Authorization – API endpoint-களுக்கு role-based access control (RBAC) பயன்படுத்தலாம்.
+
+// 📌 Example – Role-Based Authorization
+
+// js
+// Copy
+// Edit
+// fetch('https://example.com/api/user-data', {
+//   method: 'GET',
+//   headers: { 'Authorization': `Bearer ${userToken}` }
+// })
+// .then(response => response.json())
+// .then(data => {
+//   if (data.role === 'admin') {
+//     setIsAdmin(true);
+//   }
+// });

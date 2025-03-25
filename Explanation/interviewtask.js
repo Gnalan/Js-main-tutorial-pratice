@@ -89,10 +89,84 @@ setImmediate(()=>{
 
 
 
+//count task in p m  square
+// import { Text, SafeAreaView, StyleSheet,View,Button} from 'react-native';
+// import React,{useState,useEffect} from 'react'
+// import { Card } from 'react-native-paper';
+// import AssetExample from './components/AssetExample';
+
+// export default function App() {
+//   const [count,setCount]=useState(0)
+//   useEffect(()=>{
+//    { count == 10 ?
+//  console.log(count+0,"resulttttttttttt"):
+//   null
+//    }
+//   })
+//   const handleincrement=()=>{
+//     setCount(count+1)
+//   }
+//   const handledecrement=()=>{
+//     setCount(count-1)
+//   }
+//   return (
+//     <SafeAreaView style={styles.container}>
+//      <View style={{alignItems:"center",justifyContent:"center"}}>
+//      <Text>{count}</Text>
+//      <View style={{width:"80%",marginTop:12,height:30}}>
+//      <Button onPress={handleincrement} title="increment"/>
+//      </View>
+//       <View style={{width:"80%",marginTop:12,height:30}}>
+//      <Button  onPress={handledecrement} title="decrement"/>
+//      </View>
+//      </View>
+
+     
+//     </SafeAreaView>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     backgroundColor: '#ecf0f1',
+//     padding: 8,
+//   },
+//   paragraph: {
+//     margin: 24,
+//     fontSize: 18,
+//     fontWeight: 'bold',
+//     textAlign: 'center',
+//   },
+// });
 
 
+//p m square task return id name
 
-
+// const data=[
+// 	{
+// 		id:1,
+// 		name:"Mithun",
+// 		department:"BCA",
+// 		section:"A"
+// 	},
+// 	{
+// 		id:2,
+// 		name:"Karthik",
+// 		department:"BCA",
+// 		section:"A"
+// 	}
+// ]
+// const result =data.map((ele,index)=>{
+//     return {
+//         id:ele.id,
+//         name:ele.name
+        
+//     }
+    
+// })
+// console.log(result)
 
 
 
