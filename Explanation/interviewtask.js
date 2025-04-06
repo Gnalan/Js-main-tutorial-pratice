@@ -172,4 +172,158 @@ setImmediate(()=>{
 
 
 
+//validation task
+
+import { Text, SafeAreaView, StyleSheet,View,Image,TextInput,Pressable } from 'react-native';
+import React,{useState} from 'react'
+
+// You can import supported modules from npm
+import { Card } from 'react-native-paper';
+
+// or any files within the Snack
+import AssetExample from './components/AssetExample';
+
+export default function App() {
+  const[username,setUserName]=useState('')
+  const[gender,setGender]=useState('')
+  const[dob,setDob]=useState('')
+  const [phonenumber,setPhoneNumber]=useState('')
+  const [email,setEmail]=useState('')
+  const [fullname,setFullName]=useState('')
+  return (
+    <SafeAreaView style={styles.container}>
+    <View style={{width:"100%",height:"100%",paddingVertical:"10%"}}>
+    <View style={{width:"100%",alignItems:"center",justifyContent:"center"}}>
+     <View>
+     <Image  style={{width:80,height:80}} source={require('./assets/snack-icon.png')} resizeMode='cover'/>
+     </View>
+     <Text style={styles.para}>Gunaseelan</Text>
+      <Text style={styles.para1}>@gunaseelan</Text>
+    </View>
+    <View style={{width:"90%",alignSelf:"center"}}>
+       <View>
+       <TextInput
+       style={styles.inputcontainer} 
+       placeholder='username'
+       placeholderTextColor='grey'
+       value={username}
+       onChangeText={setUserName}
+       />
+       </View>
+         <View style={{flexDirection:"row",width:"100%",justifyContent:"space-between"}}>
+       <TextInput
+       style={styles.inputmale} 
+       placeholder='gender'
+       placeholderTextColor='grey'
+       value={gender}
+       onChangeText={setGender}
+       />
+        <TextInput
+       style={styles.inputdob} 
+       placeholder='dob'
+       placeholderTextColor='grey'
+       value={dob}
+       onChangeText={setDob}
+       />
+       </View>
+         <View>
+       <TextInput
+       style={styles.inputcontainer} 
+       placeholder='phonenumber'
+       placeholderTextColor='grey'
+       value={phonenumber}
+       onChangeText={setPhoneNumber}
+       />
+       </View>
+           <View>
+       <TextInput
+       style={styles.inputcontainer} 
+       placeholder='email'
+       placeholderTextColor='grey'
+       value={email}
+       onChangeText={setEmail}
+       />
+       </View>
+       <View>
+       <TextInput
+       style={styles.inputcontainer} 
+       placeholder='full name'
+       placeholderTextColor='grey'
+       value={fullname}
+       onChangeText={setFullName}
+       />
+       </View>
+
+
+    </View>
+    <View style={{position:"absolute",bottom:"4%",width:"100%",}}>
+    <Pressable style={styles.btn}>
+    <Text style={{color:"#fff", fontSize: 18,
+    fontWeight: 'bold',}}>Save</Text>
+    </Pressable>
+    </View>
+    </View>
+     
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  para: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop:10
+  },
+   para1: {
+    fontSize: 18,
+    fontWeight: 'regular',
+    textAlign: 'center',
+    color:"grey",
+    marginTop:10
+  },
+  inputcontainer:{
+    height:37,
+    borderWidth:0.7,
+    borderRadius:10,
+    marginTop:"4%",
+    paddingHorizontal:15
+  },
+   inputmale:{
+     width:"45%",
+    height:37,
+    borderWidth:0.7,
+    borderRadius:10,
+    marginTop:"4%",
+    paddingHorizontal:15
+  },
+   inputdob:{
+    width:"45%",
+    height:37,
+    borderWidth:0.7,
+    borderRadius:10,
+    marginTop:"4%",
+    paddingHorizontal:15
+  },
+   btn:{
+     width:"90%",
+    alignSelf:"center",
+    height:37,
+    borderWidth:0.7,
+    borderRadius:10,
+    backgroundColor:"#000",
+    alignItems:"center",
+    justifyContent:"center"
+
+  },
+});
+
+
+
 

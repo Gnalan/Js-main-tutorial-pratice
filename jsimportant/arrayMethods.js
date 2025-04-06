@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 // *****1.push*****
 //  function person(){
 //     var arr=[1,3,5,6];
@@ -70,7 +69,6 @@ ex:1
 
 
 
-=======
 // *****1.push*****
 //  function person(){
 //     var arr=[1,3,5,6];
@@ -159,4 +157,3 @@ ex:1
 
 
 
->>>>>>> Stashed changes

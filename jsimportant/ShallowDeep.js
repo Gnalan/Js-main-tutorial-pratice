@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //shallow copy
 // Using spread operator: 
 // We can avoid the creation of shallow copies with the help of using the spread operator.
@@ -54,7 +53,6 @@
 
 
 
-=======
 //shallow copy
 
 //shallow copy,deep copy 3 method 1.object.assign copy panni valu change pannum
@@ -157,4 +155,3 @@ per.details.course.siblings.bro="seelan"
 console.log(per.details.course);
 console.log(per.details.course.siblings);
 console.log(per);
->>>>>>> Stashed changes

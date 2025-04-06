@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 //MAP i)iteam means array la ulla value 5,7,8 ii)index means array position 0,1,2
 
 // MAP syntax
@@ -100,7 +99,6 @@ const arr=[1,3,4,6]
 const arr1=arr.map((item,index)=>{
     return item>=1
 })
-=======
 //MAP i)iteam means array la ulla value 5,7,8 ii)index means array position 0,1,2
 
 // MAP syntax
@@ -268,4 +266,3 @@ console.log(result2);
 
 
 
->>>>>>> Stashed changes

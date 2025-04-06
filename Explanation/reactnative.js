@@ -375,3 +375,256 @@
 //     setIsAdmin(true);
 //   }
 // });
+
+
+
+// React Native-ல் Thread என்றால் என்ன?
+// React Native-ல் Thread என்பது ஒரு தனி செயல்பாட்டு பாதையாக (execution path) செயல்களை ஒரே நேரத்தில் (concurrently) இயக்க உதவுகிறது. Threads முக்கியமானது, குறிப்பாக heavy computations, animations, network requests போன்ற செயல்களை மென்மையாக இயக்க உதவுகிறது.
+
+// React Native-ல் Threads வகைகள்
+// React Native-ல் முக்கியமாக 4 விதமான Threads உள்ளன:
+
+// 1. Main Thread (UI Thread)
+// இது முக்கிய Thread, இதில் UI (User Interface) rendering மற்றும் user interactions (touch, gestures) நடக்கின்றன.
+
+// இந்த thread-ல் எதாவது heavy operation (e.g., data processing) நடந்தால், UI lag ஆகலாம் அல்லது freeze ஆகலாம்.
+
+// 2. JavaScript Thread (JS Thread)
+// JavaScript execution நடக்கும் thread.
+
+// React components, state updates, API calls போன்றவை இதிலேயே ஓடுகிறது.
+
+// இதை overload செய்தால், UI slow ஆகலாம் அல்லது not responding ஆகலாம்.
+
+// 3. Native Modules Thread
+// இது native code execution (Java/Kotlin - Android, Objective-C/Swift - iOS) செய்ய பயன்படும்.
+
+// Database queries (SQLite), image processing, heavy calculations போன்ற செயல்களுக்கு native thread-ஐ பயன்படுத்தலாம்.
+
+// 4. Background Threads (Worker Threads)
+// Heavy tasks JS thread-ஐ affect செய்யாமல் ஓட இந்த thread-ஐ பயன்படுத்தலாம்.
+
+// react-native-worker-threads அல்லது Web Workers மூலம் parallel processing செய்யலாம்.
+
+// React Native-ல் Background Threads எப்படி பயன்படுத்தலாம்?
+// 1. Web Workers (CPU-Intensive Tasks)
+// javascript
+// Copy
+// Edit
+// import { Worker } from 'react-native-workers';
+
+// const worker = new Worker(() => {
+//   postMessage('Hello from worker!');
+// });
+
+// worker.onmessage = (message) => {
+//   console.log(message);
+// };
+// இது parallel execution செய்ய உதவும், இதனால் JS Thread block ஆகாது.
+
+// 2. Native Modules (Heavy Processing)
+// Native modules (Java/Kotlin, Swift/Obj-C) பயன்படுத்தி image processing, data encryption போன்றவற்றை background thread-ல் செய்யலாம்.
+
+// 3. InteractionManager (UI-Blocking Tasks)
+// javascript
+// Copy
+// Edit
+// import { InteractionManager } from 'react-native';
+
+// InteractionManager.runAfterInteractions(() => {
+//   // UI animation முடிந்த பிறகு expensive task ஓடும்
+// });
+// இது UI animations முடிந்த பிறகு மட்டுமே heavy operations செய்ய உதவும்.
+
+// Thread-ஐ சரியாக பயன்படுத்தலானால் என்ன ஆகும்?
+// ✅ UI lag இல்லாமல் மென்மையாக இயங்கும்
+// ✅ Heavy tasks செய்யும் போது UI freeze ஆகாது
+// ✅ App performance அதிகரிக்கும்
+
+// React Native-ல் background thread மற்றும் native modules சரியாக பயன்படுத்தினால், fast & smooth application உருவாக்கலாம்! 🚀
+
+
+
+
+
+// React Native-ல் Network Calls செய்யும் முறைகள்
+// React Native-ல் Network Calls செய்ய நிறைய library-கள் இருக்கின்றன, ஆனால் முக்கியமானவைகள்:
+
+// fetch API (Built-in JavaScript API)
+
+// Axios (Popular third-party library)
+
+// react-query (For caching & state management)
+
+// 1. fetch API (Built-in)
+// React Native-ல் network requests செய்ய fetch API default-ஆக support செய்கிறது. இது lightweight மற்றும் easy-to-use.
+
+// GET Request (Data Fetching)
+// javascript
+// Copy
+// Edit
+// const fetchData = async () => {
+//   try {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+//     const data = await response.json();
+//     console.log(data);
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// };
+
+// fetchData();
+// ✅ fetch API asynchronous ஆகவே, async/await பயன்படுத்தலாம்.
+// ✅ Response-ஐ JSON format-ஆக convert செய்ய response.json() பயன்படுத்த வேண்டும்.
+
+// POST Request (Data Sending)
+// javascript
+// Copy
+// Edit
+// const postData = async () => {
+//   try {
+//     const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({
+//         title: 'React Native',
+//         body: 'Learning network calls!',
+//         userId: 1,
+//       }),
+//     });
+
+//     const data = await response.json();
+//     console.log('Response:', data);
+//   } catch (error) {
+//     console.error('Error sending data:', error);
+//   }
+// };
+
+// postData();
+// ✅ POST request-க்கு method: 'POST' specify செய்ய வேண்டும்.
+// ✅ Headers-ல் Content-Type: 'application/json' கொடுத்தால் JSON data அனுப்பலாம்.
+
+// 2. Axios (Third-party Library)
+// 🔹 fetch API-வை விட Axios பயன்படுத்துதல் எளிது, ஏனெனில் automatic JSON conversion மற்றும் error handling support செய்கிறது.
+
+// Axios Installation
+// sh
+// Copy
+// Edit
+// npm install axios
+// GET Request (Axios)
+// javascript
+// Copy
+// Edit
+// import axios from 'axios';
+
+// const fetchData = async () => {
+//   try {
+//     const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+//     console.log(response.data);
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// };
+
+// fetchData();
+// ✅ Axios automatically response-ஐ JSON-ஆக convert செய்கிறது.
+
+// POST Request (Axios)
+// javascript
+// Copy
+// Edit
+// const postData = async () => {
+//   try {
+//     const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
+//       title: 'React Native with Axios',
+//       body: 'Axios makes API calls easier!',
+//       userId: 1,
+//     });
+
+//     console.log('Response:', response.data);
+//   } catch (error) {
+//     console.error('Error sending data:', error);
+//   }
+// };
+
+// postData();
+// ✅ fetch API-வுடன் manual JSON conversion தேவை, ஆனால் Axios-ல் அது automatic ஆகும்.
+
+// 3. React Query (For Advanced Network Calls & Caching)
+// 🔹 If your app frequently fetches data, then react-query is useful. It handles caching, background fetching, refetching, and more.
+
+// Installation
+// sh
+// Copy
+// Edit
+// npm install @tanstack/react-query
+// Usage Example
+// javascript
+// Copy
+// Edit
+// import { useQuery } from '@tanstack/react-query';
+// import axios from 'axios';
+
+// const fetchPosts = async () => {
+//   const { data } = await axios.get('https://jsonplaceholder.typicode.com/posts');
+//   return data;
+// };
+
+// const MyComponent = () => {
+//   const { data, isLoading, error } = useQuery(['posts'], fetchPosts);
+
+//   if (isLoading) return <Text>Loading...</Text>;
+//   if (error) return <Text>Error: {error.message}</Text>;
+
+//   return (
+//     <FlatList
+//       data={data}
+//       keyExtractor={(item) => item.id.toString()}
+//       renderItem={({ item }) => <Text>{item.title}</Text>}
+//     />
+//   );
+// };
+// ✅ Automatic caching & background fetching support! 🚀
+// ✅ Data-வை auto refetch செய்ய முடியும்!
+
+// Error Handling & Timeout
+// Network calls-க்கு proper error handling செய்ய try-catch block பயன்படுத்தலாம்.
+
+// Timeout Example (fetch API)
+// javascript
+// Copy
+// Edit
+// const fetchWithTimeout = (url, timeout = 5000) => {
+//   return Promise.race([
+//     fetch(url),
+//     new Promise((_, reject) =>
+//       setTimeout(() => reject(new Error('Request Timeout')), timeout)
+//     ),
+//   ]);
+// };
+// ✅ இது 5 seconds-க்குள் response வராவிட்டால் "Request Timeout" error throw செய்யும்.
+
+// Best Practices for Network Calls in React Native
+// ✅ Always use async/await for better readability.
+// ✅ Use error handling (try-catch) to handle API failures.
+// ✅ Implement timeouts to prevent infinite loading.
+// ✅ For frequently changing data, use React Query for caching & performance optimization.
+// ✅ Always add proper HTTP headers (Content-Type: 'application/json').
+
+// 🔹 முடிவுகள்
+// 🔹 Small apps-க்கு fetch API போதும்.
+// 🔹 Large-scale apps-க்கு Axios அல்லது React Query பயன்படுத்தலாம்.
+// 🔹 Performance & caching தேவையானால் React Query ஒரு சிறந்த தேர்வு! 🚀
+
+// இந்த மாதிரி network calls சரியாக பயன்படுத்தினால், React Native app fast & efficient ஆக இருக்கும்! 😃
+
+
+
+
+
+
+
+
