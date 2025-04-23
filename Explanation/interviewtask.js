@@ -325,5 +325,27 @@ const styles = StyleSheet.create({
 });
 
 
+// drazetech
+
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+const convertdigits  = "9876551111"
+let sum = 0;
+for(let i=0;i<convertdigits.length;i++){
+    sum+=parseInt(convertdigits[i]);
+}
+
+while(sum>=10){
+    let temp =0;
+    while(sum>0){
+        temp+=sum%10;
+        sum= Math.floor(sum/10)
+    }
+   sum =temp
+   
+}
+console.log("summmmmm",sum)
+
+
 
 
