@@ -392,6 +392,32 @@ i)Action: An object that describes the call
 ii)Reducer:The state change storage unit
 iii)Store:The state and object tree storage
 iv)View:Displays data provided by the store
+"React Native application-ல data-யையும் UI-யையும் synchronize பண்ணி maintain பண்ண state management ரொம்ப முக்கியம். இதுக்கு நாம Redux Toolkit-ஐ பயன்படுத்துவோம்.
+
+Redux Toolkit என்பது official-ஆ Redux-க்கு simplified version. இதுல predefined utilities இருக்கு, அது நமக்கு actions, reducers எழுதுற coding time-ஐ ரொம்ப save பண்ணும்.
+
+Redux Toolkit-ல நம்ம
+
+createSlice கொண்டு ஒரே இடத்தில் state, reducers, actions எல்லாம் define பண்ணலாம்.
+
+configureStore மூலம் நம்மோட store-ஐ உருவாக்கலாம்.
+
+Async operations (like API calls) handle பண்ண createAsyncThunk option-ம் இருக்கு.
+
+இது மட்டும் இல்ல, React Native-ல் store-ஐ Provider மூலம் நம்ம application-க்கு connect பண்ணி, எல்லா components-க்கும் centralized state access பண்ண முடியும்.
+
+Overall-ஆ, Redux Toolkit use பண்ணுவதால்:
+
+Code structure நன்றாக இருக்கும்,
+
+Development speed அதிகரிக்கும்,
+
+Maintenance ரொம்ப easy ஆகும்."**
+
+Bonus Tip (Interview-க்குள்ள):
+
+சில நேரம் interviewer கேட்கலாம்: "Why Redux Toolkit over plain Redux?"
+அப்போ நீ சொல்லலாம்: "Redux Toolkit automatic-ஆ Immer, Redux Thunk support பண்ணும். அதனால் நம்ம manual-ஆ எதுவும் configure பண்ண தேவை இல்ல. Errors குறையும், productivity அதிகரிக்கும்."
 
 15.What are pure components in React?
 The components that do not re-render when the value of props and 
