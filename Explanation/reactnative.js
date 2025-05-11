@@ -7,6 +7,48 @@
 
 // clean
 
+// lastest v is 0.79
+// npx @react-native-community/cli@latest init AwesomeProject ---- project create commend
+
+
+// 🧱 Key Concepts in React Native Flexbox:
+// flexDirection – Controls the main axis direction:
+
+// 'column' (default): items stacked vertically.
+
+// 'row': items arranged horizontally.
+
+// justifyContent – Aligns children along the main axis:
+
+// Values: flex-start, center, flex-end, space-between, space-around, space-evenly.
+
+// alignItems – Aligns children along the cross axis:
+
+// Values: flex-start, center, flex-end, stretch, baseline.
+
+// flex – Defines how a component grows/shrinks relative to its siblings.
+
+// flex: 1 takes up all available space.
+
+// alignSelf – Overrides alignItems for a single child.
+
+// 1. If flexDirection: 'column' (default in React Native)
+// 🔹 justifyContent → Vertical alignment (because main axis is vertical)
+
+// 🔹 alignItems → Horizontal alignment (because cross axis is horizontal)
+
+// 2. If flexDirection: 'row'
+// 🔹 justifyContent → Horizontal alignment
+
+// 🔹 alignItems → Vertical alignment
+
+
+
+
+
+
+
+
 
 // 1️⃣ Basic React Native Questions
 // Q1: React Native மற்றும் ReactJS வித்தியாசம் என்ன?
@@ -209,6 +251,96 @@
 // const linking = {
 //   prefixes: ['myapp://'],
 // };
+// 🔧 Deep Linking வேலை செய்வது எப்படி?
+// 1. URL Scheme:
+// உங்கள் app-க்கு ஒரு custom URL scheme define செய்யலாம். உதா: myapp://home, myapp://profile/123
+
+// 2. App Configuration:
+// ✅ Android:
+// android/app/src/main/AndroidManifest.xml-ல் intent filter add செய்ய வேண்டும்:
+
+// xml
+// Copy
+// Edit
+// <intent-filter android:label="Deep Link">
+//     <action android:name="android.intent.action.VIEW" />
+
+//     <category android:name="android.intent.category.DEFAULT" />
+//     <category android:name="android.intent.category.BROWSABLE" />
+
+//     <data android:scheme="myapp" android:host="home" />
+// </intent-filter>
+// ✅ iOS:
+// Info.plist-ல் URL Types define செய்ய வேண்டும்:
+
+// xml
+// Copy
+// Edit
+// <key>CFBundleURLTypes</key>
+// <array>
+//   <dict>
+//     <key>CFBundleURLSchemes</key>
+//     <array>
+//       <string>myapp</string>
+//     </array>
+//   </dict>
+// </array>
+// 3. React Navigation-ல் Deep Linking Setup:
+// js
+// Copy
+// Edit
+// const linking = {
+//   prefixes: ['myapp://', 'https://myapp.com'],
+//   config: {
+//     screens: {
+//       Home: 'home',
+//       Profile: 'profile/:id',
+//     },
+//   },
+// };
+
+// <NavigationContainer linking={linking}>
+//   {/* Your Stack Navigator */}
+// </NavigationContainer>
+// 4. Link Handle செய்ய:
+// js
+// Copy
+// Edit
+// import { Linking } from 'react-native';
+
+// useEffect(() => {
+//   Linking.getInitialURL().then(url => {
+//     if (url) {
+//       console.log('Initial URL:', url);
+//     }
+//   });
+
+//   const handleURL = event => {
+//     console.log('Received URL:', event.url);
+//   };
+
+//   const subscription = Linking.addEventListener('url', handleURL);
+
+//   return () => {
+//     subscription.remove();
+//   };
+// }, []);
+
+// 🛒 Real-Time Example: E-commerce App Deep Linking
+// Use Case:
+// ஒரு user-க்கு SMS அல்லது email-ல் ஒரு offer link அனுப்பப்படுகிறது:
+
+// 👉 myshop://product/123
+
+// இந்த link-ஐ click செய்தால், app open ஆகி, Product Details page-ல் product ID 123-க்கு navigate ஆகணும்.
+
+
+
+
+
+
+
+
 // 12. React Native-ல் Detox & Appium பயன்படுத்தி Testing செய்யலாமா?
 // ✅ Detox – End-to-End Testing
 // ✅ Appium – Mobile Automation Testing
@@ -225,17 +357,86 @@
 // Copy
 // Edit
 // import { WebView } from 'react-native-webview';
+// react-native-webview என்பது React Native-ல் ஒரு web browser-like view-ஐ app-க்குள் integrate செய்ய பயன்படுத்தப்படும் component ஆகும். இது உங்கள் app-க்கு ஒரு webpage (HTML, URL)யை embedded-ஆக காட்ட அனுமதிக்கிறது.
+// 🌐 react-native-webview – Explanation
+// ✅ Use cases:
+// A web page load பண்ணனும் (like terms and conditions, blogs, etc)
 
-// <WebView source={{ uri: 'https://google.com' }} />;
+// Payment gateway integration (like Razorpay, Stripe)
+
+// Existing web app-ஐ mobile app-ல் embed பண்ணனும்
+
+// Custom HTML render பண்ணனும்
+
+// import React from 'react';
+// import { SafeAreaView, StyleSheet } from 'react-native';
+// import { WebView } from 'react-native-webview';
+
+// const MyWebView = () => {
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <WebView 
+//         source={{ uri: 'https://www.wikipedia.org/' }} 
+//         style={styles.webview}
+//       />
+//     </SafeAreaView>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+//   webview: {
+//     flex: 1,
+//   },
+// });
+
+// export default MyWebView;
+
+
+
+
+
+
 // 14. React Native-ல் Video Playback எப்படி செய்வது?
 // ✅ react-native-video
 
-// jsx
-// Copy
-// Edit
+// react-native-video என்பது React Native-ல் video files (local or online) play செய்ய பயன்படும் library. இது fullscreen support, play/pause controls, and custom UI integration எல்லாமே support பண்ணும்.
+
+// import React from 'react';
+// import { View, StyleSheet } from 'react-native';
 // import Video from 'react-native-video';
 
-// <Video source={{ uri: 'video.mp4' }} />;
+// const MyVideoPlayer = () => {
+//   return (
+//     <View style={styles.container}>
+//       <Video
+//         source={{ uri: 'https://www.w3schools.com/html/mov_bbb.mp4' }} // online video
+//         style={styles.video}
+//         controls={true} // Show default media controls
+//         resizeMode="contain" // fit or cover or stretch
+//       />
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#000',
+//     justifyContent: 'center',
+//   },
+//   video: {
+//     width: '100%',
+//     height: 300,
+//   },
+// });
+
+// export default MyVideoPlayer;
+
+
+
 // 4️⃣ React Native Architecture & System Design Questions
 // 15. React Native-ல் MVVM vs Redux Architecture எது சிறந்தது?
 // MVVM (Model-View-ViewModel)	Redux Architecture
@@ -622,105 +823,105 @@
 // இந்த மாதிரி network calls சரியாக பயன்படுத்தினால், React Native app fast & efficient ஆக இருக்கும்! 😃
 
 
-🔥 Encryption / Decryption என்ற கான்செப்ட் - முழுமையான விளக்கம்
-Encryption என்பது,
-ஒரு information-ஐ (புதிய தகவல், உதாரணத்திற்கு: username, password) மற்றவர்களுக்கு புரியாத மாதிரி கணித முறையில் (mathematical algorithms) மறைபடுத்தும் (encode) செயல்முறை.
+// 🔥 Encryption / Decryption என்ற கான்செப்ட் - முழுமையான விளக்கம்
+// Encryption என்பது,
+// ஒரு information-ஐ (புதிய தகவல், உதாரணத்திற்கு: username, password) மற்றவர்களுக்கு புரியாத மாதிரி கணித முறையில் (mathematical algorithms) மறைபடுத்தும் (encode) செயல்முறை.
 
-Decryption என்பது,
-அந்த மறைத்து வைத்த தகவலை திரும்ப original வடிவத்தில் அதே சாவியை (key) பயன்படுத்தி மீட்டெடுப்பது.
+// Decryption என்பது,
+// அந்த மறைத்து வைத்த தகவலை திரும்ப original வடிவத்தில் அதே சாவியை (key) பயன்படுத்தி மீட்டெடுப்பது.
 
-🔒 ஏன் Encryption தேவை?
-இப்போது பாருங்க,
-நீங்க ஒரு mobile app develop பண்ணறீங்க.
-அதுல user-ல் sensitive data (உதா: bank details, phone numbers) save பண்ணணும்.
+// 🔒 ஏன் Encryption தேவை?
+// இப்போது பாருங்க,
+// நீங்க ஒரு mobile app develop பண்ணறீங்க.
+// அதுல user-ல் sensitive data (உதா: bank details, phone numbers) save பண்ணணும்.
 
-நீங்க அவை plain text-ஆ save பண்ணிட்டீங்கனா, hacker ஒருத்தர் app-ஐ hack பண்ணினா எல்லா information-உம் read பண்ணிடுவாங்க.
+// நீங்க அவை plain text-ஆ save பண்ணிட்டீங்கனா, hacker ஒருத்தர் app-ஐ hack பண்ணினா எல்லா information-உம் read பண்ணிடுவாங்க.
 
-ஆனால், நீங்க அவை encrypt பண்ணி வைத்தீங்கனா,
-அவர் அந்த data-வை கண்டுபிடிச்சாலும் அது ஒரு meaningless random code மாதிரி இருக்கும். (அது decrypt செய்ய தவறான key உடன் முடியாது.)
+// ஆனால், நீங்க அவை encrypt பண்ணி வைத்தீங்கனா,
+// அவர் அந்த data-வை கண்டுபிடிச்சாலும் அது ஒரு meaningless random code மாதிரி இருக்கும். (அது decrypt செய்ய தவறான key உடன் முடியாது.)
 
-இதுவே data security-ல ஒரு மிக முக்கியமான பாதுகாப்பு அடிப்படை.
+// இதுவே data security-ல ஒரு மிக முக்கியமான பாதுகாப்பு அடிப்படை.
 
-🛡️ Symmetric vs Asymmetric Encryption
-Symmetric Encryption → ஒரே secret key-யைப் பயன்படுத்தி both encryption மற்றும் decryption செய்வது.
-(உதா: AES, DES algorithms)
+// 🛡️ Symmetric vs Asymmetric Encryption
+// Symmetric Encryption → ஒரே secret key-யைப் பயன்படுத்தி both encryption மற்றும் decryption செய்வது.
+// (உதா: AES, DES algorithms)
 
-Asymmetric Encryption → இரண்டு keys:
+// Asymmetric Encryption → இரண்டு keys:
 
-Public Key → encrypt செய்ய
+// Public Key → encrypt செய்ய
 
-Private Key → decrypt செய்ய
-(உதா: RSA algorithm)
+// Private Key → decrypt செய்ய
+// (உதா: RSA algorithm)
 
-React Native apps-ல், சாதாரணமாக small-level encryption-க்கு Symmetric encryption போதுமானது.
+// React Native apps-ல், சாதாரணமாக small-level encryption-க்கு Symmetric encryption போதுமானது.
 
-🔎 Encryption எப்படி வேலை செய்கிறது?
-Input: உங்கள் normal text.
-(example: "123456")
+// 🔎 Encryption எப்படி வேலை செய்கிறது?
+// Input: உங்கள் normal text.
+// (example: "123456")
 
-Encryption Algorithm:
-(AES - Advanced Encryption Standard மாதிரி ஒரு powerful formula.)
+// Encryption Algorithm:
+// (AES - Advanced Encryption Standard மாதிரி ஒரு powerful formula.)
 
-Secret Key:
-(உங்களுடைய ரகசிய password மாதிரி ஒன்று.)
+// Secret Key:
+// (உங்களுடைய ரகசிய password மாதிரி ஒன்று.)
 
-Output:
-(ஒரு encrypted, unreadable string - ex: "U2FsdGVkX1...")
+// Output:
+// (ஒரு encrypted, unreadable string - ex: "U2FsdGVkX1...")
 
-Decryption Process:
+// Decryption Process:
 
-அந்த encrypted data + same key கொண்டு திரும்ப original message எடுக்க முடியும்.
+// அந்த encrypted data + same key கொண்டு திரும்ப original message எடுக்க முடியும்.
 
-🧠 ஒரு சிறிய example நினைவில் வைக்க:
+// 🧠 ஒரு சிறிய example நினைவில் வைக்க:
 
-செயல்	விளக்கம்
-🔐 Encrypt	நம்ம message-ஐ கூடிய security-யோடு அடைத்துவைக்கும்.
-🔓 Decrypt	அடைக்கப்பட்ட message-ஐ மட்டும் சரியான password உடன் திறக்கும்.
-📌 முக்கியமான தகவல்கள்:
-Key யாரிடமும் share பண்ணக்கூடாது.
+// செயல்	விளக்கம்
+// 🔐 Encrypt	நம்ம message-ஐ கூடிய security-யோடு அடைத்துவைக்கும்.
+// 🔓 Decrypt	அடைக்கப்பட்ட message-ஐ மட்டும் சரியான password உடன் திறக்கும்.
+// 📌 முக்கியமான தகவல்கள்:
+// Key யாரிடமும் share பண்ணக்கூடாது.
 
-Encrypted data கூட leak ஆனா fine, ஆனால் key இல்லாமல் அதைப் புரிய முடியாது.
+// Encrypted data கூட leak ஆனா fine, ஆனால் key இல்லாமல் அதைப் புரிய முடியாது.
 
-Crypto algorithms (AES, RSA) எல்லாம் உலக அளவிலான military-grade securityக்கு use பண்ணப்படும்.
+// Crypto algorithms (AES, RSA) எல்லாம் உலக அளவிலான military-grade securityக்கு use பண்ணப்படும்.
 
-✅ சமீபத்திய வளர்ச்சி:
-இப்போது, mobile security, data-at-rest security, zero-knowledge encryption போன்ற advanced concepts field-ல் உருவாகி கொண்டு இருக்கிறது.
-அதனால் future-ல் நம்ம react-native apps கூட Zero Trust Architecture மாதிரி systems-க்குள் evolve ஆகும்.
+// ✅ சமீபத்திய வளர்ச்சி:
+// இப்போது, mobile security, data-at-rest security, zero-knowledge encryption போன்ற advanced concepts field-ல் உருவாகி கொண்டு இருக்கிறது.
+// அதனால் future-ல் நம்ம react-native apps கூட Zero Trust Architecture மாதிரி systems-க்குள் evolve ஆகும்.
 
-இது போன்று இன்னும் மேலும் deep security concepts, real-world encryption usage examples வேணுமா? 🔥
-நீங்க சொன்னா, நான் asymmetric encryption (public/private key encryption) கூட explain பண்ணி, coding sample கொடுக்கிறேன்! 🚀
-சொல்லுங்க! 🔥🧠
-
-
-
-🏗️ React Native Architecture – மொத்தம் எப்படி இருக்கிறது?
-React Native ஒரு Bridge Architecture முறையில் வேலை செய்கிறது.
-
-அதாவது:
+// இது போன்று இன்னும் மேலும் deep security concepts, real-world encryption usage examples வேணுமா? 🔥
+// நீங்க சொன்னா, நான் asymmetric encryption (public/private key encryption) கூட explain பண்ணி, coding sample கொடுக்கிறேன்! 🚀
+// சொல்லுங்க! 🔥🧠
 
 
-பகுதி	விளக்கம்
-1. JS Thread (JavaScript side)	நம்ம எழுதுற JavaScript / React code இந்த இடத்தில தான் இயங்கும். (Business Logic, UI updates)
-2. Native Side (Android/iOS)	Native modules (Camera, GPS, File Access) இந்த பகுதியில் இருக்கும். (Java/Kotlin/Swift/Obj-C code)
-3. Bridge (Connector)	JavaScript மற்றும் Native இடையே தகவல் அனுப்பும் communication சேனல்.
-🎯 Simple Flow Diagram
-plaintext
-Copy
-Edit
-[JavaScript Thread]   <-->   [Bridge]   <-->   [Native Modules]
-இது தான் base-level React Native Architecture.
-(இது "Old Architecture" என்று இப்போது அழைக்கப்படுகிறது.)
 
-🚀 New React Native Architecture (Fabric & TurboModules)
-React Native இப்போ ஒரு New Architecture-க்கு மாறி இருக்குது.
+// 🏗️ React Native Architecture – மொத்தம் எப்படி இருக்கிறது?
+// React Native ஒரு Bridge Architecture முறையில் வேலை செய்கிறது.
 
-New Architecture - Key Points:
+// அதாவது:
 
 
-புதிய விஷயம்	விளக்கம்
-Fabric	புதிய UI rendering system. UI updates இன்னும் fast ஆகும். (React concurrent features பங்குபெறும்.)
-TurboModules	Modules-ஐ fast-ஆ load பண்ணும் புதிய முறை. (நீங்க என்ன modules வேணும் என App ஆரம்பிக்கும்போது lazy load செய்யும்.)
-CodeGen	C++-based Intermediate Layer. (Auto code generation native bindings.)
+// பகுதி	விளக்கம்
+// 1. JS Thread (JavaScript side)	நம்ம எழுதுற JavaScript / React code இந்த இடத்தில தான் இயங்கும். (Business Logic, UI updates)
+// 2. Native Side (Android/iOS)	Native modules (Camera, GPS, File Access) இந்த பகுதியில் இருக்கும். (Java/Kotlin/Swift/Obj-C code)
+// 3. Bridge (Connector)	JavaScript மற்றும் Native இடையே தகவல் அனுப்பும் communication சேனல்.
+// 🎯 Simple Flow Diagram
+// plaintext
+// Copy
+// Edit
+// [JavaScript Thread]   <-->   [Bridge]   <-->   [Native Modules]
+// இது தான் base-level React Native Architecture.
+// (இது "Old Architecture" என்று இப்போது அழைக்கப்படுகிறது.)
+
+// 🚀 New React Native Architecture (Fabric & TurboModules)
+// React Native இப்போ ஒரு New Architecture-க்கு மாறி இருக்குது.
+
+// New Architecture - Key Points:
+
+
+// புதிய விஷயம்	விளக்கம்
+// Fabric	புதிய UI rendering system. UI updates இன்னும் fast ஆகும். (React concurrent features பங்குபெறும்.)
+// TurboModules	Modules-ஐ fast-ஆ load பண்ணும் புதிய முறை. (நீங்க என்ன modules வேணும் என App ஆரம்பிக்கும்போது lazy load செய்யும்.)
+// CodeGen	C++-based Intermediate Layer. (Auto code generation native bindings.)
 
 
 

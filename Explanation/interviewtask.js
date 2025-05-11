@@ -348,4 +348,34 @@ console.log("summmmmm",sum)
 
 
 
+// 1,  // Console.log([1] == 1);
+          //output true
+
+// var x=10;
+// var y;
+// console.log(x + y);
+//output NAN
+
+
+// Console.log(1 - false);
+// false is converted to 0
+
+// true is converted to 1
+
+//output 1-0=1
+
+
+
+// Console.log(x);
+// Var x=5;
+// Console.log(x);
+//output  undefined
+          // 5
+
+
+
+// let a=10;
+// let a=5;
+// console.log(a);
+//output   'a' has already been declared
 

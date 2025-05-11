@@ -10,6 +10,52 @@
 // Example: File Read → Processing → Display	Example: API Call (நேரம் எடுத்துக்கொள்ளும், ஆனால் UI பாதிக்காது)
 
 
+// 🔹 Synchronous JavaScript
+// Runs line by line, one after another.
+
+// Each line waits for the previous one to finish before executing.
+
+// Blocking in nature: If one task takes time, everything after it is paused.
+
+// 🔧 Example:
+// js
+// Copy
+// Edit
+// console.log("1");
+// console.log("2");
+// console.log("3");
+
+
+// 🔹 Asynchronous JavaScript
+// Code does not wait for previous tasks to complete.
+
+// Executes in the background and uses callbacks, Promises, or async/await.
+
+// Non-blocking: Good for tasks like API calls, file reads, etc.
+
+// 🔧 Example using setTimeout:
+// js
+// Copy
+// Edit
+// console.log("1");
+
+// setTimeout(() => {
+//   console.log("2");
+// }, 2000);
+
+// console.log("3");
+
+
+// | Feature   | Synchronous             | Asynchronous                     |
+// | --------- | ----------------------- | -------------------------------- |
+// | Execution | One line at a time      | Can skip and come back later     |
+// | Blocking  | Yes                     | No                               |
+// | Use case  | Simple logic            | Network calls, timers, etc.      |
+// | Examples  | `console.log`, math ops | `setTimeout`, `fetch`, `Promise` |
+
+
+
+
 
 // 🚀 Async & Await தமிழில் விளக்கம்
 
