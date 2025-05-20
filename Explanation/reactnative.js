@@ -924,6 +924,36 @@
 // CodeGen	C++-based Intermediate Layer. (Auto code generation native bindings.)
 
 
+// முக்கியமான Core Components
+// Component	விளக்கம்
+// View	Box container போல செயல்படும். Layout மற்றும் styling க்கு முக்கியம் (Flexbox-ஐ ஆதரிக்கிறது).
+// Text	Text-ஐ காட்ட பயன்படுத்தப்படுகிறது. HTML-இல் <p> அல்லது <span> போன்றது.
+// Image	படங்களை (local அல்லது URL-இல் இருந்து) காட்ட பயன்படும்.
+// ScrollView	Content-ஐ vertically அல்லது horizontally scroll செய்ய பயன்படும்.
+// TextInput	Input field (பயனரிடமிருந்து text வாங்க)
+// TouchableOpacity	Touchable area (button போல), touch செய்தால் opacity குறையும்.
+// Pressable	TouchableOpacity-க்கு alternative – interaction styles customization அதிகம்.
+// Button	Simple pre-styled button. Customization குறைவாக இருக்கும்.
+// FlatList	Efficient scrollable list – Lazy rendering with performance optimization.
+// SectionList	FlatList போலதான், ஆனால் grouped data (section-wise) க்கு.
+// Modal	Overlay-யாக popup-ஐ காட்ட.
+// ActivityIndicator	Loading spinner.
+// SafeAreaView	iOS notch, status bar போன்ற பகுதிகளை தவிர UI-ஐ காட்ட.
+// KeyboardAvoidingView	Keyboard open ஆகும்போது UI-ஐ adjust செய்ய.
+
+
+
+
+
+
+// 🔹 முக்கியமான Touch Components
+// Component	விளக்கம்
+// TouchableOpacity	Touchable area. Press செய்யும் போது opacity குறையும். Simple animation.
+// TouchableHighlight	Press செய்யும் போது background color highlight ஆகும்.
+// TouchableWithoutFeedback	Touchable gesture-ஐ handle செய்யும் ஆனால் visual feedback இல்லாதது.
+// Pressable	TouchableOpacity-க்கு update செய்யப்பட்ட alternative. Events மற்றும் state-based styles அதிகம்.
+// Button	Built-in simple button. Customization குறைவாக இருக்கும்.
+// GestureResponder System	Low-level gesture handling (advanced use-cases).
 
 
 
