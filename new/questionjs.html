@@ -1,0 +1,95 @@
+<!-- 1.Anagram என்றால் என்ன?
+இரண்டு சொற்களும் ஒரே எழுத்துக்களைக் கொண்டிருந்தால் (ஆனால் வரிசை மாறி இருந்தால் கூட), அவை Anagram ஆகும்.
+உதாரணம்: "listen" மற்றும் "silent" — இரண்டும் ஒரே எழுத்துக்களை கொண்டுள்ளன, அதனால் இது Anagram ஆகும்.
+
+Anagram task: -->
+<!-- function isAnagram(a,b){
+    const clean =s=>s.toLowerCase().split("").sort().join("")
+    return clean(a) === clean(b)
+    
+}
+console.log(isAnagram("listen","silent")) -->
+
+<!-- square root
+const number1 = 2.25;
+const number2 = -4;
+const number3 = 'hello';
+
+const result1 = Math.sqrt(number1); -->
+
+<!-- task 3 -->
+
+<!-- let a = 10;
+let b = 20;
+let temp =a;
+a=b;
+b=temp
+console.log(a)
+console.log(b) -->
+<!-- 
+📝 Explanation (தமிழில்):
+முதலில் a = 10, b = 20.
+
+temp என்னும் temporary variable-ல் a-வ save பண்ணுறோம்.
+
+பிறகு a-க்கு b-வ assign பண்ணுறோம்.
+
+b-க்கு temp-வ assign பண்ணுறோம் (original a value).
+
+இப்போ values exchange ஆயிருச்சு. -->
+
+
+
+<!-- task:4  prime
+
+
+function isPrime(num){
+    if(num<=1){
+        return false;
+    }
+    for(let i=2;i<=Math.sqrt(num);i++){
+        if(num%i === 0){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPrime(7)) -->
+<!-- 
+🔹 Prime Number என்றால் என்ன?
+Prime number என்பது 1 மற்றும் அந்த எண் தவிர வேறொரு எண்ணால் வகுக்க முடியாத எண்.
+
+உதாரணம்: 2, 3, 5, 7, 11, 13
+
+i = 2 முதல் i = √num வரை போகுது.
+
+ஒவ்வொரு i-க்கும் num % i === 0 என்று test பண்ணுது.
+
+👉 இது என்ன செய்றது என்றால்:
+i என்பது num-ஐ divide பண்ணுமா? என்பதை test பண்ணுது.
+
+🔸 Example: Check num = 10 is Prime
+i = 2 → 10 % 2 === 0 ✅ ⇒ divisible ⇒ return false
+
+10-க்கு 1 மற்றும் 10 தவிர வேறு divisor இருக்கு ⇒ So, not prime
+
+🔸 Example: Check num = 7 is Prime
+i = 2 → 7 % 2 === 1 ❌
+
+i = 3 → 7 % 3 === 1 ❌
+
+No exact divisor → So, prime ⇒ loop முடியும் ⇒ return true -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+

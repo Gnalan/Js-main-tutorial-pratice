@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Method1
+
+        // let arr = ["apple", "mango", "apple",
+        //   "orange", "mango", "mango"];
+        //   let arr1= [...new Set(arr)]
+        //   console.log(arr1);
+
+
+        // Method2
+         
+        //  let arr = ["apple", "mango", "apple",
+        //   "orange", "mango", "mango"];
+        //    let result = arr.filter((ele,index)=>{
+        //     return arr.indexOf(ele)===index
+        //    })
+        //    console.log(result);
+         
+
+        //  task:2
+        // JSON.stringify()-static method converts a JavaScript value to a JSON string, 
+        // assin()-merging of two objects
+           // ouutput{a:1,b:2,c:3}
+
+    //     var result=["a","b",'','c','a','a']
+    //     var obj1=[...new Set(result)]
+    //     console.log(obj1);
+    //    var obj2=obj1.filter((i,index)=>
+    //       i!==""
+    //    )
+    //    console.log(obj2);
+    //   var obj3= Object.assign({}, obj2);
+    //    console.log(obj3);
+
+   
+
+    // task:3
+     
+    // var array = [1, , "", 2, 56, 13, 44, null, undefined, 85];
+    // //   output: remove undefine null and ""
+
+    // var arr=array.filter((i, index)=>{
+    //   return i!==""&& i!==null&&i!==undefined
+    // })
+    // console.log(arr);
+
+//    task4:
+//   OBJECT MERGING
+// part1
+        // const o1 = { a: 1 };
+        // const o2 = { b: 2 };
+        // const o3 = { c: 3 };
+        // const arr=Object.assign(o1,o2,o3)
+        // console.log(arr);
+
+// part2
+
+
+        // const o1 = { a: 1, b: 1, c: 1 };
+        // const o2 = { b: 2, c: 2 };
+        // const o3 = { c: 3 };
+        //   const arr=Object.assign({},o1,o2,o3)
+        //   console.log(arr);
+       
+
+// task:5
+
+const arrayOfArrays = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+arrayOfArrays[0].reverse()
+console.log(arrayOfArrays);
+
+
+// part1: reverse on first item
+// method:1
+// arrayOfArrays[0].reverse()
+// console.log(arrayOfArrays);
+
+// method:2
+// const newarr=[...arrayOfArrays]
+// newarr[0]=newarr[0].reverse()
+// console.log(newarr);
+
+
+// part2:reverse on whole item
+// const arrayOfArrays = [
+//   [1, 2, 3],
+//   [4, 5, 6],
+//   [7, 8, 9]
+// ];
+
+// metrhood:1
+
+// for(let i=0;i<arrayOfArrays.length; i++) {
+//    arrayOfArrays[i].reverse();
+// }
+// console.log(arrayOfArrays);
+
+
+// method:2
+// const result=arrayOfArrays.map((element,index)=>
+//   element.reverse()
+// )
+// console.log(result);
+
+
+// task6:Find the Second Largest Number
+
+// const numbers = [10, 5, 8, 20, 3];
+// // output:10
+// const no=numbers.sort((a,b)=>b-a
+// )
+//  console.log(no[1]);
+
+
+// task7:Array Reversal
+// Output: [5, 4, 3, 2, 1]
+
+// const originalArray = [1, 2, 3, 4, 5,];
+
+// const arr=originalArray.reverse()
+// console.log(arr);
+
+// task8:Array Filtering
+// odd number Output: [1, 3, 5, 7, 9]
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // const arr=numbers.filter((i,index)=>
+    // i%2!==0
+    // )
+    // console.log(arr);
+
+
+    // 8:Array Intersection
+    // Output: [3, 4, 5]
+    // includes--method return array include value check is true or false 
+        // const array1 = [1, 2, 3, 4, 5];
+        // const array2 = [3, 4, 5, 6, 7];
+    
+        // function inter(arr1,arr2){
+        // return array1.filter((i)=>
+        // array2.includes(i)
+        // )
+        // }
+        // inter(array1,array2)
+
+        // console.log(inter(array1,array2));   
+      
+    // 9: Array Flattening
+    // Output: [1, 2, 3, 4, 5, 6]
+
+//      const nestedArray = [[1, 2], [3, 4], [5, 6]];
+     
+//     function result(arr){
+//      return arr.reduce((i,index)=>
+//      i.concat(index)
+//      )
+//     }
+//    result(nestedArray)
+
+
+// console.log(result(nestedArray));
+// console.log(nestedArray.flat());
+
+
+
+//10.how to add no in end of on array
+// let arr = [1, 2, 3];
+// arr[3]=4
+// console.log(arr);
+
+//11.loo throw on array
+// let arr = [1, 2, 3];
+// for(let i=0;i<=arr.length;i++) {
+//     arr[i]
+    
+
+// }
+// console.log(arr);
+
+
+//  const arr=[1, [2, [3, 4], 5], 6];
+
+
+
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+//new array create
+//   let arr =new Array()
+//   console.log(arr)
+
+//loop execute this
+// let arr = [1, 2, 3];
+// for(let i=0;i<arr.length;i++){
+//   console.log(arr[i])  
+// }
+
+// Loop Iterations:
+// Iteration	i Value	Condition (i < 3)	console.log(arr[i]) Output	Increment (i++)
+// 1st	0	✅ (0 < 3)	1	i = 1
+// 2nd	1	✅ (1 < 3)	2	i = 2
+// 3rd	2	✅ (2 < 3)	3	i = 3
+// 4th	3	❌ (3 < 3 is false)	Loop stops	N/A
+
+
+// How do you check if an element exists in an array?
+// let arr = [1, 2, 3];
+// if(arr.indexOf(2)!== -1){
+//     console.log("arra exist")
+// }
+// else{
+//       console.log("looped")
+// }
+
+// How do you check if a variable is an array?
+
+// let fruits = ['apple', 'banana'];
+// let result =Array.isArray(fruits)
+// console.log(result)
+
+// let fruits = 'banana';
+// let result =Array.isArray(fruits)
+// console.log(result)
+
+// How do you use the forEach method?
+
+// let fruits = ['apple', 'banana', 'cherry'];
+// let result =fruits.forEach((ele,index)=>{
+//     console.log(`fruits is index ${index} and value is ${ele}`)
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

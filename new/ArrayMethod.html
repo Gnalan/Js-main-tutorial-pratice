@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // REFER ON PROGRAMIZ WEB
+
+    // forEach()-The forEach() method executes a provided function for each array element.
+     
+    //  ex:1
+    
+    // const prices = [1800, 2000, 3000, , 5000, 500, 8000];
+    //  prices.forEach(arr)
+     
+    //  function arr(i,index){
+    //     console.log(`PRICE details are ${index} and ${prices}`);
+    //  }
+   
+
+    // ex:2
+       
+    // const name=["guna","b","g","hg"]
+    //  name.forEach(arr)
+    //  function arr(i,index){
+    //     return arr[i]
+        
+    //  }
+    //  console.log(name);
+
+
+// 1.length()
+        // ex:1
+
+    //     var companyList = ["Apple", "Google", "Facebook", "Amazon"];
+    //    console.log(companyList.length); // Output: 4
+
+    //    var randomList = ["JavaScript", 44];
+    //     console.log(randomList.length); // Output: 2
+
+    //   var emptyArray = [];
+    //    console.log(emptyArray.length); // Output: 0
+    
+    //    ex:2
+
+    //  var languages = ["JavaScript", "Python", "C++", "Java", "Lua"];
+
+    // // truncate the Array to 3 elements
+    // languages.length = 3
+
+    // // Output: [ 'JavaScript', 'Python', 'C++' ]
+    // console.log(languages)
+
+    // // extend the Array to length 6
+    // languages.length = 6
+
+    // // Output: [ 'JavaScript', 'Python', 'C++', <3 empty items> ]
+    // console.log(languages)
+
+
+
+    // 2.reverse()
+    // ex:1
+
+    //   let languages = ["JavaScript", "Python", "C++", "Java", "Lua"];
+
+    //     // reversing the order of languages array
+    //     let reversedArray = languages.reverse();
+
+    //     console.log("Reversed Array: ", reversedArray);
+
+    //     // modifies the original array
+    //     console.log("Original Array: ", languages);
+
+    // ex:2
+        //    let languages = ["JavaScript", "Python", "C++", "Java", "Lua"];
+        //    let arr=[...languages].reverse()
+        //    console.log(arr);
+        //    console.log(languages);
+
+        //string reverse
+    //  let languages = "JavaScript";
+     // let result =languages.split('').reverse().join('')
+     //  console.log(result)
+  
+
+
+    //3.sort()
+    // ex:1
+    //   var names = ["Adam", "Jeffrey", "Fabiano", "Danil", "Ben"];
+    //    var arr=names.sort()
+    //    console.log(arr);
+
+    // ex:2
+    //   var priceList = [1000, 50, 2, 7, 14];
+    //   var arr=priceList.sort((a,b)=>{
+    //     //  return a-b;//ascending
+    //     return b-a
+    //   })
+    //   console.log(arr);
+ 
+      
+    // 4.fill()-The fill() method returns an array by filling all elements with a specified value.
+
+    // arr.fill(value, start, end)
+
+//   ex:1
+//   var prices = [651, 41, 4, 3, 6];
+//   var arr=prices.fill("guna")
+//   console.log(arr);   
+//   ex:2 
+//   var arr1=prices.fill("guna",1,3)
+//   console.log(arr1);
+//    ex:3
+//   var arr2=prices.fill("guna",-2)
+//   console.log(arr2);
+  
+
+//  5.join()-retruns array ah string ah mathum
+//  ex:1
+    // var info = ["Terence", 28, "Kathmandu"];
+    // var arr=info.join("-")
+    // console.log(arr);
+
+// 6.toString()
+// toString() method returns the source code of the function as a string.
+
+// let items = ["JavaScript", 1, "a", 3];
+// let item = ["JavaScript", 1, ["a", 3]];
+// let arr=items.toString()
+// console.log(arr);
+// let arr1=item.toString()
+// console.log(arr1);
+
+
+// 7.concat()
+// ex:1
+// let primeNumbers = [2, 3, 5, 7]
+// let evenNumbers = [2, 4, 6, 8]
+
+// let arr=primeNumbers.concat(evenNumbers)
+// console.log(arr);
+
+
+// ex:2
+
+// var randomList = [1, 2, 3];
+// var randomNestedList = [
+//    [4, 5],
+//   [6, 7],
+// ];
+
+// var combined = randomList.concat(randomNestedList);
+// console.log(combined);// [ 1, 2, 3, [ 4, 5 ], [ 6, 7 ] ]
+
+// // changing the value 1 to 0
+// randomList[0] = 0;
+// console.log(randomList); // [ 0, 2, 3 ]
+
+// // changes not reflected in concatenated array
+// console.log(combined); // [ 1, 2, 3, [ 4, 5 ], [ 6, 7 ] ]
+
+// // modifying nested list (adding 6 to first element)
+// randomNestedList[0].push(6);
+// console.log(randomNestedList); // [ [ 4, 5, 6 ], [ 6, 7 ] ]
+
+// // changes are reflected in concatenated array
+// // since it is a reference to the object
+// console.log(combined); // [ 1, 2, 3, [ 4, 5, 6 ], [ 6, 7 ] ]
+
+
+//8:indexOf()
+// SYNTEX:arr.indexOf(searchElement, fromIndex)
+
+// EX:1
+//   let languages = ["Java", "JavaScript", "Python", "JavaScript"];
+//   console.log(languages.indexOf("JavaScript"));
+
+//   ex:2
+
+// var priceList = [10, 8, 2, 31, 10, 1, 65];
+
+// // indexOf() returns the first occurance
+// var index1 = priceList.indexOf(31);
+// console.log(index1); // 3
+
+// var index2 = priceList.indexOf(10);
+// console.log(index2); // 0
+
+// // second argument specifies the search's start index
+// var index3 = priceList.indexOf(10, 1);
+// console.log(index3); // 4
+
+// // indexOf returns -1 if not found
+// var index4 = priceList.indexOf(69.5);
+// console.log(index4); // -1
+
+
+
+// 9.lastIndex()
+// syntex:arr.lastIndexOf(searchElement, fromIndex)
+
+// ex:1:
+
+// let priceList = [10, 8, 2, 31, 10, 31, 65];
+// console.log(priceList.lastIndexOf(31));
+// console.log(priceList.lastIndexOf(10));
+// console.log(priceList.lastIndexOf(1000));
+
+// 10.Array of()-creating on new array
+
+// ex:1
+//   let arr=Array.of("A","B","C")
+//   console.log(arr);
+//   let arr1=Array.of(3)
+//   console.log(arr1);
+//   console.log(arr1.length);
+  
+
+
+// 10:find()-return value of first array element 
+// ex:1
+// let randomArray = [1, 45, 8, 98, 7];
+
+// method:1(usuing arrow functinon)
+// let arr=randomArray.find((item)=>
+//   item%2==0
+// )
+// console.log(arr);
+
+// method:2(using function)
+// function arr(item){
+//     return item%2==0
+// }
+// arr(randomArray)
+
+// let result=randomArray.find(arr)
+// console.log(result);
+
+
+// ex:2- find age>=18
+
+// const team = [
+//   { name: "Bill", age: 10 },
+//   { name: "Linus", age: 15 },
+//   { name: "Alan", age: 20 },
+//   { name: "Steve", age: 34 },
+// ];
+
+// method:1
+// const arr=team.map((i,idex)=>
+//  i.age
+// )
+
+// console.log(arr);
+// const arr1=arr.find((i)=>
+//    i>=18
+// ) 
+// console.log(arr1);
+
+
+// method:2
+// const arr=team.find((element)=>
+//  element.age>=18
+// )
+// console.log(arr);
+
+// 11.flat()-nested of arrays ah single array ah matha
+
+// let numbers = [1, 2, [3, 4, [5, 6, [7, 8]]]];
+// let arr=numbers.flat()
+// let arr=numbers.flat(2)
+// let arr=numbers.flat(Infinity)
+// console.log(arr);
+
+// 12.toLocaleString()-array ah remove pannum
+//    let result= [1, "JavaScript", new Date()];
+//     let arr=result.toLocaleString()
+//     console.log(arr);
+
+
+// 12.from()---method creates a new array from any array-like or iterable object.
+
+// const arr=Array.from("abcd")
+// console.log(arr);
+
+// const arr1=Array.from("javascript")
+// console.log(arr1);
+
+
+
+// 13.copyWithin()-method copies array elements from one position to another in the given array.
+   
+// syntex:arr.copyWithin(target, start, end)
+
+// let words = ["apple", "ball", "cat", "dog",];
+// let word = ["apple", "ball", "cat", "dog","guna"];
+// // copy element from index 0 to index 3 
+// let result1=words.copyWithin(3,0)//['apple', 'ball', 'cat', 'apple']
+
+// // copy element from index 4 to index 0
+// let result2=word.copyWithin(0,4)
+// console.log(result1);
+// console.log(result2);
+
+
+
+// 14.isArray()-return array is  true or false in boolean
+
+// // passing an empty array []
+// console.log(Array.isArray([])); // true 
+
+// // we have created an array with element 7 and
+// // passed that value to isArray()
+// console.log(Array.isArray(new Array(7))); // true
+
+// // passing a boolean value
+// console.log(Array.isArray(true)); // false
+
+// // passing undefined
+// console.log(Array.isArray(undefined)); // false
+
+// // not passing any argument in isArray()
+// console.log(Array.isArray()); // false 
+
+
+//15. includes()--method return array include value check is true or false 
+
+// let languages = ["JavaScript", "Java", "C", "C++"];
+
+// // checking whether the array contains 'C'
+// let check1 = languages.includes("C");
+
+// console.log(check1); // true
+
+// // checking whether the array contains 'Ruby'
+// let check2 = languages.includes("Ruby");
+
+// console.log(check2); // false
+
+
+// 16.entries()
+
+
+//find method use///
+// const team = [
+//   { name: "Bill", age: 10 },
+//   { name: "Linus", age: 15 },
+//   { name: "Alan", age: 20 },
+//   { name: "Bill", age: 10 },
+//   { name: "Steve", age: 34 },
+//   { name: "Alan", age: 20 },
+//  {name: "Linus", age: 15 },
+// ];
+//   const result =team.find((ele,index)=>{
+//    return ele.age>18
+// })
+//   console.log(result);
+  
+
+
+
+
+    // </script>
+</body>
+</html>

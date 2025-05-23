@@ -74,7 +74,7 @@ setImmediate(()=>{
 // })()
 
 // const str ="gunaseelan react"
-// const result= str.split('').reverse().join();
+// const result= str.split('').reverse().join('');
 // console.log(result)
 
 // const arr= ["gunaseelan","react","react"]

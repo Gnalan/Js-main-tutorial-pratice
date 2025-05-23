@@ -1,0 +1,1068 @@
+
+
+<!-- Array Task 20 ques -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+    // all ques in cyberdude network channel in 52.47 hrs 
+        // 1. Create an Array object - (In Atleast 3 methods)
+
+        // method 1
+        // let arr=[6,6,8,9]
+        // console.log(arr);
+        
+        // method 2
+        // arr=[]
+        // arr[0]="guna"
+        // arr[1]="guna"
+        // console.log(arr);
+
+        // methoid3
+        // let arr =new Array(3)
+        // console.log(arr);
+
+
+    //    2. Take the below array and copy it using the slice method and the for loop method
+         
+    //    part:1
+
+        //  var array = [1, 2, 3, 4, 5];
+
+        //  for(let i=0;i<array.length;i++){
+        //      array[i]
+        //  }
+        //  console.log(array);
+         
+        //  var arr=array.slice()
+        //  console.log(arr);
+       
+        // part:2
+        // for(let i=0;i<array.length;i++ ){
+            
+        //     array[i]
+        // }
+        // console.log(array);
+
+        // 3.Empty this array
+
+        // var array = [1, 2, 3, 4, 5];
+        //  method:1
+        //  var array=[]
+        // console.log(array);
+       
+        // method 2
+        // array.length=0
+        // console.log(array);
+
+        // method3
+        // var re=array.splice(0,array.length)
+        // console.log(re);
+
+ 
+
+        // 4.What type is an Array set to?
+        // isArray means -array is true ah false ah nu boolean la kattum
+
+        //  let arr=[9,8,8,9]
+        //  let str="guna"
+        //  let obj={id:"6",name:"guna"}
+        //  let other="undefined"
+        //  let result=Array.isArray(arr)
+        //  console.log(result);
+
+
+
+    //    5. How can you check if something is an Array? 
+
+        //  var array=[9,8,8,9]
+        //  let str="guna"
+        //  let obj={id:"6",name:"guna"}
+        //  let other="undefined"
+           
+        //  function check(val){
+        //     if(typeof val=="string"){
+        //         console.log("it is a string");
+        //     }
+        //     else if(typeof val=="number"){
+        //         console.log("it is a number");
+        //     }
+        //     else if(typeof val=="object"){
+
+                
+        //         console.log("it is a object");
+        //     }
+        //     else{
+        //         console.log("it is a array");
+        //     }
+        //  }
+        //  check(obj)
+
+      
+        // 6.Add an item to the end of an array
+
+        //   let arr=[6,8,5,34]
+        //   arr.push(9)
+        //   arr[arr.length]=89
+        //   console.log(arr);
+    
+
+        //7. Find the index position of d in this array 
+
+        //  var arr = ["a", "b", "c", "d"];
+        //  var result=arr.indexOf("d")
+        //  cons9;ole.log(result);
+       
+        // 8.What will be returned if you look for the index of something that does not exist?
+        //    var arr = ["a", "b", "c", "d"];
+        //    var result=arr.indexOf("z")
+        //    console.log(result);
+
+    //    9. Write a function to check if milk exists in your array.
+
+        // var items = ["milk", "bread", "sugar"];
+        // function checkProduct(val){
+        //     if(items.indexOf(val)==-1){
+        //         console.log("item does not exit");
+        //     }
+        //     else {
+        //         console.log(("item has arrived"));
+        //     }
+        // }
+        
+        // checkProduct("sugar")
+
+
+    //    10. Now you've found milk exists add some code to find the index of milk and remove that item.
+         
+            // var items = ["milk", "bread", "sugar"];
+
+            // var result=items.indexOf("milk");
+            // console.log(result);
+
+            // var result2=items.splice(0,1,)
+            // console.log(items);
+
+
+        //    11. List the ways to loop over an array.
+
+        //             For Each
+        //             For-in
+        //             For loop
+        //             For-of
+          
+        //  splice example:
+            // var items = ["milk", "bread", "sugar","vivo","redmi","sam"];
+            //    items.splice(2,4,"guna")
+            //    console.log(items);
+
+
+
+        //    12. Write some code to put these numbers in order (Ascending & Descending)
+
+            // var numbers = [1, 12, 2, 23, 77, 7, 33, 5, 99, 234];
+            // var result=numbers.sort((a,b)=>{
+            // // return a-b; ascending
+            // //  return b-a desending
+            // })
+            // console.log(result);
+
+
+            
+
+
+//    13. Write some code to place this list in alphabetical order 
+
+        //    var p = ["a", "z", "e", "y"];
+        //    var result=p.sort()
+        //    console.log(result);
+
+        // sorting Non-Numeric Arrays in Ascending Order:
+            
+            // const fruits = ["banana", "apple", "grape", "cherry"];
+            // fruits.sort(); // Default sort (ascending) for strings
+            // console.log(fruits); // ["apple", "banana", "cherry", "grape"]
+
+
+            // Sorting Non-Numeric Arrays in Descending Order:
+              
+            // const fruits = ["banana", "apple", "grape", "cherry"];
+            // fruits.sort((a, b) => b.localeCompare(a)); // Descending sort for strings
+            // console.log(fruits); // ["grape", "cherry", "banana", "apple"]
+
+      
+        // 14.What is the length of these arrays 
+
+            //     var arr1 = [, , ,];
+
+            //     var arr2 = new Array(3);//new Array only no 3 kudutha athu antha value 3 ah length ah eduthukkuom so ithoda length 3
+
+            //     var arr3 = [1, 2, 3, 4, 5];
+
+            //     var array = [
+            //     [1, 2, 3],
+            //     [4, 5, 6],
+            //     ];
+            //    console.log(arr1);
+            //    console.log(arr2);
+            //    console.log(arr3);
+            //    console.log(array);
+            //    console.log(array[0].length)
+
+
+        // 15.What are the results of these splice and slice methods 
+
+                // var a = ["zero", "one", "two", "three"];
+                // var names = ["jason", "john", "peter", "karen"];
+
+                // var sliced = a.slice(1, 3);
+                // var spliced = names.splice(1, 3,"guna");
+                // console.log(sliced);
+                // console.log(names);//position 1 has add antha position la irunthu element 3 remo ve [panna]
+
+       
+        // 16.What are the console logs of these shift and unshift methods 
+
+                // var a = [];
+
+                // // We take an empty array and
+
+                // a.unshift(1);//1
+                // a.unshift(22);//22,1
+                // var b = console.log(a);//22,1
+                // a.shift();//1
+                // var c = console.log(a);//1
+                // a.unshift(3, [4, 5]);
+                // var d = console.log(a);//3,[4,5],1
+                // a.shift();
+                // var e = console.log(a);//1
+                // a.shift();
+                // var f = console.log(a);//[]
+                // a.shift();
+                // var g = console.log(a);
+     
+
+            //   17.  Using reduce add all these numbers 
+
+                // var numbers = [1, 2, 3, 4, 5, 6];   
+                // var result=numbers.reduce((i,index)=>{
+                //    return i+index;
+                // })   
+                // console.log(result);
+
+            //   18.  Flatten this array to one single array using reduce 
+
+                    // var array = [
+                    // [0, 1],
+                    // [2, 3],
+                    // [4, 5],
+                    // ];
+                 
+                    // method:1 
+                    // var reult=array.reduce((i,index)=>{
+                    //   return i.concat(index);
+                    // })
+                    // console.log(reult);
+
+                // method:2
+                    //  var result=array.flat()
+                    //  console.log(result);
+
+
+            //  19.Filter this array to return just the dogs 
+
+                //     var animals = [
+                //     { name: "Jason", species: "rabbit" },
+                //     { name: "Jessica", species: "dog" },
+                //     { name: "Jacky", species: "owl" },
+                //     { name: "Luke", species: "fish" },
+                //     { name: "Junior", species: "rat" },
+                //     { name: "Thomas", species: "cat" },
+                //     ];
+                // const result =animals.filter((ele,index)=>{
+                //     return ele?.species ==="dog"
+
+                // })
+                // console.log(result);
+                
+
+              
+    
+
+        //    20. Using array in Question 19 use map function to return all the species. 
+
+
+                //   var animals = [
+                //     { name: "Jason", species: "rabbit" },
+                //     { name: "Jessica", species: "dog" },
+                //     { name: "Jacky", species: "owl" },
+                //     { name: "Luke", species: "fish" },
+                //     { name: "Junior", species: "rat" },
+                //     { name: "Thomas", species: "cat" },
+                //     ];
+
+                //    var result=animals.map((i,index)=>{
+                //     return i.species;
+                //    })
+                //    console.log(result);
+ 
+
+
+
+
+
+
+
+
+
+
+//                 const data =  {
+ 
+
+//   "purchase_order_details": [
+//     {
+//       "FactoryID": "2",
+//       "YearID": "2",
+//       "MaterialPurchaseOrderDetailID": 73,
+//       "MaterialPurchaseOrderID": "51",
+//       "AmnNo": "0",
+//       "BuyerID": "3",
+//       "MaterialSKUID": "6",
+//       "MaterialSizeWidthDetailID": null,
+//       "WidthID": null,
+//       "SizeID": null,
+//       "Price": "10.0000",
+//       "DiscountPer": null,
+//       "DiscountAmnt": null,
+//       "TaxPatternID": "1",
+//       "ConversionID": null,
+//       "ConversionUOMID": null,
+//       "ConversionPrice": null,
+//       "Approval": "A",
+//       "ApprovalDate": "2023-08-23 15:13:00",
+//       "ApprovalUserID": "49",
+//       "CreatedUserID": "0",
+//       "CreatedDateTime": "2023-08-23 15:10:12.127",
+//       "ModifiedUserID": null,
+//       "ModifiedDateTime": null,
+//       "DeletedUserID": null,
+//       "DeletedDateTime": null,
+//       "TempID": "73",
+//       "purchase_order_detail_del_dates_sum_quantity": "4.0000",
+//       "sum_quantity": 4,
+//       "sum_received_quantity": 1,
+//       "supplier_product_code": "",
+//       "sku": {
+//         "MaterialSKUID": 6,
+//         "MaterialSKUCode": "MELBRX6D",
+//         "MaterialSKUName": "Elastic Brided 15 Mm Black",
+//         "MaterialHeaderID": "7",
+//         "supplier_products": {
+//           "FactoryID": "2",
+//           "MaterialHeaderID": "7",
+//           "MaterialSKUID": 6,
+//           "MaterialSKUCode": "MELBRX6D",
+//           "MaterialSKUName": "Elastic Brided 15 Mm Black",
+//           "MaterialCharacterID": null,
+//           "StyleStockID": null,
+//           "StyleStockFactoryID": null,
+//           "SourceID": "84",
+//           "MaterialColorID": "1",
+//           "MaterialClassID": "1",
+//           "MaterialStatusID": "45",
+//           "ReorderLevel": "0",
+//           "SizeDependent": "0",
+//           "PurchaseGroupID": "94",
+//           "LastRefID": "0",
+//           "VendorCode": "",
+//           "BomMatLock": "0",
+//           "BomMatLockStatusID": null,
+//           "GrossWeight": ".0000",
+//           "NetWeight": ".0000",
+//           "Dimension": "",
+//           "MaterialLegacyCode": null,
+//           "MOQ": "0",
+//           "ReqTestFlag": "0",
+//           "FactoryList": null,
+//           "InActiveList": null,
+//           "Active": "1",
+//           "CreatedUserID": "128",
+//           "CreatedDateTime": "2023-05-25 14:34:37.520",
+//           "ModifiedUserID": "1",
+//           "ModifiedDateTime": "2023-05-30 10:08:58.893",
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null
+//         },
+//         "material_header": {
+//           "FactoryID": "2",
+//           "MaterialHeaderID": 7,
+//           "MaterialHeaderName": "Elastic Brided 15 Mm",
+//           "MaterialHeaderShortName": "",
+//           "ProductCategoryID": "431",
+//           "MaterialCharacterID": null,
+//           "StyleID": null,
+//           "StyleFactoryID": null,
+//           "MaterialTypeID": "95",
+//           "MaterialGroupID": "20",
+//           "MaterialSubGroupID": "1030",
+//           "MaterialFinishID": "2",
+//           "MaterialSizeID": "882",
+//           "UomID": "25",
+//           "CMNo": "",
+//           "PurchaseTypeID": "44",
+//           "MaterialImage": "",
+//           "HsnID": "1",
+//           "FactoryList": null,
+//           "InActiveList": null,
+//           "Active": "1",
+//           "CreatedUserID": "128",
+//           "CreatedDateTime": "2023-05-25 14:32:11.620",
+//           "ModifiedUserID": "1",
+//           "ModifiedDateTime": "2023-05-30 10:09:02.483",
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "uom": {
+//             "UomID": 25,
+//             "UomCode": "MTR",
+//             "UomDescription": "METERS"
+//           }
+//         }
+//       },
+//       "purchase_order_detail_del_dates": [
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 96,
+//           "MaterialPurchaseOrderDetailID": "73",
+//           "MaterialSupplierSelectionID": "62",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-25 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": "1.0000",
+//           "CreatedUserID": "0",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 19,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "96",
+//             "MaterialSKUID": "6",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-31 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 101,
+//           "MaterialPurchaseOrderDetailID": "73",
+//           "MaterialSupplierSelectionID": "62",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-28 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 24,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "101",
+//             "MaterialSKUID": "6",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-28 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 102,
+//           "MaterialPurchaseOrderDetailID": "73",
+//           "MaterialSupplierSelectionID": "62",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-31 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 25,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "102",
+//             "MaterialSKUID": "6",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-29 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 103,
+//           "MaterialPurchaseOrderDetailID": "73",
+//           "MaterialSupplierSelectionID": "62",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-09-01 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 26,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "103",
+//             "MaterialSKUID": "6",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-09-01 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+//           }
+//         }
+//       ]
+//     },
+//     {
+//       "FactoryID": "2",
+//       "YearID": "2",
+//       "MaterialPurchaseOrderDetailID": 74,
+//       "MaterialPurchaseOrderID": "51",
+//       "AmnNo": "0",
+//       "BuyerID": "3",
+//       "MaterialSKUID": "41",
+//       "MaterialSizeWidthDetailID": null,
+//       "WidthID": null,
+//       "SizeID": null,
+//       "Price": "25.0000",
+//       "DiscountPer": null,
+//       "DiscountAmnt": null,
+//       "TaxPatternID": "1",
+//       "ConversionID": null,
+//       "ConversionUOMID": null,
+//       "ConversionPrice": null,
+//       "Approval": "A",
+//       "ApprovalDate": "2023-08-23 15:13:00",
+//       "ApprovalUserID": "49",
+//       "CreatedUserID": "0",
+//       "CreatedDateTime": "2023-08-23 15:10:12.127",
+//       "ModifiedUserID": null,
+//       "ModifiedDateTime": null,
+//       "DeletedUserID": null,
+//       "DeletedDateTime": null,
+//       "TempID": "74",
+//       "purchase_order_detail_del_dates_sum_quantity": "4.0000",
+//       "sum_quantity": 4,
+//       "sum_received_quantity": 2,
+//       "supplier_product_code": "",
+//       "sku": {
+//         "MaterialSKUID": 41,
+//         "MaterialSKUCode": "MZINAX41D",
+//         "MaterialSKUName": "Zipper  5MM SHINY NICKLE NA",
+//         "MaterialHeaderID": "46",
+//         "supplier_products": {
+//           "FactoryID": "2",
+//           "MaterialHeaderID": "46",
+//           "MaterialSKUID": 41,
+//           "MaterialSKUCode": "MZINAX41D",
+//           "MaterialSKUName": "Zipper  5MM SHINY NICKLE NA",
+//           "MaterialCharacterID": null,
+//           "StyleStockID": null,
+//           "StyleStockFactoryID": null,
+//           "SourceID": "84",
+//           "MaterialColorID": "4",
+//           "MaterialClassID": "1",
+//           "MaterialStatusID": "45",
+//           "ReorderLevel": "0",
+//           "SizeDependent": "0",
+//           "PurchaseGroupID": "94",
+//           "LastRefID": null,
+//           "VendorCode": null,
+//           "BomMatLock": "0",
+//           "BomMatLockStatusID": null,
+//           "GrossWeight": ".0000",
+//           "NetWeight": ".0000",
+//           "Dimension": null,
+//           "MaterialLegacyCode": null,
+//           "MOQ": "0",
+//           "ReqTestFlag": null,
+//           "FactoryList": null,
+//           "InActiveList": null,
+//           "Active": "1",
+//           "CreatedUserID": "1",
+//           "CreatedDateTime": "2023-08-08 16:37:55.003",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null
+//         },
+//         "material_header": {
+//           "FactoryID": "2",
+//           "MaterialHeaderID": 46,
+//           "MaterialHeaderName": "Zipper  5MM SHINY NICKLE",
+//           "MaterialHeaderShortName": "",
+//           "ProductCategoryID": null,
+//           "MaterialCharacterID": null,
+//           "StyleID": null,
+//           "StyleFactoryID": null,
+//           "MaterialTypeID": "95",
+//           "MaterialGroupID": "48",
+//           "MaterialSubGroupID": "95",
+//           "MaterialFinishID": "2",
+//           "MaterialSizeID": "9309",
+//           "UomID": "25",
+//           "CMNo": "NA",
+//           "PurchaseTypeID": "44",
+//           "MaterialImage": "",
+//           "HsnID": "1",
+//           "FactoryList": null,
+//           "InActiveList": null,
+//           "Active": "1",
+//           "CreatedUserID": "1",
+//           "CreatedDateTime": "2023-08-08 16:37:33.530",
+//           "ModifiedUserID": "1",
+//           "ModifiedDateTime": "2023-08-08 16:37:57.870",
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "uom": {
+//             "UomID": 25,
+//             "UomCode": "MTR",
+//             "UomDescription": "METERS"
+//           }
+//         }
+//       },
+//       "purchase_order_detail_del_dates": [
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 97,
+//           "MaterialPurchaseOrderDetailID": "74",
+//           "MaterialSupplierSelectionID": "64",
+//           "AmnNo": "0",
+//           "Quantity": "2.0000",
+//           "DeliveryDate": "2023-08-25 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": "2.0000",
+//           "CreatedUserID": "0",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 20,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "97",
+//             "MaterialSKUID": "41",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "2.0000",
+//             "ETA": "2023-08-26 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+            
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 104,
+//           "MaterialPurchaseOrderDetailID": "74",
+//           "MaterialSupplierSelectionID": "64",
+//           "AmnNo": "0",
+//           "Quantity": "2.0000",
+//           "DeliveryDate": "2023-08-28 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 27,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "104",
+//             "MaterialSKUID": "41",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "2.0000",
+//             "ETA": "2023-09-02 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+//           }
+//         }
+//       ]
+//     },
+//     {
+//       "FactoryID": "2",
+//       "YearID": "2",
+//       "MaterialPurchaseOrderDetailID": 75,
+//       "MaterialPurchaseOrderID": "51",
+//       "AmnNo": "0",
+//       "BuyerID": "3",
+//       "MaterialSKUID": "43",
+//       "MaterialSizeWidthDetailID": null,
+//       "WidthID": null,
+//       "SizeID": null,
+//       "Price": "32.0000",
+//       "DiscountPer": null,
+//       "DiscountAmnt": null,
+//       "TaxPatternID": "1",
+//       "ConversionID": null,
+//       "ConversionUOMID": null,
+//       "ConversionPrice": null,
+//       "Approval": "A",
+//       "ApprovalDate": "2023-08-23 15:13:00",
+//       "ApprovalUserID": "49",
+//       "CreatedUserID": "0",
+//       "CreatedDateTime": "2023-08-23 15:10:12.127",
+//       "ModifiedUserID": null,
+//       "ModifiedDateTime": null,
+//       "DeletedUserID": null,
+//       "DeletedDateTime": null,
+//       "TempID": "75",
+//       "purchase_order_detail_del_dates_sum_quantity": "4.0000",
+//       "sum_quantity": 4,
+//       "sum_received_quantity": 0,
+//       "supplier_product_code": "",
+//       "sku": null,
+//       "purchase_order_detail_del_dates": [
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 98,
+//           "MaterialPurchaseOrderDetailID": "75",
+//           "MaterialSupplierSelectionID": "66",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-25 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "0",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 21,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "98",
+//             "MaterialSKUID": "43",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-26 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+            
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 105,
+//           "MaterialPurchaseOrderDetailID": "75",
+//           "MaterialSupplierSelectionID": "66",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-24 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 28,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "105",
+//             "MaterialSKUID": "43",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-29 00:00:00.000",
+//             "ETD": "2023-08-24 00:00:00.000",
+            
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 106,
+//           "MaterialPurchaseOrderDetailID": "75",
+//           "MaterialSupplierSelectionID": "66",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-08-29 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 29,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "106",
+//             "MaterialSKUID": "43",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-08-27 00:00:00.000",
+//             "ETD": "2023-08-24 00:00:00.000",
+            
+//           }
+//         },
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 107,
+//           "MaterialPurchaseOrderDetailID": "75",
+//           "MaterialSupplierSelectionID": "66",
+//           "AmnNo": "0",
+//           "Quantity": "1.0000",
+//           "DeliveryDate": "2023-09-01 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "49",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 30,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "107",
+//             "MaterialSKUID": "43",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "1.0000",
+//             "ETA": "2023-09-01 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+            
+//           }
+//         }
+//       ]
+//     },
+//     {
+//       "FactoryID": "2",
+//       "YearID": "2",
+//       "MaterialPurchaseOrderDetailID": 76,
+//       "MaterialPurchaseOrderID": "51",
+//       "AmnNo": "0",
+//       "BuyerID": "3",
+//       "MaterialSKUID": "40",
+//       "MaterialSizeWidthDetailID": null,
+//       "WidthID": null,
+//       "SizeID": null,
+//       "Price": "20.0000",
+//       "DiscountPer": null,
+//       "DiscountAmnt": null,
+//       "TaxPatternID": "1",
+//       "ConversionID": null,
+//       "ConversionUOMID": null,
+//       "ConversionPrice": null,
+//       "Approval": "A",
+//       "ApprovalDate": "2023-08-23 15:13:00",
+//       "ApprovalUserID": "49",
+//       "CreatedUserID": "0",
+//       "CreatedDateTime": "2023-08-23 15:10:12.127",
+//       "ModifiedUserID": null,
+//       "ModifiedDateTime": null,
+//       "DeletedUserID": null,
+//       "DeletedDateTime": null,
+//       "TempID": "76",
+//       "purchase_order_detail_del_dates_sum_quantity": "4.0000",
+//       "sum_quantity": 4,
+//       "sum_received_quantity": 0,
+//       "supplier_product_code": "",
+//       "sku": null,
+//       "purchase_order_detail_del_dates": [
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 99,
+//           "MaterialPurchaseOrderDetailID": "76",
+//           "MaterialSupplierSelectionID": "63",
+//           "AmnNo": "0",
+//           "Quantity": "4.0000",
+//           "DeliveryDate": "2023-08-23 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "0",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 22,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "99",
+//             "MaterialSKUID": "40",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "4.0000",
+//             "ETA": "2023-08-23 00:00:00.000",
+//             "ETD": "2023-08-22 00:00:00.000",
+            
+//           }
+//         }
+//       ]
+//     },
+//     {
+//       "FactoryID": "2",
+//       "YearID": "2",
+//       "MaterialPurchaseOrderDetailID": 77,
+//       "MaterialPurchaseOrderID": "51",
+//       "AmnNo": "0",
+//       "BuyerID": "3",
+//       "MaterialSKUID": "42",
+//       "MaterialSizeWidthDetailID": null,
+//       "WidthID": null,
+//       "SizeID": null,
+//       "Price": "51.0000",
+//       "DiscountPer": null,
+//       "DiscountAmnt": null,
+//       "TaxPatternID": "1",
+//       "ConversionID": null,
+//       "ConversionUOMID": null,
+//       "ConversionPrice": null,
+//       "Approval": "A",
+//       "ApprovalDate": "2023-08-23 15:13:00",
+//       "ApprovalUserID": "49",
+//       "CreatedUserID": "0",
+//       "CreatedDateTime": "2023-08-23 15:10:12.127",
+//       "ModifiedUserID": null,
+//       "ModifiedDateTime": null,
+//       "DeletedUserID": null,
+//       "DeletedDateTime": null,
+//       "TempID": "77",
+//       "purchase_order_detail_del_dates_sum_quantity": "4.0000",
+//       "sum_quantity": 4,
+//       "sum_received_quantity": 0,
+//       "supplier_product_code": "",
+//       "sku": null,
+//       "purchase_order_detail_del_dates": [
+//         {
+//           "FactoryID": "2",
+//           "YearID": "2",
+//           "MaterialPurchaseOrderDetailDelDateID": 100,
+//           "MaterialPurchaseOrderDetailID": "77",
+//           "MaterialSupplierSelectionID": "65",
+//           "AmnNo": "0",
+//           "Quantity": "4.0000",
+//           "DeliveryDate": "2023-08-23 00:00:00.000",
+//           "ConversionQuantity": null,
+//           "ReceivedQuantity": ".0000",
+//           "CreatedUserID": "0",
+//           "CreatedDateTime": "2023-08-23 15:10:12.157",
+//           "ModifiedUserID": null,
+//           "ModifiedDateTime": null,
+//           "DeletedUserID": null,
+//           "DeletedDateTime": null,
+//           "supplier_delivery_plan": {
+//             "FactoryID": "2",
+//             "YearID": "2",
+//             "MaterialSupplierDeliveryPlanID": 23,
+//             "SupplierID": "1773",
+//             "MaterialPurchaseOrderDetailDelDateID": "100",
+//             "MaterialSKUID": "42",
+//             "MaterialSizeWidthDetailID": null,
+//             "WidthID": null,
+//             "SizeID": null,
+//             "Quantity": "4.0000",
+//             "ETA": "2023-09-05 00:00:00.000",
+//             "ETD": "2023-08-23 00:00:00.000",
+//           }
+//         }
+//       ]
+//     }
+//   ],
+  
+// };
+
+
+
+
+
+    </script>    
+</body>
+</html>
+
+
+
+

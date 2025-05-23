@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.charAt() -retrun on index of a string.
+
+    //  const a="happy birthday"
+    // //   const result=a.charAt(4)
+    // //   const result=a.charAt(8)
+    // // const result=a.charAt(6.5)
+    //   console.log(result);
+
+//    2.charCodeAt()-retrun ASCII value of index
+     
+    // const greeting = "Good morning!";
+    // // const result=greeting.charCodeAt(5)
+    // // const result=greeting.charCodeAt(18)
+    // // const result=greeting.charCodeAt(-5)
+    // console.log(result);
+
+// 3.concat()
+
+//  const arr="a";
+//  const result=arr.concat("b","c","d","e")
+//  console.log(result);
+
+//   4.index()
+
+// var str = "JavaScript is the world's most misunderstood programming language.";
+
+// // indexOf() returns the first occurance
+// var index1 = str.indexOf("language");
+// console.log(index1); // 57
+
+// var index2 = str.indexOf("p");
+// console.log(index2); // 8
+
+// // second argument specifies the search's start index
+// var index3 = str.indexOf("p", 9);
+// console.log(index3); // 45
+
+// // indexOf returns -1 if not found
+// var index4 = str.indexOf("Python");
+// console.log(index4); // -1
+
+
+// 5.lastIndexOf()-return last index of string
+
+// ex:1
+// var str = "Programming";
+
+// var substr="m"
+// var result=str.lastIndexOf(substr);
+// console.log(result);
+
+
+// ex:2
+
+// var str = "I love JavaScript";
+// var result=str.lastIndexOf("JavaScript");
+// console.log(result);
+
+
+// 6.substring()-method returns a specified part of the string between start and end indexes.
+// syntex: str.substring(indexStart, indexEnd)
+ 
+// ex:1
+// const message = "JavaScript is fun.";
+//  const arr=message.substring(0,10)
+//  console.log(arr);
+  
+
+// ex:2
+
+// let string = "Programiz JavaScript Tutorials";
+
+// // first character
+// substr1 = string.substring(0, 1);
+// console.log(substr1); // P
+
+// // if start > end, they are swapped
+// substr2 = string.substring(1, 0);
+// console.log(substr2); // P
+
+// // From 11th to last character
+// substr3 = string.substring(10);
+// console.log(substr3); // JavaScript Tutorials
+
+// // the extreme values are 0 and str.length
+
+// // same as string.substring(0)
+// substr4 = string.substring(-44, 90);
+// console.log(substr4); // Programiz JavaScript Tutorials
+
+// // indexEnd is exclusive
+// substr5 = string.substring(0, string.length - 1);
+// console.log(substr5); // Programiz JavaScript Tutorial
+
+
+
+// 7.slice
+ 
+// ex:1
+//const message = "JavaScript is fun";
+// const arr=message.slice(0,10)
+// const arr=message.slice(10)
+//  const arr=message.slice(-9)
+// console.log(arr);
+
+
+// 8.toUpperCase()-method returns the string converted to uppercase.
+
+
+// const message = "javascript is fun";
+//  const arr=message.toUpperCase();
+//  console.log(arr);
+
+
+// 9.toLowerCase()-method returns the string converted to lowercase.
+
+// const message = "JAVASCRIPT IS FUN";
+// console.log(message.toLowerCase());
+
+
+// 10.trim() method removes whitespace from both ends of a string
+
+// const message = "   JAVASCRIPT IS FUN    ";
+// console.log(message.trim());
+
+// 11.replace(searchValue, replaceValue)-Replaces the first occurrence of a substring with another string.
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
