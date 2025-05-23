@@ -647,5 +647,67 @@ setobjec(...obje,...data)
  JSON.parse()-function is used to convert the JSON string into a JavaScript object.
  JSON.stringify() method is used to convert a JavaScript object or value into a JSON string representation.
 
- 
+ how to use life cycle method in function component
+
+
+<!-- ChatGPT said:
+In React function components, we don't use traditional class-based lifecycle methods (like componentDidMount, componentDidUpdate, componentWillUnmount). Instead, we use the useEffect hook, which serves the same purpose.
+
+🔄 React Lifecycle Equivalent in Function Components:
+Class Component Lifecycle	Function Component Equivalent
+componentDidMount	useEffect(() => { ... }, [])
+componentDidUpdate	useEffect(() => { ... }, [dependencies])
+componentWillUnmount	useEffect(() => { return () => { ... } }, [])
+
+🧠 Basic Usage of useEffect
+jsx
+Copy
+Edit
+import React, { useEffect, useState } from 'react';
+
+const Example = () => {
+  const [count, setCount] = useState(0);
+
+  // componentDidMount
+  useEffect(() => {
+    console.log('Component mounted');
+
+    // componentWillUnmount
+    return () => {
+      console.log('Component will unmount');
+    };
+  }, []);
+
+  // componentDidUpdate (for count)
+  useEffect(() => {
+    if (count > 0) {
+      console.log('Count updated:', count);
+    }
+  }, [count]);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+export default Example;
+📝 Summary
+Use useEffect with [] for one-time mount (componentDidMount).
+
+Use useEffect with dependencies ([count]) for updates.
+
+Return a function inside useEffect for cleanup (componentWillUnmount).
+
+Let me know if you want examples specific to React Native or a particular use case (e.g., API calls, timers, listeners).
+
+
+
+
+
+
+ -->
+
 

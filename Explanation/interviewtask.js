@@ -379,3 +379,89 @@ console.log("summmmmm",sum)
 // console.log(a);
 //output   'a' has already been declared
 
+
+
+
+// let numbers = [30,10, 20, 20, 30, 40, 50, 50];
+// let result =numbers.sort((a,b)=>a-b)
+// console.log("result is",result);
+
+
+// let result =[...new Set(numbers)]
+// result.unshift(5)
+
+
+
+// import { Text, SafeAreaView, StyleSheet,View,FlatList,Pressable } from 'react-native';
+// import React,{useState,useEffect} from 'react'
+// import axios from 'axios';
+
+// export default function App() {
+//   const [products,setProducts]=useState([])
+//    const [showdetails,setShowDetais]=useState(true)
+//   const fetchLists=async()=>{
+//     try{
+//       const response=await axios.get('https://dummyjson.com/products')
+//       setProducts(response.data.products)
+//       console.log(response)
+//     }
+//     catch(error){
+//       console.log("errrorrr",error)
+//     }
+
+//   }
+//   useEffect(()=>{
+//     fetchLists()
+//   },[])
+
+//    const dataRenderList=({item})=>(
+//      <View style={styles.cardcontainer}>
+//      {showdetails && (
+//        <>
+//      <Text style={{marginBottom:"2%"}}>{item.title}</Text>
+//       <Text style={{marginTop:"2%"}}>{item.category}</Text>
+//        <Text style={{marginTop:"2%"}}>{item.price}</Text>
+//        </>
+//        )}
+//      </View>
+//    )
+
+
+
+//   return (
+//     <SafeAreaView style={styles.container}>
+//   <View style={{}}>
+//   <FlatList
+//     data={products}
+//     keyExtractor={(item)=>item.id.toString()}
+//     renderItem={dataRenderList}
+  
+//   />
+//   <View  style={{position:"absolute",bottom:"4%",}}>
+//    <Pressable   onPress={()=>setShowDetais(!showdetails)} style={{width:"90%",padding:"3%",backgroundColor:"red",}}>
+//    <Text>{showdetails? "hide":"show"}</Text>
+//    </Pressable>
+//    </View>
+  
+//   </View>
+//     </SafeAreaView>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     backgroundColor: '#ecf0f1',
+//     paddingTop: 8,
+//   },
+//   cardcontainer:{
+     
+//   }
+//   // paragraph: {
+//   //   margin: 24,
+//   //   fontSize: 18,
+//   //   fontWeight: 'bold',
+//   //   textAlign: 'center',
+//   // },
+// });
