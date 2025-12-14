@@ -78,7 +78,7 @@
 // const first = numbers[0];
 // const second = numbers[1];
 
-// // ES6 Destructuring
+// // ES6 Destructuring 
 // const [firstNum, secondNum] = numbers;
 // console.log(firstNum, secondNum); // 10 20
 // Object Destructuring

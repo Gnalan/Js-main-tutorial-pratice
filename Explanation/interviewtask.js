@@ -465,3 +465,30 @@ console.log("summmmmm",sum)
 //   //   textAlign: 'center',
 //   // },
 // });
+
+
+
+// colon info tech
+
+// const data="Mountain"
+// const result=data.split('').reverse().join('')
+// console.log("output is",result);
+
+// Find the second largest number in the array without sorting
+
+// function findSecondnum(arr){
+//   let largest=-Infinity;
+//   let secondLargest= -Infinity;
+//   for(let num of arr){
+//       if(num>largest){
+//       secondLargest=largest;
+//       largest =num;
+//       } else if(num > secondLargest &&  num !== largest){
+//           secondLargest =num
+//       }
+//   }
+//      return secondLargest === -Infinity ? null : secondLargest
+  
+  
+// }
+// console.log(findSecondnum(1,2,3,4))

@@ -708,6 +708,124 @@ Let me know if you want examples specific to React Native or a particular use ca
 
 
 
+
+React Native-இல் Memory Leak என்பது உங்கள் ஆப்பில் பயன்படுத்த வேண்டியதில்லை என்றாலும் சில memory (நினைவகம்) பாகங்கள் release ஆகாமல் தங்கிப்போகும் நிலை. இது app-ஐ மெதுவாகச் செயல்பட வைக்கலாம் அல்லது crash செய்யக்கூடும் — குறிப்பாக mobile devices-ல்.
+
+🧠 React Native-இல் Memory Leak ஏற்படும் பொதுவான காரணங்கள்
+1. setInterval, setTimeout, requestAnimationFrame பயன்படுத்தியும் அதை clear செய்யாமல் விட்டால்
+js
+Copy
+Edit
+useEffect(() => {
+  const timer = setInterval(() => {
+    // ஏதாவது செயல்
+  }, 1000);
+
+  return () => clearInterval(timer); // ✅ இதை clear செய்ய வேண்டும்
+}, []);
+2. Event Listener-களை add செய்த பிறகு remove செய்யாமல் விட்டால்
+js
+Copy
+Edit
+useEffect(() => {
+  const subscription = AppState.addEventListener('change', handleChange);
+
+  return () => {
+    subscription.remove(); // ✅ Remove செய்ய வேண்டியது அவசியம்
+  };
+}, []);
+3. useEffect-ல் async calls பயன்படுத்தும்போது component unmount ஆன பின் state update செய்ய முயற்சித்தால்
+js
+Copy
+Edit
+useEffect(() => {
+  let isMounted = true;
+
+  const fetchData = async () => {
+    const res = await fetch('...');
+    if (isMounted) {
+      setData(res);
+    }
+  };
+
+  fetchData();
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+4. Promises, Subscriptions-ஐ cancel செய்யாமல் விட்டால்
+Firebase, Redux, RxJS போன்ற libraries-ல் unsubscribe செய்யாமல் விட்டால் memory leak ஏற்படும்.
+
+5. Navigation stack அதிகமாக உருவாகும் போது
+நிறைய screens-ஐ push செய்து, back செல்லாமல் விட்டால் memory usage அதிகமாகி leak ஏற்படும்.
+
+🧪 Memory Leak-ஐ எப்படி கண்டுபிடிப்பது?
+Xcode Instruments – iOS-க்கு.
+
+Android Studio Profiler – Android-க்கு.
+
+Flipper + React DevTools பயன்படுத்தலாம்.
+
+console.log மூலம் component unmount ஆனதா என்பதை verify செய்யலாம்.
+
+✅ Memory Leak தவிர்க்க சிறந்த பழக்கங்கள்:
+setInterval, setTimeout, event listeners போன்றவை உபயோகித்தால், அதை cleanup பண்ணவேண்டும்.
+
+useEffect-இல் async functions-ஐ கவனமாக handle செய்ய வேண்டும்.
+
+Subscriptions-ஐ unsubscribe பண்ண வேண்டும்.
+
+Tools-ஐ பயன்படுத்தி memory usage-ஐ analyze செய்ய வேண்டும்.
+
+இதை infographic-ஆக வேண்டுமா? அல்லது interviewக்கு short-notes மாதிரி வேண்டுமா? சொல்லுங்கள், accordingly உருவாக்கி தருகிறேன்.
+
+
+
+
+
+
+
+You said:
+short-notes 
+
+
+ChatGPT said:
+இது React Native-க்கு தேவையான Memory Leak குறித்த Short Notes in Tamil – Interviewக்கான தயாரிப்புக்கு ஏற்றது:
+
+📌 Memory Leak என்றால் என்ன?
+React Native-ல் memory leak என்பது தேவையில்லாத memory release ஆகாமல் app-இல் தொடர்ந்து தங்குவது.
+
+⚠️ Memory Leak ஏற்படும் காரணங்கள்:
+✅ setInterval, setTimeout → clear செய்யாமல் விட்டால்.
+
+✅ Event Listeners → AppState, Keyboard போன்றவை remove செய்யாமல் விட்டால்.
+
+✅ Async useEffect → component unmount ஆன பிறகு state update செய்தால்.
+
+✅ Subscriptions (Firebase, Redux) → unsubscribe செய்யாமல் விட்டால்.
+
+✅ Navigation stack → back போகாமல் screens stack ஆகிக்கொண்டே போனால்.
+
+🔍 Memory Leak கண்டுபிடிப்பது எப்படி?
+Android → Android Studio Profiler
+
+iOS → Xcode Instruments
+
+Common → Flipper + React DevTools, console.log debug
+
+✅ Memory Leak தவிர்க்க советы:
+useEffect-ல் cleanup (return () => {...}) எழுதுவது அவசியம்.
+
+Event listeners மற்றும் timers-ஐ சரியாக remove/clear செய்ய வேண்டும்.
+
+Async calls-ல் isMounted check போன்ற பாதுகாப்பு பின்பற்ற வேண்டும்.
+
+Subscriptions → unsubscribe when component unmounts.
+
+
+
+
  -->
 
 
