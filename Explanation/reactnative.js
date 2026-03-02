@@ -1028,6 +1028,90 @@
 // GestureResponder System	Low-level gesture handling (advanced use-cases).
 
 
+// REACT NATIVE PERMISIONS
+// 🏗️ 1️⃣ Permission Types
+// 📌 Android
+
+// Runtime permissions (Android 6+)
+
+// Example: CAMERA, LOCATION, READ_MEDIA_IMAGES
+
+// 📌 iOS
+
+// Info.plist-ல் description add பண்ணணும்
+
+// User-க்கு popup வரும்
+
+// 🛠️ 2️⃣ Recommended Library
+
+// Most used library:
+
+// 👉 react-native-permissions
+
+// Install:
+
+// npm install react-native-permissions
+// 🔄 3️⃣ Basic Permission Flow (Production Standard)
+// Check → If denied → Request → Handle result
+// 📍 Example: Camera Permission
+// import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
+
+// const checkCameraPermission = async () => {
+//   const result = await check(PERMISSIONS.ANDROID.CAMERA);
+
+//   if (result === RESULTS.GRANTED) {
+//     console.log("Permission granted");
+//   } else {
+//     const requestResult = await request(PERMISSIONS.ANDROID.CAMERA);
+//     console.log(requestResult);
+//   }
+// };
+// 📱 Android Manifest Add
+// <uses-permission android:name="android.permission.CAMERA" />
+// 🍎 iOS Info.plist Add
+// <key>NSCameraUsageDescription</key>
+// <string>We need camera access to scan QR code</string>
+// 🎯 Real Production Permission Handling
+// Proper Handling:
+// Status	Meaning	Action
+// GRANTED	Allowed	Continue
+// DENIED	Not allowed	Request again
+// BLOCKED	User permanently denied	Open settings
+// 🔥 Handle Blocked Case
+// import {openSettings} from 'react-native-permissions';
+
+// if (result === RESULTS.BLOCKED) {
+//   openSettings();
+// }
+
+// Interview-ல சொல்லணும்:
+
+// If user permanently denies permission, we redirect them to app settings using openSettings().
+
+// 📦 Common Permissions in React Native Apps
+
+// Camera
+
+// Location (foreground/background)
+
+// Notifications
+
+// Storage / Media
+
+// Microphone
+
+// 🎤 Strong Interview Answer
+
+// In React Native, I handle permissions using react-native-permissions. I first check permission status, then request if needed. If blocked, I redirect user to settings. I also configure AndroidManifest and Info.plist properly.
+
+// 💡 Android 13 Notification Permission
+
+// Android 13+:
+
+// PERMISSIONS.ANDROID.POST_NOTIFICATIONS
+
+// Very important 🔥 (interviewer trap question)
+
 
 
 
