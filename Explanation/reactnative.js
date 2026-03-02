@@ -113,7 +113,7 @@
 // Answer:
 // 🔹 React Native Debugger – Redux & Network debugging
 // 🔹 Flipper – UI, Network, Logs debugging
-   Flipper is a mobile debugging tool by Meta used in React Native to inspect network calls, logs, layout, and Redux state during development.
+//Flipper is a mobile debugging tool by Meta used in React Native to inspect network calls, logs, layout, and Redux state during development.
 // 🔹 Chrome DevTools – Console logs & Performance check
 
 // ✅ Enable Debugging:
@@ -192,6 +192,11 @@
 // 6. React Native-ல் Memoization & Performance Optimization எப்படி செய்யலாம்?
 // ✅ useMemo & useCallback
 // ✅ React.memo() for Functional Components
+//✅ Perfect Interview Answer (Experienced Level – 2–3 Years)
+// useMemo & useCallback diff
+// Both useMemo and useCallback are performance optimization hooks in React.
+// useMemo is used to memoize a computed value, while useCallback is used to memoize a function reference.
+// We use useMemo when we have expensive calculations, and useCallback when we want to prevent unnecessary re-renders of child components by keeping the same function reference.
 
 // jsx
 // Copy
@@ -224,6 +229,72 @@
 // ✅ Firebase Cloud Messaging (FCM)
 // ✅ OneSignal
 
+// 📱 1️⃣ Foreground (App Open-ஆ இருக்கும்போது)
+// 👉 Meaning:
+
+// User app-ஐ open பண்ணி use பண்ணிக்கிட்டே இருக்கிறார்.
+
+// 🔔 Notification Behavior:
+
+// Notification automatic-ஆ tray-ல வராது
+
+// நாம் manually handle பண்ணணும்
+
+// 💻 Code:
+// messaging().onMessage(async remoteMessage => {
+//   console.log('Foreground:', remoteMessage);
+// });
+// 🎤 Interview-ல சொல்லணும்:
+
+// App foreground-ல இருந்தா notification automatic-ஆ show ஆகாது. onMessage use பண்ணி manually local notification display பண்ணணும்.
+
+// 📱 2️⃣ Background (App Minimize)
+// 👉 Meaning:
+
+// User app-ஐ minimize பண்ணி வேற app use பண்ணுகிறார்.
+
+// 🔔 Notification Behavior:
+
+// System automatic-ஆ notification tray-ல show பண்ணும்
+
+// Tap பண்ணினா app open ஆகும்
+
+// 💻 Code:
+// messaging().setBackgroundMessageHandler(async remoteMessage => {
+//   console.log('Background:', remoteMessage);
+// });
+// 🎤 Interview-ல சொல்லணும்:
+
+// Background state-ல notification system handle பண்ணும். Tap பண்ணினா app open ஆகும்.
+
+// 📱 3️⃣ App Minimize (Background-க்கு Same)
+
+// Minimize = Background state தான்.
+
+// User recent apps-ல app இருக்கிறது.
+
+// Notification வரும் → Tray-ல show ஆகும் → Tap பண்ணினா app open.
+
+// 📱 4️⃣ App Kill (Completely Closed)
+// 👉 Meaning:
+
+// User app-ஐ recent apps-ல swipe பண்ணி close பண்ணியிருக்கிறார்.
+
+// 🔔 Notification Behavior:
+
+// Notification tray-ல show ஆகும்
+
+// Tap பண்ணினா app fresh-ஆ launch ஆகும்
+
+// 💻 Code:
+// messaging().getInitialNotification().then(remoteMessage => {
+//   if (remoteMessage) {
+//     console.log('Opened from quit state');
+//   }
+// });
+// 🎤 Interview-ல சொல்லணும்:
+
+// App kill state-ல இருந்தாலும் FCM notification வரும். User tap பண்ணினா getInitialNotification use பண்ணி detect பண்ணலாம்.
 // jsx
 // Copy
 // Edit
