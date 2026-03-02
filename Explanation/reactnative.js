@@ -113,6 +113,7 @@
 // Answer:
 // 🔹 React Native Debugger – Redux & Network debugging
 // 🔹 Flipper – UI, Network, Logs debugging
+   Flipper is a mobile debugging tool by Meta used in React Native to inspect network calls, logs, layout, and Redux state during development.
 // 🔹 Chrome DevTools – Console logs & Performance check
 
 // ✅ Enable Debugging:
