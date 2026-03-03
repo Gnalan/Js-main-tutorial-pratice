@@ -1389,3 +1389,38 @@
 
 
 
+// 🔐 1️⃣ What is Bearer Token?
+
+// 👉 Bearer token ஒரு authentication method.
+
+// API call பண்ணும்போது:
+
+// Authorization: Bearer <token>
+
+// 👉 "Bearer" என்றால்
+// இந்த token யாரிடம் இருக்கிறதோ அவர் access பெறுவார்.
+
+// It is defined in OAuth 2.0 standard by
+// IETF
+
+// 🔑 2️⃣ What is JWT Token?
+
+// 👉 JWT (JSON Web Token) ஒரு token format.
+
+// Structure:
+
+// Header.Payload.Signature
+
+// Example:
+
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+// JWT mostly authentication-க்கு use பண்ணுவோம்.
+
+// 🧠 Important Understanding
+
+// 👉 Bearer = How token is sent
+// 👉 JWT = What type of token it is
+
+
+
