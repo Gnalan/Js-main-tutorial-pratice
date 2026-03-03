@@ -1259,28 +1259,87 @@
 // Sync Calls	❌ No	✅ Yes
 // 🧩 Key Concepts in New Architecture
 // 1️⃣ JSI
-
 // JavaScript engine (Hermes) directly native code-ஐ access பண்ணும்.
-
 // 2️⃣ Fabric
-
 // New rendering system → Faster UI updates.
-
 // 3️⃣ TurboModules
-
 // Lazy loading native modules → Better performance.
-
 // 📱 Real Example
 // Old Architecture:
-
 // Large JSON data native-க்கு அனுப்பினால் lag வரும்.
-
 // New Architecture:
-
 // Direct memory access → No serialization → Fast.
 
+// difference between react native expo vs cli
+// Using React Native
+// Expo ecosystem by Expo
+// 🚀 1️⃣ React Native CLI
 
+// 👉 Official React Native setup
+// 👉 Full native control கிடைக்கும்
 
+// ✅ Advantages:
+
+// Custom native modules add பண்ணலாம்
+
+// Native code modify பண்ணலாம் (Android/iOS)
+
+// Better for complex apps
+
+// New Architecture full support
+
+// ❌ Disadvantages:
+
+// Setup little complex
+
+// Android Studio / Xcode required
+
+// Build process manual
+
+// 📦 2️⃣ Expo
+
+// 👉 Managed workflow
+// 👉 Quick setup & fast development
+
+// ✅ Advantages:
+
+// Easy setup (No native setup initially)
+
+// Pre-built APIs (Camera, Location, Notifications)
+
+// OTA (Over The Air) updates
+
+// Fast development
+
+// ❌ Disadvantages:
+
+// Custom native module add பண்ண முடியாது (Managed workflow)
+
+// Native code modify முடியாது
+
+// App size slightly bigger
+
+// 🎯 When to Use Expo?
+
+// Startup / MVP build
+
+// Simple app
+
+// Fast development required
+
+// No complex native integration
+
+// 🎯 When to Use CLI?
+
+// Banking app
+
+// Bluetooth integration
+
+// Custom SDK integration
+
+// Heavy native customization
+
+// Advanced performance optimization
 
 
 
