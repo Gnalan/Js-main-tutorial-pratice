@@ -1198,6 +1198,89 @@
 
 
 
+// react native old vs new architure
+// Using React Native
+
+// 🏗️ React Native Old Architecture
+// 📌 Main Components:
+
+// Bridge
+
+// JavaScript Thread
+
+// Native Thread
+
+// Shadow Thread
+
+// 🧠 How It Works:
+// JS Code → Bridge → Native Module → UI Update
+
+// JS ↔ Native communication asynchronous ஆக நடந்தது.
+
+// ❌ Problems in Old Architecture
+
+// Bridge slow (JSON serialization)
+
+// Large data transfer slow
+
+// Performance issues
+
+// UI lag
+
+// No synchronous calls
+
+// 🆕 React Native New Architecture
+
+// Introduced around RN 0.68+ (Fully stable later versions)
+
+// 📌 Main Components:
+
+// JSI (JavaScript Interface)
+
+// Fabric (New Renderer)
+
+// TurboModules
+
+// Codegen
+
+// 🔄 New Architecture Flow
+// JS Code → JSI → Direct Native Call (No Bridge)
+
+// Bridge remove பண்ணப்பட்டு
+// Direct communication possible.
+
+// 🆚 Old vs New Architecture Comparison
+// Feature	Old Architecture	New Architecture
+// Communication	Bridge	JSI (No Bridge)
+// Performance	Slower	Faster
+// Data Transfer	JSON Serialization	Direct Memory
+// UI Rendering	Old Renderer	Fabric
+// Native Modules	Legacy	TurboModules
+// Sync Calls	❌ No	✅ Yes
+// 🧩 Key Concepts in New Architecture
+// 1️⃣ JSI
+
+// JavaScript engine (Hermes) directly native code-ஐ access பண்ணும்.
+
+// 2️⃣ Fabric
+
+// New rendering system → Faster UI updates.
+
+// 3️⃣ TurboModules
+
+// Lazy loading native modules → Better performance.
+
+// 📱 Real Example
+// Old Architecture:
+
+// Large JSON data native-க்கு அனுப்பினால் lag வரும்.
+
+// New Architecture:
+
+// Direct memory access → No serialization → Fast.
+
+
+
 
 
 
