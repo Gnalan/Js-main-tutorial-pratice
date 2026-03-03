@@ -1312,34 +1312,80 @@
 // Fast development
 
 // ❌ Disadvantages:
-
 // Custom native module add பண்ண முடியாது (Managed workflow)
-
 // Native code modify முடியாது
-
 // App size slightly bigger
-
 // 🎯 When to Use Expo?
-
 // Startup / MVP build
-
 // Simple app
-
 // Fast development required
-
 // No complex native integration
-
 // 🎯 When to Use CLI?
-
 // Banking app
-
 // Bluetooth integration
-
 // Custom SDK integration
-
 // Heavy native customization
-
 // Advanced performance optimization
+
+
+// 📌 16KB Page Size Issue என்றால் என்ன?
+
+// Android devices சில புதிய processors-ல்
+// Memory Page Size = 16KB இருக்கும்.
+// பழைய apps mostly 4KB page size மட்டும் support பண்ணி build பண்ணப்பட்டிருக்கும்.
+// 👉 So Play Store reject பண்ண ஆரம்பிச்சது
+// If app 16KB compatible இல்லனா.
+
+// 🎯 Step-by-Step Solution (Production Ready)
+// ✅ 1️⃣ Update Android NDK (Very Important)
+
+// 👉 Minimum NDK r26+ use பண்ணணும்.
+
+// 📍 android/build.gradle
+// android {
+//     ndkVersion "26.1.10909125"
+// }
+// 📍 Check Installed NDK
+
+// Android Studio → SDK Manager → SDK Tools →
+// Install NDK (Side by side) r26
+
+// ✅ 2️⃣ Update React Native Version
+
+// Old React Native versions incompatible இருக்கலாம்.
+
+// 👉 Upgrade to latest stable version.
+
+// npx react-native upgrade
+
+// (Or manually upgrade dependencies)
+
+// ✅ 3️⃣ Update Gradle + AGP
+// 📍 android/build.gradle
+// classpath("com.android.tools.build:gradle:8.1.1")
+// 📍 gradle-wrapper.properties
+// distributionUrl=https\://services.gradle.org/distributions/gradle-8.0-all.zip
+// ✅ 4️⃣ Enable ABI Filters (Optional but Recommended)
+// defaultConfig {
+//     ndk {
+//         abiFilters "armeabi-v7a", "arm64-v8a"
+//     }
+// }
+
+// 👉 64-bit support mandatory.
+
+// ✅ 5️⃣ Clean & Rebuild
+// cd android
+// ./gradlew clean
+// cd ..
+// npx react-native run-android
+
+// For release build:
+
+// cd android
+// ./gradlew bundleRelease
+
+// Upload fresh .aab file.
 
 
 
