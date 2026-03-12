@@ -204,7 +204,32 @@
 // const MemoizedComponent = React.memo(({ data }) => <Text>{data}</Text>);
 // 7. React Native-ல் Image Handling எப்படி செய்வது?
 // ✅ FastImage – Optimized Image Loading
-// ✅ react-native-cached-image – Image caching
+// Why react-native-fast-image use பண்ண வேண்டும்?
+// React Native default <Image> component-க்கு சில limitations இருக்கிறது:
+// Image loading slow ஆக இருக்கும்
+// Proper caching இல்லாமல் இருக்கலாம்
+// Flickering / reload problem வரும்
+// Large images handle பண்ணும்போது performance issue வரும்
+// அதனால்தான் FastImage use பண்ணுவாங்க.
+
+// 🔹 react-native-fast-image என்ன advantage?
+// 1️⃣ Fast Image Loading
+
+// FastImage native libraries (Android → Glide, iOS → SDWebImage) use பண்ணும்.
+
+// 👉 அதனால் image very fast load ஆகும்.
+
+// 2️⃣ Image Caching
+
+// Image once load ஆன பிறகு cache ஆகி இருக்கும்.
+// அடுத்த தடவை same image load பண்ணும்போது:
+// Network call வேண்டாம்
+// Cache லிருந்து load ஆகும்
+// App speed improve ஆகும்
+// 3️⃣ Better Performance
+// Large images அல்லது list-ல் (FlatList) நிறைய images இருந்தால்:
+// Memory usage optimize ஆகும்
+// App smooth ஆக run ஆகும்
 
 // jsx
 // Copy
