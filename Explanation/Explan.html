@@ -627,7 +627,16 @@ Animation & Gesture Handling (Ex: useRef with Animated.Value)
 
 
 useLayoutEffect: 
-It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
+useLayoutEffect is a React Hook that runs synchronously after the DOM is updated but before the browser paints the screen.
+It’s similar to useEffect, but the timing is different.
+Why Use useLayoutEffect?
+
+You use it when you need to:
+Measure DOM elements
+Read layout values (offsetWidth, getBoundingClientRect)
+Make DOM changes before the user sees them
+Prevent flickering/jumping UI
+    
 useDebugValue:
 Helps to display a label in React DevTools for custom hooks.
 
