@@ -390,83 +390,66 @@ console.log("summmmmm",sum)
 // let result =[...new Set(numbers)]
 // result.unshift(5)
 
+// task on fetch data and hide, show details
 
+import {Text,View,StyleSheet,Button,FlatList,Pressable} from 'react-native'
+import React,{useState,useEffect} from 'react'
+import axios from 'axios'
 
-// import { Text, SafeAreaView, StyleSheet,View,FlatList,Pressable } from 'react-native';
-// import React,{useState,useEffect} from 'react'
-// import axios from 'axios';
+export default App=()=>{
+  const[products,setProducts]=useState([])
+  const[show,setShow]=useState(true)
+  const fetchlists=async()=>{
+    try{
+      const res= await axios.get('https://dummyjson.com/products')
+      console.log("res",res)
+      setProducts(res.data.products)
+      console.log("res",res.data.products)
+    }
+    catch(err){
+    console.log("errrrrr",err)
+    }
+  }
+  useEffect(()=>{
+    fetchlists()
+  },[])
 
-// export default function App() {
-//   const [products,setProducts]=useState([])
-//    const [showdetails,setShowDetais]=useState(true)
-//   const fetchLists=async()=>{
-//     try{
-//       const response=await axios.get('https://dummyjson.com/products')
-//       setProducts(response.data.products)
-//       console.log(response)
-//     }
-//     catch(error){
-//       console.log("errrorrr",error)
-//     }
+  const renderProduct=({item})=>(
+   <View>
+   <Text style={{color:"green",marginTop:"3%"}}>{item?.title}</Text>
+   {show&&
+   <Text style={{}}>{item?.description}</Text>
+   }
 
-//   }
-//   useEffect(()=>{
-//     fetchLists()
-//   },[])
-
-//    const dataRenderList=({item})=>(
-//      <View style={styles.cardcontainer}>
-//      {showdetails && (
-//        <>
-//      <Text style={{marginBottom:"2%"}}>{item.title}</Text>
-//       <Text style={{marginTop:"2%"}}>{item.category}</Text>
-//        <Text style={{marginTop:"2%"}}>{item.price}</Text>
-//        </>
-//        )}
-//      </View>
-//    )
-
-
-
-//   return (
-//     <SafeAreaView style={styles.container}>
-//   <View style={{}}>
-//   <FlatList
-//     data={products}
-//     keyExtractor={(item)=>item.id.toString()}
-//     renderItem={dataRenderList}
   
-//   />
-//   <View  style={{position:"absolute",bottom:"4%",}}>
-//    <Pressable   onPress={()=>setShowDetais(!showdetails)} style={{width:"90%",padding:"3%",backgroundColor:"red",}}>
-//    <Text>{showdetails? "hide":"show"}</Text>
-//    </Pressable>
-//    </View>
-  
-//   </View>
-//     </SafeAreaView>
-//   );
-// }
+   </View>
+  )
+  return(
+        <View style={styles.container}>
+         <FlatList
+          data={products}
+          keyExtractor={(item)=>item.id.toString}
+          renderItem={renderProduct}
+         />
+         
+        <Pressable style={{position:"absolute",bottom:"6%",right:0,left:0,alignItems:"center"}}>
+        <Pressable onPress={()=>setShow((pre)=>!pre)} style={{width:"50%",backgroundColor:"blue",borderRadius:20,alignItems:"center",padding:10}}>
+        <Text style={{color:"#fff",fontSize:15}}>{show?"hidedetails":"showdetails"}</Text>
+        </Pressable>
+        </Pressable>
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     backgroundColor: '#ecf0f1',
-//     paddingTop: 8,
-//   },
-//   cardcontainer:{
-     
-//   }
-//   // paragraph: {
-//   //   margin: 24,
-//   //   fontSize: 18,
-//   //   fontWeight: 'bold',
-//   //   textAlign: 'center',
-//   // },
-// });
-
-
+        </View>
+      )
+}
+const styles=StyleSheet.create({
+  container:{
+    width:"100%",
+    height:"100%",
+    alignItems:"center",
+    
+  }
+ 
+})
 
 // colon info tech
 
