@@ -30,3 +30,110 @@ OTA-வின் முக்கிய நன்மைகள்**
 2. **Microsoft CodePush:** React Native CLI மூலம் உருவாக்கப்பட்ட ஆப்ஸ்களுக்கு அதிகம் பயன்படுத்தப்படும் ஒரு பிரபலமான சேவை.
 
 > **முக்கியக் குறிப்பு:** ஆப்பிள் மற்றும் கூகுளின் விதிமுறைகளின்படி, ஆப்பின் அடிப்படை நோக்கத்தையோ (Core functionality) அல்லது வகைப்பாட்டையோ (Category) OTA மூலமாக முழுமையாக மாற்றக்கூடாது. சிறிய பிழைத்திருத்தங்கள் மற்றும் வடிவமைப்பு மாற்றங்களுக்கு மட்டுமே இதைப் பயன்படுத்த வேண்டும்.
+
+///////////****************************** Example in hot-updater/react-native this plugin  /////////////////////////////////////
+  
+Real-Time Scenario: E-Commerce ஆப்பில் Checkout Button Crash Fix
+சூழ்நிலை (The Problem):
+உங்களின் Production ஆப் வெர்ஷன் 1.0.0 Play Store மற்றும் App Store-ல் லைவ்-ல் இருக்கிறது. வெள்ளிக்கிழமை மாலை, Checkout ஸ்கிரீனில் couponCode.toUpperCase() என்ற இடத்தில் couponCode null-ஆக வருவதால் ஆப் மொத்தமாக Crash ஆகிறது.
+கூகுள்/ஆப்பிள் ரிவ்யூவுக்கு அனுப்பினால் 24 முதல் 48 மணிநேரம் ஆகும்; அதற்குள் பிசினஸுக்கு பெரிய இழப்பு ஏற்படும். இதை hot-updater மூலம் 15 நிமிடங்களில் எப்படி சரிசெய்வது?
+
+Step 1: குறியீட்டுப் பிழையை சரிசெய்தல் (Bug Fix)
+Crash ஆகும் JS குறியீட்டை optional chaining மூலம் சரிசெய்கிறோம்:
+
+TypeScript
+// ❌ பிழை இருந்த பழைய கோட் (Crashed on undefined/null):
+const formattedCoupon = couponCode.toUpperCase();
+
+// ✅ சரிசெய்யப்பட்ட புதிய கோட்:
+const formattedCoupon = couponCode?.toUpperCase() || '';
+Step 2: ஆப்பில் hot-updater Integration (App.tsx)
+ஆப் ஆரம்பிக்கும் போதே சைலண்ட்டாக அப்டேட் டவுன்லோட் ஆகி, பயனர் அடுத்த முறை ஆப்பைத் திறக்கும்போது லோட் ஆகும் (Silent Update Strategy):
+
+TypeScript
+import React, { useEffect } from 'react';
+import { View, Text } from 'react-native';
+import { HotUpdater } from '@hot-updater/react-native';
+
+const App = () => {
+  useEffect(() => {
+    // ஆப் லோட் ஆகும் போது background-ல் செக் செய்ய:
+    const syncHotUpdate = async () => {
+      try {
+        const updateInfo = await HotUpdater.checkForUpdate();
+        
+        if (updateInfo?.hasUpdate) {
+          // 1. Silent Background Download (பயனருக்கு எந்தத் தடங்கலும் இருக்காது)
+          await HotUpdater.downloadBundle();
+          
+          // 2. அடுத்த முறை ஆப் open ஆகும்போது புதிய JS bundle தானாகவே லோட் ஆகிவிடும்!
+        }
+      } catch (err) {
+        console.warn('Hot Updater check failed:', err);
+      }
+    };
+
+    syncHotUpdate();
+  }, []);
+
+  return (
+    <View style={{ flex: 1 }}>
+      {/* Your Root Navigator / App Screens */}
+    </View>
+  );
+};
+
+// HotUpdater HOC கொண்டு wrap செய்யவும்
+export default HotUpdater.wrap({
+  updateStrategy: 'appVersion', // Target native version tracking
+})(App);
+Step 3: புதிய Bundle-ஐ Deploy செய்தல் (CLI)
+AndroidManifest.xml அல்லது CocoaPods எதையும் மாற்றாததால், வெறும் JS Bundle மட்டும் build செய்யப்பட்டு உங்கள் storage-க்கு (AWS S3 / Supabase) deploy செய்யப்படும்:
+
+Bash
+# Android ஆப் வெர்ஷன் 1.0.0-க்கு மட்டும் இந்த fix செல்ல வேண்டும்:
+npx hot-updater deploy -p android -t "1.0.0" -m "Fix coupon null crash on checkout"
+
+# iOS ஆப் வெர்ஷன் 1.0.0-க்கு:
+npx hot-updater deploy -p ios -t "1.0.0" -m "Fix coupon null crash on checkout"
+Step 4: என்ன நடக்கும்? (Behind the Scenes Lifecycle)
+[பயனர் ஆப்பைத் திறக்கிறார்]
+         │
+         ▼
+[Hot-updater Cloud API-ல் செக் செய்கிறது]
+         │
+         ├──> புதிய Bundle Hash / Version உள்ளதா?
+         │         │
+         │         ▼ (ஆம்)
+         │    [Background-ல் புதிய JS Bundle டவுன்லோட் ஆகிறது (~500KB - 2MB)]
+         │         │
+         │         ▼
+         │    [Device Storage-ல் சேமித்து வைக்கப்படுகிறது]
+         │
+         ▼
+[பயனர் ஆப்பை மூடிவிட்டு (Kill app) மீண்டும் திறக்கும் போது]
+         │
+         ▼
+[Native Engine (Hermes/JSC) பழைய Bundle-க்கு பதிலாக புதிய Bundle-ஐ லோட் செய்கிறது]
+         │
+         ▼
+[Crash நீங்கி Checkout Screen சீராக வேலை செய்கிறது!]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
