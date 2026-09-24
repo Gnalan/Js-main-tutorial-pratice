@@ -122,6 +122,63 @@ Step 4: என்ன நடக்கும்? (Behind the Scenes Lifecycle)
 
 
 
+2. //////rest apis?////
+
+
+**REST API** (Representational State Transfer Application Programming Interface) என்பது கிளையண்ட் (Mobile App) மற்றும் சர்வர் (Backend Database/Server) இடையே தரவுகளைப் பரிமாறிக்கொள்ளப் பயன்படும் ஒரு நிலையான நெறிமுறை (Architectural Style) ஆகும்.
+
+React Native மொபைல் அப்ளிகேஷன்கள் HTTP நெறிமுறை வழியாக JSON வடிவில் சர்வரிலிருந்து டேட்டாவைப் பெறவும் அனுப்பவும் REST API-களைப் பயன்படுத்துகின்றன.
+
+---
+
+### REST API-ன் 6 முக்கியக் கோட்பாடுகள் (Guiding Principles)
+
+1. **Client-Server Architecture:** பயனர் இடைமுகம் (React Native UI) மற்றும் சர்வர் டேட்டா லாஜிக் இரண்டும் தனித்தனியாக இயங்கும்.
+2. **Statelessness:** ஒவ்வொரு ரெக்வஸ்ட்டும் முழுமையான தகவலைக் கொண்டிருக்க வேண்டும். முந்தைய ரெக்வஸ்ட் குறித்த எந்த தகவலையும் சர்வர் சேமிக்காது (Session state இல்லை; Auth Tokens/JWT பயன்படுத்தப்படும்).
+3. **Cacheability:** சர்வர் அனுப்பும் பதில் Cache செய்யக்கூடியதா (Cache-Control) என்பதைத் தெளிவுபடுத்த வேண்டும்.
+4. **Uniform Interface:** அனைத்து API endpoint-களும் ஒரே மாதிரியான Resource URI வடிவத்தைப் பின்பற்ற வேண்டும் (எ.கா: `/api/v1/users`).
+5. **Layered System:** ஆப் நேரடியாக மெயின் சர்வருடன் மட்டும் பேசாமல், இடையில் உள்ள Proxy, Load Balancer, API Gateway வழியாகவும் தகவல்களைப் பரிமாறலாம்.
+6. **Code on Demand (Optional):** சர்வர் தேவைப்பட்டால் executable script-களை அனுப்பலாம் (REST-ல் இது பொதுவாக மொபைல் ஆப்ஸ்களுக்குப் பயன்படாது).
+
+---
+
+### HTTP Methods & CRUD Operations
+
+REST API-ல் Resources-ஐ கையாள முக்கிய HTTP Methods பயன்படுகின்றன:
+
+| HTTP Method | CRUD Operation | விளக்கம் | Idempotent? |
+| --- | --- | --- | --- |
+| **GET** | Read | சர்வரிலிருந்து தகவல்களைப் பெற (எ.கா: பயனர்களின் பட்டியல்) | ஆம் |
+| **POST** | Create | புதிய பதிவை சர்வருக்கு அனுப்ப / உருவாக்க (எ.கா: பயனர் பதிவு) | இல்லை |
+| **PUT** | Update / Replace | ஒரு பதிவை முழுமையாக மாற்றி அமைக்க | ஆம் |
+| **PATCH** | Partial Update | ஒரு பதிவில் குறிப்பிட்ட சில புலங்களை (fields) மட்டும் மாற்ற | இல்லை / சூழ்நிலையைப் பொறுத்து |
+| **DELETE** | Delete | குறிப்பிட்ட பதிவை நீக்க | ஆம் |
+
+> **Idempotent என்றால் என்ன?** ஒரு ரெக்வஸ்ட்டை எத்தனை முறை திரும்பத் திரும்ப இயக்கினாலும் சர்வரின் டேட்டாவில் ஒரே முடிவுதான் ஏற்படும் (GET, PUT, DELETE போன்றவை).
+
+---
+
+### HTTP Status Codes (Interview-ல் கேட்கப்படுபவை)
+
+* **2xx (Success):**
+* `200 OK`: ரெக்வஸ்ட் வெற்றிகரமாக முடிந்தது.
+* `201 Created`: புதிய resource உருவாக்கப்பட்டது (POST-க்கு).
+* `204 No Content`: செயல் முடிந்தது, ஆனால் திருப்பி அனுப்ப body data இல்லை (DELETE-க்கு).
+
+
+* **4xx (Client Errors):**
+* `400 Bad Request`: அனுப்பிய payload அல்லது parameters தவறு.
+* `401 Unauthorized`: Authentication இல்லை அல்லது Token காலாவதியானது.
+* `403 Forbidden`: Token உள்ளது, ஆனால் குறிப்பிட்ட resource-ஐ அணுக அனுமதி இல்லை (Role-based).
+* `404 Not Found`: கேட்ட URL / Resource சர்வரில் இல்லை.
+
+
+* **5xx (Server Errors):**
+* `500 Internal Server Error`: சர்வர் குறியீட்டில் ஏற்பட்ட பிழை.
+* `503 Service Unavailable`: சர்வர் பராமரிப்பில் உள்ளது அல்லது அதிக பணிச்சுமையில் உள்ளது.
+
+
+
 
 
 
