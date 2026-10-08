@@ -273,67 +273,119 @@ API Key Security: ஆப் ரிலீஸ் செய்யும்போத
 
 // ****************************************  What is event loop  *********************************
 
-  JavaScript என்பது ஒரு Single-Threaded மொழி. அதாவது, இதனால் ஒரே நேரத்தில் ஒரு வேலையை மட்டுமே செய்ய முடியும். ஆனாலும், நெட்வொர்க் கால்கள் (API calls), டைமர்கள் (setTimeout), பயனரின் தொடுதல் (UI clicks) போன்ற பல வேலைகளை ஆப் உறையாமல் (freeze ஆகாமல்) கையாள முடிகிறது. இதற்குப் பின்னால் செயல்படும் முக்கிய அமைப்பே Event Loop ஆகும்.
+Event Loop என்பது JavaScript-ல் asynchronous (ஒரே நேரத்தில் நடக்கும் பணிகளை) non-blocking முறையில் இயக்குவதற்குப் பின்னணியில் செயல்படும் ஒரு core runtime மெக்கானிசம் ஆகும்.
 
-Event Loop-ன் முக்கிய பாகங்கள்
-Call Stack:
+JavaScript இயல்பாகவே ஒரு Single-Threaded மொழி (அதாவது ஒரே நேரத்தில் ஒரு வேலையை மட்டுமே செய்யக்கூடிய ஒரு Call Stack மட்டுமே கொண்டது). அப்படி இருந்தும் network calls (API), timers (setTimeout), touch events போன்றவற்றை UI freeze ஆகாமல் எப்படி கையாள்கிறது என்பதை Event Loop தீர்மானிக்கிறது.
 
-தற்போது இயங்கிக்கொண்டிருக்கும் கோட் வரிசையாக இங்குதான் அடுக்கி வைக்கப்படும் (LIFO - Last In, First Out). ஒரு நேரத்தில் ஒரு செயல் மட்டுமே நடக்கும்.
+Event Loop Architecture-ன் 4 முக்கியப் பகுதிகள்
+┌──────────────────────────────────────────────┐
+│                  Call Stack                  │ ──> Sync code runs here (LIFO)
+└──────────────────────────────────────────────┘
+                       ▲
+                       │  Event Loop checks if Stack is EMPTY
+                       │
+       ┌───────────────┴───────────────┐
+       │                               │
+┌──────────────┐              ┌────────────────┐
+│ Microtask    │              │ Macrotask      │
+│ Queue (VIP)  │              │ Queue (Task)   │
+└──────────────┘              └────────────────┘
+(Promises,                    (setTimeout,
+queueMicrotask)               setInterval, I/O)
+Call Stack (LIFO - Last In, First Out):
+
+அனைத்து Synchronous குறியீடுகளும் இங்கேதான் ஒன்றன் பின் ஒன்றாக அடுக்கப்பட்டு executed ஆகும்.
 
 Web APIs / Native APIs:
 
-setTimeout, fetch(), AsyncStorage போன்ற பின்னணி வேலைகளை JavaScript என்ஜின் இந்த சிஸ்டம் API-களிடம் கொடுத்துவிடும்.
+setTimeout, Network fetch, Touch events போன்றவை Call Stack-ல் நிற்காமல், Background engine-க்கு (Browser அல்லது React Native C++ runtime/Hermes) அனுப்பப்பட்டு இயக்கப்படும்.
 
-Callback Queue (Task Queue):
+Microtask Queue (High Priority Queue):
 
-பின்னணி வேலைகள் முடிந்தவுடன் அவற்றின் கால்பேக் பங்க்ஷன்கள் இங்கே வந்து வரிசையில் காத்திருக்கும்.
+Promise.then(), async/await, queueMicrotask() ஆகியவற்றின் callbacks இங்கே சேரும்.
 
-Microtask Queue:
+Macrotask Queue / Task Queue (Low Priority Queue):
 
-Promise (.then, async/await) மற்றும் React Native-ன் சில முக்கிய வேலைகள் இங்கே வரும். இதற்கு Task Queue-ஐ விட அதிக முன்னுரிமை (Higher Priority) உண்டு.
+setTimeout, setInterval, setImmediate, I/O callbacks இங்கே வரிசையில் நிற்கும்.
 
-Event Loop (கண்காணிப்பாளர்):
+Event Loop எப்படி வேலை செய்கிறது? (Execution Algorithm)
+Call Stack-ல் உள்ள அனைத்து Synchronous குறியீடுகளையும் இயக்கி முடிக்கும்.
 
-இதன் ஒரே வேலை: Call Stack காலியாக உள்ளதா? என்று தொடர்ந்து பார்ப்பதுதான்.
+Call Stack காலியானவுடன் (Empty ஆனவுடன்), Event Loop முதலில் Microtask Queue-ஐ பார்க்கும்.
 
-Call Stack காலியான உடனே, முதலில் Microtask Queue-ல் உள்ள வேலைகளையும், அடுத்து Callback Queue-ல் உள்ள வேலைகளையும் எடுத்து Call Stack-ல் போடும்.
+Microtask Queue-ல் இருக்கும் அனைத்து callbacks-ஐயும் Stack-க்கு அனுப்பி முழுமையாக முடிக்கும்.
 
-ஒரு எளிய உதாரணம்
+அவை அனைத்தும் முடிந்த பிறகு, Macrotask Queue-ல் உள்ள முதல் ஒரு task-ஐ எடுத்து Call Stack-க்கு அனுப்பும்.
+
+இந்தச் சுழற்சி (Loop) தொடர்ந்து இடைவிடாமல் நடக்கும்.
+
+Classic Interview Puzzle & Output Execution
+இந்தக் குறியீட்டின் Output என்ன என்று இன்டர்வியூவில் அடிக்கடி கேட்பார்கள்:
+
 JavaScript
-console.log("1");
+console.log('1: Start');
 
 setTimeout(() => {
-  console.log("2");
+  console.log('2: Macrotask (Timeout)');
 }, 0);
 
 Promise.resolve().then(() => {
-  console.log("3");
+  console.log('3: Microtask 1 (Promise)');
+}).then(() => {
+  console.log('4: Microtask 2 (Promise)');
 });
 
-console.log("4");
-வெளியீடு (Output):
-
+console.log('5: End');
+Output:
 Plaintext
-1
-4
-3
-2
-விளக்கம்:
+1: Start
+5: End
+3: Microtask 1 (Promise)
+4: Microtask 2 (Promise)
+2: Macrotask (Timeout)
+ஏன் இந்த வரிசை?
+Step 1: 1: Start மற்றும் 5: End ஆகியவை synchronous என்பதால் உடனே Call Stack வழியாக print ஆகிறது.
 
-1 மற்றும் 4 நேரடியாக Call Stack-ல் சென்று உடனே இயங்கும்.
+Step 2: setTimeout(..., 0) Macrotask queue-க்கு செல்கிறது.
 
-setTimeout நேரம் 0 ஆக இருந்தாலும், அது Callback Queue-க்குச் செல்லும்.
+Step 3: Promise callbacks Microtask queue-க்கு செல்கிறது.
 
-Promise Microtask Queue-க்குச் செல்லும்.
+Step 4: Stack காலியானதும் Event loop Microtask Queue-க்கு முன்னுரிமை தருகிறது. அதனால் 3 மற்றும் 4 print ஆகிறது.
 
-Stack காலியானதும், Microtask Queue முன்னுரிமை பெற்று 3 இயங்கும்; அதன் பிறகு Task Queue-ல் இருந்து 2 இயங்கும்.
+Step 5: Microtasks அனைத்தும் முடிந்த பிறகே Macrotask-ல் உள்ள 2 எடுக்கப்பட்டு print ஆகிறது.
 
-React Native-ல் இதன் முக்கியத்துவம்
-UI Lag தவிர்ப்பது: React Native-ல் ஜாவாஸ்கிரிப்ட் த்ரெட் மற்றும் UI த்ரெட் தனித்தனியாக இயங்கும். ஜாவாஸ்கிரிப்ட் த்ரெட்டில் Event Loop-ஐ அதிக நேரம் பிளாக் செய்தால் (உதாரணமாக பெரிய லூப்கள்), ஆப் தொடுதலுக்கு பதிலளிக்காமல் லேக் ஆகும்.
+// *****************************   explain react native play store and app store deployment  **************************************
 
-
-
-
+  React Native அப்ளிகேஷனை Android (Google Play Store) மற்றும் iOS (Apple App Store)-ல் வெளியிடுவதற்கான முழுமையான Deployment Pipeline மற்றும் படிகள்:1. Google Play Store Deployment (Android)Google Play Store-ல் பயன்பாட்டை வெளியிட AAB (Android App Bundle) வடிவில் பைனரி உருவாக்கப்பட வேண்டும்.Step 1: Upload Keystore உருவாக்குதல்ஆப் சைனிங் (App Signing) செய்வதற்கு keytool வழியாக ஒரு ரகசிய Keystore ஃபைலை உருவாக்க வேண்டும்:Bashkeytool -genkeypair -v -storetype PKCS12 -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+இந்த ஃபைலை android/app/ ஃபோல்டருக்குள் நகர்த்த வேண்டும்.Step 2: Gradle Credentials Setupபாதுகாப்புக் காரணங்களுக்காக பாஸ்வேர்டுகளை android/gradle.properties ஃபைலில் சேர்க்க வேண்டும்:PropertiesMYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=*****
+MYAPP_UPLOAD_KEY_PASSWORD=*****
+Step 3: android/app/build.gradle ConfigurationVersion Control: versionCode (ஒவ்வொரு build-க்கும் +1 அதிகரிக்க வேண்டும்) மற்றும் versionName ("1.0.0").Signing Configs:Groovyandroid {
+    ...
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+}
+Step 4: Release AAB Build செய்தல்Bashcd android
+./gradlew clean
+./gradlew bundleRelease
+பைனரி அவுட்புட்: android/app/build/outputs/bundle/release/app-release.aabStep 5: Play Console SubmissionGoogle Play Console-ல் உள்நுழைந்து Create App கிளிக் செய்யவும்.Internal Testing அல்லது Closed Testing (Alpha/Beta) டிராக்கில் .aab ஃபைலை அப்லோட் செய்து சோதனை செய்யவும் (Google-ன் 20 testers / 14 days விதிமுறைக்கு உட்பட்டு).Store Listing Details: App Icon (512x512), Feature Graphic (1024x500), Screenshots, Privacy Policy URL, App Access/Data Safety Form பூர்த்தி செய்து Production-க்கு அனுப்பவும்.2. Apple App Store Deployment (iOS)iOS-க்கு கட்டாயம் macOS மற்றும் Xcode தேவைப்படும்.Step 1: Apple Developer Account & Identifiersdeveloper.apple.com-ல் சென்று Bundle Identifier (e.g., com.company.appname) உருவாக்க வேண்டும்.Certificates, Identifiers & Profiles பகுதியில்:Distribution Certificate (.p12)App Store Provisioning Profile ஆகியவற்றை உருவாக்க வேண்டும்.Step 2: Bundle Version & App Capabilities Setupios/YourProject.xcworkspace-ஐ Xcode-ல் திறக்கவும்.General Tab:Version (1.0.0) மற்றும் Build (1, 2, 3...) செட் செய்யவும்.Target Device (iPhone/iPad) தேர்ந்தெடுக்கவும்.Signing & Capabilities:Automatically manage signing எனேபிள் செய்து உங்களின் Apple Developer Team-ஐ தேர்ந்தெடுக்கவும்.Push Notifications, Background Modes போன்ற capabilities தேவைப்பட்டால் சேர்க்கவும்.Info.plist Permissions: Camera, Location போன்ற அனுமதிகளுக்கான தெளிவான விளக்கங்களை (Usage Descriptions) கட்டாயம் உள்ளிட வேண்டும்; இல்லையெனில் build நிராகரிக்கப்படும்.Step 3: Archive & Upload via XcodeTarget Device-ஆக Any iOS Device (arm64) என்பதைத் தேர்ந்தெடுக்கவும்.Menu-வில் Product $\rightarrow$ Clean Build Folder செய்யவும்.Product $\rightarrow$ Archive கிளிக் செய்யவும்.Archive முடிந்ததும் திறக்கும் Organizer விண்டோவில்:Distribute App கிளிக் செய்யவும்.App Store Connect $\rightarrow$ Upload தேர்வு செய்து, cloud validation முடிந்து App Store Connect-க்கு அனுப்பவும்.Step 4: TestFlight & App Store Reviewappstoreconnect.apple.com சென்று:TestFlight வழியாக இன்டர்னல்/எக்ஸ்டர்னல் குழுவுக்கு பீட்டா டெஸ்டிங் அனுப்பலாம்.App Store Tab:Version Information, App Icon (1024x1024, no transparency), Screenshots (6.7" மற்றும் 5.5" Display sizes).Demo Account credentials (Reviewer login செய்ய).Submit for Review கிளிக் செய்யவும் (ஆப்பிளின் ரிவ்யூ பொதுவாக 24 - 48 மணிநேரம் எடுக்கும்).Deployment Comparison Tableகட்டமைப்பு விவரங்கள்Android (Google Play Store)iOS (Apple App Store)Binary Format.aab (Android App Bundle).ipa (Archive via Xcode)Signing Files.keystore / .jks (Keytool)Certificates (.p12) & Provisioning ProfilesBeta Testing ToolGoogle Play Internal / Closed TestingTestFlightBuild MachineWindows, Linux அல்லது macOSmacOS (Xcode கட்டாயம் தேவை)VersioningversionCode (Int), versionName (String)CFBundleVersion (Build), CFBundleShortVersionString (Version)Code ShrinkingProGuard / R8 (minifyEnabled true)Xcode Dead Code Stripping (Default)3 Years Experience Level: Interview-ல் சொல்ல வேண்டிய Advanced PointsFastlane Automation: Production-ல் manual-ஆக செய்யாமல் fastlane match, fastlane android deploy, fastlane ios release மூலமாக CI/CD pipeline (GitHub Actions/GitLab) அமைத்து automated deployment செய்த அனுபவத்தைக் கூறலாம்.ProGuard / R8 Issues: Android release build-ல் minifyEnabled true போடும் போது Hermes engine அல்லது native libraries கிராஷ் ஆனால், அவற்றுக்கான keep rules-ஐ android/app/proguard-rules.pro-ல் சேர்ப்பது அவசியம்.Hermes Bytecode Compatibility: Release build-ல் enableHermes: true என அமைக்கப்பட்டிருப்பதை உறுதி செய்து compilation time மற்றும் app launch performance-ஐ மேம்படுத்துவது.
 
 
 
