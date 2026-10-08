@@ -1413,39 +1413,29 @@
 // Upload fresh .aab file.
 
 
+Bearertoken, JWTtokenஆகியவற்றின்விளக்கம் இதோ:
 
-// 🔐 1️⃣ What is Bearer Token?
+JWT (JSON Web Token) என்பது ஒரு செக்யூரான வழிமுறை. இதை ஒரு அடையாள அட்டைப் போல நினைக்கலாம். இது மூன்று பகுதிகளைக் கொண்டது: Header, Payload, Signature. லாகின் செய்த பிறகு, சர்வர் இதை உருவாக்கி பயன்பாட்டாளருக்குத் தரும்.
 
-// 👉 Bearer token ஒரு authentication method.
+Bearer Token என்பது ஒரு அதிகாரம் வழங்கும் டோக்கன். ஒரு டோக்கனை வைத்துக்கொண்டு, சர்வரை அணுகுவது இதனுடன் தொடர்புடையது.
 
-// API call பண்ணும்போது:
+சுருக்கமாகச் சொன்னால், JWT-ஐ ஒரு அடையாள அட்டையாகப் பயன்படுத்தும்போது, அதை Bearer Token என்று சொல்வோம்
 
-// Authorization: Bearer <token>
+JWT-யோட மூணு பகுதிகள்ல, 'Header'ங்கிறது டோக்கனோட டைப் என்ன, எந்த அல்காரிதம் யூஸ் பண்ணி சைன் பண்ணிருக்காங்கன்னு சொல்லும்.
 
-// 👉 "Bearer" என்றால்
-// இந்த token யாரிடம் இருக்கிறதோ அவர் access பெறுவார்.
+'Payload'ங்கிறதுதான் மெயின் பகுதி; இதுல யூசர் ஐடி, ரோல்ஸ் இல்ல அவங்களுடைய தனிப்பட்ட தகவல்கள் என்கோட் ஆகி இருக்கும்.
 
-// It is defined in OAuth 2.0 standard by
-// IETF
+கடைசியா இருக்குற 'Signature'ங்கிறது, டேட்டா மாறாம இருக்கிறதை உறுதி செய்ய சர்வர் கிரியேட் பண்ற ஒரு ஹேஷ் கோட்.
 
-// 🔑 2️⃣ What is JWT Token?
+Bearer token-ங்கிறது, நீங்க உங்க API ரெக்வஸ்ட்ஸ்ல, Authorization ஹெட்டர்ல JWT-யை அனுப்புற முறை.
 
-// 👉 JWT (JSON Web Token) ஒரு token format.
+உதாரணத்துக்கு, "Authorization: Bearer [your_jwt]"ன்னு இருக்கும். இதுதான் சர்வர் நீங்க ஒரு வேலிட் யூசரா இல்லையான்னு செக் பண்ண ஹெல்ப் பண்ணும்.
 
-// Structure:
 
-// Header.Payload.Signature
 
-// Example:
+  
 
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 
-// JWT mostly authentication-க்கு use பண்ணுவோம்.
-
-// 🧠 Important Understanding
-
-// 👉 Bearer = How token is sent
-// 👉 JWT = What type of token it is
 
 
 
