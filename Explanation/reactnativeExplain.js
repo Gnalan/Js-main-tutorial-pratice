@@ -177,11 +177,159 @@ REST API-ல் Resources-ஐ கையாள முக்கிய HTTP Methods
 * `500 Internal Server Error`: சர்வர் குறியீட்டில் ஏற்பட்ட பிழை.
 * `503 Service Unavailable`: சர்வர் பராமரிப்பில் உள்ளது அல்லது அதிக பணிச்சுமையில் உள்ளது.
 
+// ****************************************** react native google map sdk explain *****************************************\\\\\\\\
+
+  React Native Google Maps SDK என்பது கூகுளின் வரைபட சேவையை (Google Maps) நமது React Native மொபைல் செயலியில் (Android & iOS) இணைத்து, பயனர்களுக்கு மேப் மற்றும் லொகேஷன் சார்ந்த வசதிகளைக் காட்டப் பயன்படும் ஒரு தொழில்நுட்பமாகும்.
+
+React Native-ல் இதைச் செய்வதற்கு அதிகாரப்பூர்வமாக அதிகம் பயன்படுத்தப்படும் லைப்ரரி react-native-maps ஆகும்.
+
+இது எப்படிச் செயல்படுகிறது?
+Bridge Architecture: React Native-ல் நீங்கள் JSX வடிவில் <MapView/> என்று எழுதும்போது, பின்னணியில் Android-க்குரிய Google Play Services (Maps SDK for Android) மற்றும் iOS-க்குரிய Google Maps SDK for iOS ஆகிய நேட்டிவ் SDK-களை இது இயக்கும்.
+
+Google Cloud Console & API Key: கூகுள் மேப்ஸை உங்கள் ஆப்பில் காட்ட Google Cloud Console-ல் ஒரு ப்ராஜெக்ட் உருவாக்கி, அங்கு Maps SDK for Android மற்றும் Maps SDK for iOS என இரண்டையும் எனேபிள் செய்து, பெறப்படும் API Key-ஐ நேட்டிவ் ஃபைல்களில் சேர்க்க வேண்டும்.
+
+நேட்டிவ் கான்பிகரேஷன் (Native Setup)
+1. Android (android/app/src/main/AndroidManifest.xml):
+<application> டேக்கிற்குள் இந்த மெட்டாடேட்டாவை சேர்க்க வேண்டும்:
+
+XML
+<meta-data
+   android:name="com.google.android.geo.API_KEY"
+   android:value="YOUR_GOOGLE_MAPS_API_KEY"/>
+2. iOS (ios/Podfile & AppDelegate):
+iOS-ல் ஆப்பிளின் சொந்த Apple Maps இயல்புநிலையாக இருக்கும். அங்கும் கூகுள் மேப்ஸைப் பயன்படுத்த விரும்பினால்:
+
+Podfile-ல்:
+
+Ruby
+pod 'GoogleMaps'
+AppDelegate.mm-ல் SDK-ஐ ஆரம்பிக்க வேண்டும்:
+
+Objective-C
+#import <GoogleMaps/GoogleMaps.h>
+
+[GMSServices provideAPIKey:@"YOUR_GOOGLE_MAPS_API_KEY"];
+முக்கியமான காம்போனென்ட்டுகள் (Core Components)
+MapView: வரைபடத்தைக் காட்டும் முதன்மை காம்போனென்ட்.
+
+Marker: குறிப்பிட்ட அட்சரேகை/தீர்க்கரேகையில் (Latitude/Longitude) பின் (Pin) அல்லது தனிப்பயன் ஐகானைக் காட்ட.
+
+Callout: ஒரு மார்க்கரை தொடும்போது மேலே தோன்றும் தகவல் பாப்-அப் (Tooltip).
+
+Polyline: இரண்டு அல்லது அதற்கு மேற்பட்ட இடங்களுக்கு இடையே வழியை (Route / Path) கோடாக வரைய.
+
+Polygon / Circle: ஒரு குறிப்பிட்ட பரப்பளவை (Geofence area) சுற்றி எல்லை வரைய.
+
+React Native கோட் மாதிரி
+JavaScript
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <MapView
+        // iOS மற்றும் Android இரண்டிலும் Google Maps-ஐ கட்டாயப்படுத்த
+        provider={PROVIDER_GOOGLE} 
+        style={styles.map}
+        initialRegion={{
+          latitude: 9.9252, // Madurai coordinates
+          longitude: 78.1198,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        }}
+        showsUserLocation={true} // பயனரின் தற்போதைய இடத்தை நீல நிறப் புள்ளியாகக் காட்ட
+        showsMyLocationButton={true} // லொகேஷனுக்குத் திரும்பும் பட்டன்
+      >
+        <Marker
+          coordinate={{ latitude: 9.9252, longitude: 78.1198 }}
+          title="Madurai Junction"
+          description="Railway Station area"
+        />
+      </MapView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+});
+இன்டர்வியூவில் கவனிக்க வேண்டிய முக்கிய விஷயங்கள்
+provider={PROVIDER_GOOGLE}: இதை நீங்கள் குறிப்பிடவில்லை என்றால், iOS சாதனங்களில் கூகுள் மேப்ஸுக்குப் பதிலாக ஆப்பிளின் இயல்புநிலை Apple Maps மட்டுமே ரெண்டர் ஆகும்.
+
+latitudeDelta & longitudeDelta: வரைபடத்தின் ஜூம் அளவை (Zoom Level) தீர்மானிப்பது இதுவே. இதன் மதிப்பு குறைவாக இருந்தால் (எ.கா: 0.01) மேப் மிகவும் நெருக்கமாக (Zoom In) தெரியும்; அதிகமாக இருந்தால் (எ.கா: 1.0) பரந்த பரப்பளவு (Zoom Out) தெரியும்.
+
+API Key Security: ஆப் ரிலீஸ் செய்யும்போது இந்த API கீயை Google Cloud Console-ல் SHA-1 fingerprint (Android) மற்றும் Bundle Identifier (iOS) மூலம் ரெஸ்ட்ரிக்ட் (Restrict) செய்ய வேண்டும்; இல்லையெனில் கீ தவறாகப் பயன்படுத்தப்பட வாய்ப்புள்ளது.
+  
 
 
+// ****************************************  What is event loop  *********************************
 
+  JavaScript என்பது ஒரு Single-Threaded மொழி. அதாவது, இதனால் ஒரே நேரத்தில் ஒரு வேலையை மட்டுமே செய்ய முடியும். ஆனாலும், நெட்வொர்க் கால்கள் (API calls), டைமர்கள் (setTimeout), பயனரின் தொடுதல் (UI clicks) போன்ற பல வேலைகளை ஆப் உறையாமல் (freeze ஆகாமல்) கையாள முடிகிறது. இதற்குப் பின்னால் செயல்படும் முக்கிய அமைப்பே Event Loop ஆகும்.
 
+Event Loop-ன் முக்கிய பாகங்கள்
+Call Stack:
 
+தற்போது இயங்கிக்கொண்டிருக்கும் கோட் வரிசையாக இங்குதான் அடுக்கி வைக்கப்படும் (LIFO - Last In, First Out). ஒரு நேரத்தில் ஒரு செயல் மட்டுமே நடக்கும்.
+
+Web APIs / Native APIs:
+
+setTimeout, fetch(), AsyncStorage போன்ற பின்னணி வேலைகளை JavaScript என்ஜின் இந்த சிஸ்டம் API-களிடம் கொடுத்துவிடும்.
+
+Callback Queue (Task Queue):
+
+பின்னணி வேலைகள் முடிந்தவுடன் அவற்றின் கால்பேக் பங்க்ஷன்கள் இங்கே வந்து வரிசையில் காத்திருக்கும்.
+
+Microtask Queue:
+
+Promise (.then, async/await) மற்றும் React Native-ன் சில முக்கிய வேலைகள் இங்கே வரும். இதற்கு Task Queue-ஐ விட அதிக முன்னுரிமை (Higher Priority) உண்டு.
+
+Event Loop (கண்காணிப்பாளர்):
+
+இதன் ஒரே வேலை: Call Stack காலியாக உள்ளதா? என்று தொடர்ந்து பார்ப்பதுதான்.
+
+Call Stack காலியான உடனே, முதலில் Microtask Queue-ல் உள்ள வேலைகளையும், அடுத்து Callback Queue-ல் உள்ள வேலைகளையும் எடுத்து Call Stack-ல் போடும்.
+
+ஒரு எளிய உதாரணம்
+JavaScript
+console.log("1");
+
+setTimeout(() => {
+  console.log("2");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3");
+});
+
+console.log("4");
+வெளியீடு (Output):
+
+Plaintext
+1
+4
+3
+2
+விளக்கம்:
+
+1 மற்றும் 4 நேரடியாக Call Stack-ல் சென்று உடனே இயங்கும்.
+
+setTimeout நேரம் 0 ஆக இருந்தாலும், அது Callback Queue-க்குச் செல்லும்.
+
+Promise Microtask Queue-க்குச் செல்லும்.
+
+Stack காலியானதும், Microtask Queue முன்னுரிமை பெற்று 3 இயங்கும்; அதன் பிறகு Task Queue-ல் இருந்து 2 இயங்கும்.
+
+React Native-ல் இதன் முக்கியத்துவம்
+UI Lag தவிர்ப்பது: React Native-ல் ஜாவாஸ்கிரிப்ட் த்ரெட் மற்றும் UI த்ரெட் தனித்தனியாக இயங்கும். ஜாவாஸ்கிரிப்ட் த்ரெட்டில் Event Loop-ஐ அதிக நேரம் பிளாக் செய்தால் (உதாரணமாக பெரிய லூப்கள்), ஆப் தொடுதலுக்கு பதிலளிக்காமல் லேக் ஆகும்.
 
 
 
