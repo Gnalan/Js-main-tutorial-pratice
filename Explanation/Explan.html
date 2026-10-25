@@ -388,12 +388,44 @@ ii)To join third party DOM libraries
 iii)To manage focus and apply media playback
 
 14.What are the components of Redux in React?
-Redux consists of 4 main components as shown below:
-i)Action: An object that describes the call
-ii)Reducer:The state change storage unit
-iii)Store:The state and object tree storage
-iv)View:Displays data provided by the store
+Redux என்றால் என்ன?
+
+"Redux is a predictable, centralized state management library for JavaScript applications. It works on the principle of unidirectional data flow (ஒற்றை வழி தரவுப் பாய்வு)."
+
+அதன் 4 முக்கிய கூறுகள் (Core Architecture):
+
+Store (The Single Source of Truth):
+
+ஆப் முழுமைக்கும் ஒரே ஒரு centralized JavaScript object ஆக இயங்கும் global state tree.
+
+"It holds the entire state tree of the application."
+
+Action (Plain JavaScript Object):
+
+என்ன மாற்றம் நடக்க வேண்டும் என்று சொல்லும் ஒரு payload ஆப்ஜெக்ட். இதில் கட்டாயம் type இருக்க வேண்டும், விருப்பப்பட்டால் payload சேர்க்கலாம்.
+
+"An action is a plain JavaScript object that describes what happened. It must have a type property and an optional payload."
+
+Example: { type: 'ADD_TODO', payload: 'Buy Milk' }
+
+Reducer (Pure Function):
+
+(இதை storage unit என்று சொல்லாதீர்கள்). Reducer என்பது பழைய state மற்றும் action-ஐ வாங்கி, புதிய state-ஐ மட்டுமே ரிட்டர்ன் செய்யும் ஒரு Pure Function. இது எந்த பக்க விளைவுகளையும் (side effects / mutations) ஏற்படுத்தாது.
+
+"A reducer is a pure function that takes the previous state and an action, and returns the new state without mutating the original state."
+
+Formula: (previousState, action) => newState
+
+View (UI Component):
+
+Store-ல் உள்ள டேட்டாவை UI-ல் சப்ஸ்கிரைப் செய்து காட்டும் பகுதி (React Native Screen).
+
+பயனர் ஒரு பட்டனை கிளிக் செய்யும்போது, View ஆனது Action-ஐ Dispatch செய்யும் (dispatch(action)).
+
+"The UI component that subscribes to the Redux store (via hooks like useSelector) and triggers actions using useDispatch."
 "React Native application-ல data-யையும் UI-யையும் synchronize பண்ணி maintain பண்ண state management ரொம்ப முக்கியம். இதுக்கு நாம Redux Toolkit-ஐ பயன்படுத்துவோம்.
+
+    
 
 Redux Toolkit என்பது official-ஆ Redux-க்கு simplified version. இதுல predefined utilities இருக்கு, அது நமக்கு actions, reducers எழுதுற coding time-ஐ ரொம்ப save பண்ணும்.
 
