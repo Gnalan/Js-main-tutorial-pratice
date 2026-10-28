@@ -347,11 +347,10 @@ Interview-la ketaa, direct-ah 30 to 45 seconds-la ipdi explain pannalaam:
 > *Basically, execution flow-la 4 parts irukku: **Call Stack, Web/Native APIs, Microtask Queue, and Callback Queue**.*
 > *Call Stack-la synchronous code run aagum. Asynchronous tasks mudinja udane adhodha callbacks queue-ku pogum. Event Loop continuously monitor pannum: **Call Stack empty aana udane**, mudhala Microtask Queue-la irukkura Promises-ai push pannum, apram dhaan Callback Queue-la irukkura `setTimeout` callbacks-ai Stack-ku anuppi execute pannum."*
 
----
-
-### React Native Specific Interview Point:
+React Native Specific Interview Point:
 
 > *"React Native-la JavaScript thread and UI/Native thread thani thaniya irukkum. Event Loop vazhiya heavy synchronous computation panna JS thread block aagum, adhanaala app lag aagum nu explain panna interviewers romba impress aavaanga."*
+  
 
 // *****************************   explain react native play store and app store deployment  **************************************
 
@@ -387,6 +386,198 @@ Step 4: Release AAB Build செய்தல்Bashcd android
 பைனரி அவுட்புட்: android/app/build/outputs/bundle/release/app-release.aabStep 5: Play Console SubmissionGoogle Play Console-ல் உள்நுழைந்து Create App கிளிக் செய்யவும்.Internal Testing அல்லது Closed Testing (Alpha/Beta) டிராக்கில் .aab ஃபைலை அப்லோட் செய்து சோதனை செய்யவும் (Google-ன் 20 testers / 14 days விதிமுறைக்கு உட்பட்டு).Store Listing Details: App Icon (512x512), Feature Graphic (1024x500), Screenshots, Privacy Policy URL, App Access/Data Safety Form பூர்த்தி செய்து Production-க்கு அனுப்பவும்.2. Apple App Store Deployment (iOS)iOS-க்கு கட்டாயம் macOS மற்றும் Xcode தேவைப்படும்.Step 1: Apple Developer Account & Identifiersdeveloper.apple.com-ல் சென்று Bundle Identifier (e.g., com.company.appname) உருவாக்க வேண்டும்.Certificates, Identifiers & Profiles பகுதியில்:Distribution Certificate (.p12)App Store Provisioning Profile ஆகியவற்றை உருவாக்க வேண்டும்.Step 2: Bundle Version & App Capabilities Setupios/YourProject.xcworkspace-ஐ Xcode-ல் திறக்கவும்.General Tab:Version (1.0.0) மற்றும் Build (1, 2, 3...) செட் செய்யவும்.Target Device (iPhone/iPad) தேர்ந்தெடுக்கவும்.Signing & Capabilities:Automatically manage signing எனேபிள் செய்து உங்களின் Apple Developer Team-ஐ தேர்ந்தெடுக்கவும்.Push Notifications, Background Modes போன்ற capabilities தேவைப்பட்டால் சேர்க்கவும்.Info.plist Permissions: Camera, Location போன்ற அனுமதிகளுக்கான தெளிவான விளக்கங்களை (Usage Descriptions) கட்டாயம் உள்ளிட வேண்டும்; இல்லையெனில் build நிராகரிக்கப்படும்.Step 3: Archive & Upload via XcodeTarget Device-ஆக Any iOS Device (arm64) என்பதைத் தேர்ந்தெடுக்கவும்.Menu-வில் Product $\rightarrow$ Clean Build Folder செய்யவும்.Product $\rightarrow$ Archive கிளிக் செய்யவும்.Archive முடிந்ததும் திறக்கும் Organizer விண்டோவில்:Distribute App கிளிக் செய்யவும்.App Store Connect $\rightarrow$ Upload தேர்வு செய்து, cloud validation முடிந்து App Store Connect-க்கு அனுப்பவும்.Step 4: TestFlight & App Store Reviewappstoreconnect.apple.com சென்று:TestFlight வழியாக இன்டர்னல்/எக்ஸ்டர்னல் குழுவுக்கு பீட்டா டெஸ்டிங் அனுப்பலாம்.App Store Tab:Version Information, App Icon (1024x1024, no transparency), Screenshots (6.7" மற்றும் 5.5" Display sizes).Demo Account credentials (Reviewer login செய்ய).Submit for Review கிளிக் செய்யவும் (ஆப்பிளின் ரிவ்யூ பொதுவாக 24 - 48 மணிநேரம் எடுக்கும்).Deployment Comparison Tableகட்டமைப்பு விவரங்கள்Android (Google Play Store)iOS (Apple App Store)Binary Format.aab (Android App Bundle).ipa (Archive via Xcode)Signing Files.keystore / .jks (Keytool)Certificates (.p12) & Provisioning ProfilesBeta Testing ToolGoogle Play Internal / Closed TestingTestFlightBuild MachineWindows, Linux அல்லது macOSmacOS (Xcode கட்டாயம் தேவை)VersioningversionCode (Int), versionName (String)CFBundleVersion (Build), CFBundleShortVersionString (Version)Code ShrinkingProGuard / R8 (minifyEnabled true)Xcode Dead Code Stripping (Default)3 Years Experience Level: Interview-ல் சொல்ல வேண்டிய Advanced PointsFastlane Automation: Production-ல் manual-ஆக செய்யாமல் fastlane match, fastlane android deploy, fastlane ios release மூலமாக CI/CD pipeline (GitHub Actions/GitLab) அமைத்து automated deployment செய்த அனுபவத்தைக் கூறலாம்.ProGuard / R8 Issues: Android release build-ல் minifyEnabled true போடும் போது Hermes engine அல்லது native libraries கிராஷ் ஆனால், அவற்றுக்கான keep rules-ஐ android/app/proguard-rules.pro-ல் சேர்ப்பது அவசியம்.Hermes Bytecode Compatibility: Release build-ல் enableHermes: true என அமைக்கப்பட்டிருப்பதை உறுதி செய்து compilation time மற்றும் app launch performance-ஐ மேம்படுத்துவது.
 
 
+  // ********************** apis 3 handle success in  question****************************
+
+நேர்காணல்களில் இந்த மாதிரியான கேள்விகள் **Asynchronous JavaScript (Promises)** மற்றும் **API Error Handling** பற்றிய புரிதலைச் சோதிக்க அடிக்கடி கேட்கப்படும்.
+
+நீங்கள் குறிப்பிட்ட சூழ்நிலையை இரண்டு விதமாகப் பிரிக்கலாம்:
+
+1. **ஒன்றன் பின் ஒன்றாக வரிசையாக நடக்க வேண்டும் (Sequential Execution):** முதல் API முடிந்த பிறகு அடுத்தது, அது ஃபெயிலானாலும் அடுத்த API இயங்க வேண்டும்.
+2. **ஒரே நேரத்தில் இணையாக நடக்க வேண்டும் (Parallel Execution):** மூன்றும் ஒரே நேரத்தில் இயங்க வேண்டும், ஆனால் ஒன்று ஃபெயிலானாலும் மற்றவை நிற்கக் கூடாது.
+
+இந்த இரண்டுக்குமான சரியான அணுகுமுறை மற்றும் பதிலளிக்கும் விதம் கீழே கொடுக்கப்பட்டுள்ளது:
+
+---
+
+### காட்சி 1: ஒன்றன் பின் ஒன்றாக வரிசையாக இயங்க வேண்டும் (Sequential)
+
+முதல் API முடிந்துதான் அடுத்த API தொடங்க வேண்டும், அதேசமயம் இடையில் ஏதேனும் ஒன்று ஃபெயிலானாலும் அடுத்த API கால் நிற்காமல் தொடர வேண்டும் என்றால், ஒவ்வொரு API அழைப்பிற்கும் தனித்தனியாக `try...catch` பயன்படுத்த வேண்டும்.
+
+#### குறியீடு (Code Example):
+
+```javascript
+const callApisSequentially = async () => {
+  // முதல் API
+  try {
+    const res1 = await fetch("https://api.example.com/one");
+    const data1 = await res1.json();
+    console.log("API 1 Success:", data1);
+  } catch (error) {
+    console.log("API 1 Failed, but continuing:", error.message);
+  }
+
+  // இரண்டாவது API (முதல் API ஃபெயிலானாலும் இது இயங்கும்)
+  try {
+    const res2 = await fetch("https://api.example.com/two");
+    const data2 = await res2.json();
+    console.log("API 2 Success:", data2);
+  } catch (error) {
+    console.log("API 2 Failed, but continuing:", error.message);
+  }
+
+  // மூன்றாவது API (இரண்டாவது ஃபெயிலானாலும் இது இயங்கும்)
+  try {
+    const res3 = await fetch("https://api.example.com/three");
+    const data3 = await res3.json();
+    console.log("API 3 Success:", data3);
+  } catch (error) {
+    console.log("API 3 Failed:", error.message);
+  }
+};
+
+```
+
+---
+
+### காட்சி 2: ஒரே நேரத்தில் மூன்றும் இயங்க வேண்டும் (Parallel - Interviewer Favorite)
+
+இன்டர்வியூவர் "ஒரே நேரத்தில் மூன்று API-யும் கால் ஆக வேண்டும், ஆனால் ஒன்று ஃபெயில் ஆனாலும் மற்றவற்றின் ரிசல்ட் வர வேண்டும்" என்று கேட்டால், அதற்குப் பதில் **`Promise.allSettled()`**.
+
+> **முக்கியக் குறிப்பு:** `Promise.all()` பயன்படுத்தினால் ஏதாவது ஒரு API ஃபெயில் ஆனாலும் மொத்தக் காலும் reject ஆகிவிடும். ஆனால் `Promise.allSettled()` அனைத்து API-களும் முடியும் வரை காத்திருந்து, எது `fulfilled` (சக்சஸ்), எது `rejected` (ஃபெயில்) என்ற விவரத்தைத் தரும்.
+
+#### குறியீடு (Code Example):
+
+```javascript
+const callAllApisTogether = async () => {
+  const api1 = fetch("https://api.example.com/one").then((res) => res.json());
+  const api2 = fetch("https://api.example.com/two").then((res) => res.json());
+  const api3 = fetch("https://api.example.com/three").then((res) => res.json());
+
+  const results = await Promise.allSettled([api1, api2, api3]);
+
+  results.forEach((result, index) => {
+    if (result.status === "fulfilled") {
+      console.log(`API ${index + 1} Success:`, result.value);
+    } else {
+      console.log(`API ${index + 1} Failed:`, result.reason);
+    }
+  });
+};
+
+```
+
+---
+
+### இன்டர்வியூவில் நீங்கள் எப்படிப் பதிலளிக்க வேண்டும்? (Interview Answer Pitch)
+
+நேர்காணலில் கேட்கும்போது இப்படி விளக்கலாம்:
+
+1. **கேள்வியைத் தெளிவுபடுத்துங்கள் (Clarification):**
+*"சார், இந்த மூன்று API-களும் ஒன்றன்பின் ஒன்றாக (Sequentially) இயங்க வேண்டுமா அல்லது ஒரே நேரத்தில் இணையாக (Parallelly) இயங்க வேண்டுமா?"*
+2. **Sequential என்றால்:**
+*"ஒன்றன்பின் ஒன்றாக இயங்க வேண்டும் என்றால், `async/await` பயன்படுத்தி ஒவ்வொரு API அழைப்பையும் தனித்தனி `try...catch` பிளாக்கில் வைப்பேன். இதனால் இரண்டாவது API ஃபெயில் ஆனாலும் `catch` பிளாக் பிழையைக் கையாண்டுவிட்டு அடுத்த மூன்றாவது API-ஐ எந்தத் தடங்கலும் இன்றி இயக்கும்."*
+3. **Parallel என்றால்:**
+*"ஒரே நேரத்தில் நடக்க வேண்டும் என்றால், `Promise.allSettled()` பயன்படுத்துவேன். `Promise.all()` ஒன்று ஃபெயிலானாலும் அனைத்தையும் நிறுத்திவிடும், ஆனால் `Promise.allSettled()` சக்சஸ் மற்றும் ஃபெயிலியர் இரண்டையும் தனித்தனியாகப் பிரித்து, அனைத்து API-களும் முடிவடைவதை உறுதி செய்யும்."*
+
+
+  
+// *********** type of promise ***************
+
+ஜாவாஸ்கிரிப்ட் மற்றும் ரியாக்ட் நேட்டிவ் நேர்காணல்களில் **Promise Combinators** (ஒன்றிற்கும் மேற்பட்ட பிராமிஸ்களைக் கையாளும் முறைகள்) மிகவும் முக்கியமான தலைப்பு.
+
+`Promise` ஆப்ஜெக்ட்டில் மொத்தம் **4 முக்கிய Static Methods** உள்ளன:
+
+1. `Promise.all()`
+2. `Promise.allSettled()`
+3. `Promise.race()`
+4. `Promise.any()`
+
+இவை ஒவ்வொன்றையும் மிக எளிய விளக்கத்துடனும் உதாரணத்துடனும் பார்ப்போம்:
+
+---
+
+### 1. `Promise.all()` (அனைத்தும் சக்சஸ் ஆக வேண்டும்)
+
+* **செயல்பாடு:** கொடுக்கப்பட்ட அனைத்து API/பிராமிஸ்களும் வெற்றியடைந்தால் மட்டுமே முழு விடையையும் அரேவாகத் (Array) தரும்.
+* **முக்கிய விதி (Fail-Fast):** இடையில் **ஏதாவது ஒரு பிராமிஸ் ஃபெயில் (Reject) ஆனாலும்**, மொத்தக் காலும் உடனடியாக ஃபெயில் ஆகிவிடும்.
+* **எப்போது பயன்படுத்தலாம்?** ஒரு பக்கத்தைக் காட்ட 3 API-களின் தகவல்களும் கண்டிப்பாகத் தேவைப்படும் போது.
+
+```javascript
+Promise.all([api1, api2, api3])
+  .then((results) => {
+    console.log("அனைத்தும் வெற்றி:", results);
+  })
+  .catch((error) => {
+    console.log("ஏதோ ஒன்று ஃபெயில் ஆகிவிட்டது:", error);
+  });
+
+```
+
+---
+
+### 2. `Promise.allSettled()` (வெற்றி/தோல்வி எதுவானாலும் பரவாயில்லை)
+
+* **செயல்பாடு:** அனைத்து பிராமிஸ்களும் முடிவடையும் வரை (Settled) காத்திருக்கும். ஒன்று ஃபெயில் ஆனாலும் கவலைப்படாது.
+* **அவுட்புட்:** ஒவ்வொரு பிராமிஸிற்கும் அதன் நிலை (`status: 'fulfilled'` அல்லது `'rejected'`) மற்றும் மதிப்பு/காரணத்தைக் காட்டும்.
+* **எப்போது பயன்படுத்தலாம்?** நீங்கள் கேட்ட முந்தைய கேள்விக்கு இதுதான் சரியான விடை — ஒரு API ஃபெயில் ஆனாலும் மற்ற API-களின் முடிவு உங்களுக்குத் தேவைப்படும் போது.
+
+```javascript
+Promise.allSettled([api1, api2, api3])
+  .then((results) => {
+    results.forEach((res) => {
+      if (res.status === "fulfilled") {
+        console.log("Success data:", res.value);
+      } else {
+        console.log("Failed reason:", res.reason);
+      }
+    });
+  });
+
+```
+
+---
+
+### 3. `Promise.race()` (முதலில் வருபவரே வெற்றியாளர்)
+
+* **செயல்பாடு:** கொடுக்கப்பட்ட பிராமிஸ்களில் எது **முதலில் முடிகிறதோ** (அது வெற்றியாக இருந்தாலும் சரி, தோல்வியாக இருந்தாலும் சரி) அதன் முடிவை மட்டுமே உடனடியாக எடுக்கும். மற்றவை புறக்கணிக்கப்படும்.
+* **எப்போது பயன்படுத்தலாம்?** API Timeout செக் செய்வதற்கு (உதாரணமாக: API கால் மற்றும் 5 விநாடி டைமர் இரண்டையும் ரேஸ் விட்டு, டைமர் முந்திவிட்டால் "Request Timeout" எனக் காட்ட).
+
+```javascript
+Promise.race([fetchData(), timeoutPromise(5000)])
+  .then((data) => console.log("முதலில் வந்தது:", data))
+  .catch((err) => console.log("முதலில் ஃபெயில் ஆனது:", err));
+
+```
+
+---
+
+### 4. `Promise.any()` (முதல் வெற்றியை மட்டும் தேடும்)
+
+* **செயல்பாடு:** கொடுக்கப்பட்ட பிராமிஸ்களில் எது **முதலில் வெற்றியடைகிறதோ (Fulfilled)** அதை மட்டும் எடுத்துக்கொள்ளும்.
+* மற்ற பிராமிஸ்கள் ஃபெயில் ஆனாலும் கண்டுகொள்ளாது. **அனைத்துமே ஃபெயில் ஆனால் மட்டுமே** `AggregateError` கொடுக்கும்.
+* **எப்போது பயன்படுத்தலாம்?** ஒரே தரவை பல சர்வர்களில் (CDN / Backup servers) இருந்து எடுக்க முயற்சிக்கும் போது, எந்த சர்வர் முதலில் வேகமாக ரெஸ்பான்ஸ் தருகிறதோ அதை மட்டும் பயன்படுத்திக்கொள்ள.
+
+```javascript
+Promise.any([serverA, serverB, serverC])
+  .then((fastestSuccess) => {
+    console.log("முதலில் வெற்றிகரமாக வந்த தரவு:", fastestSuccess);
+  })
+  .catch((err) => {
+    console.log("எல்லா சர்வர்களும் ஃபெயில்:", err.errors);
+  });
+
+```
+
+---
+
+### நேர்காணலுக்கான சுருக்க அட்டவணை (Quick Summary)
+
+| Method | எப்போது Resolve ஆகும்? | எப்போது Reject ஆகும்? |
+| --- | --- | --- |
+| **`Promise.all`** | **எல்லாமே** சக்சஸ் ஆனால் | **ஏதேனும் ஒன்று** ஃபெயில் ஆனால் |
+| **`Promise.allSettled`** | எல்லாமே முடிந்த பின் (எப்போதும் reject ஆகாது) | ஒருபோதும் Reject ஆகாது |
+| **`Promise.race`** | **எது முதலில்** முடிந்தாலும் (Success) | **எது முதலில்** முடிந்தாலும் (Fail) |
+| **`Promise.any`** | **முதல் சக்சஸ்** வந்தவுடன் | **எல்லாமே** ஃபெயில் ஆனால் மட்டுமே |
 
 
 
