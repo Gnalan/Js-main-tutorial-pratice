@@ -273,32 +273,28 @@ API Key Security: ஆப் ரிலீஸ் செய்யும்போத
 
 // ****************************************  What is event loop  *********************************
 
-JavaScript oru **Single-threaded** language, adhavadhu ore nerathula oru vela mattum dhaan seiyum (Call Stack-la oru task dhaan pogum). Aana kooda, network calls, setTimeout, click events ellam UI block aagadha madhiri asynchronous-ah handle panna JavaScript use panra oru mechanism dhaan **Event Loop**.
+"JavaScript is a single-threaded language with a single call stack. The Event Loop is a mechanism that handles asynchronous tasks and enables non-blocking I/O.
 
----
-
-### Event Loop Epdi Work Aagudhu? (Step-by-Step Explanation)
+Basically, the execution architecture consists of four main parts:
 
 1. **Call Stack:**
-* Run aagura synchronous code ellam stack-la load aagi execution nadakkum.
+* Executes synchronous code line by line using a LIFO (Last In, First Out) structure.
 
 
 2. **Web APIs / Native APIs:**
-* `setTimeout`, `fetch()`, `AsyncStorage` madhiri asynchronous operations Call Stack-la irundhu background-ku anuppapadum.
+* Handles asynchronous operations in the background (such as `setTimeout`, `fetch()`, or Native Modules/AsyncStorage in React Native) without blocking the main thread.
 
 
-3. **Callback Queue (Task Queue):**
-* `setTimeout` madhiri async task mudinja apram, adhanaala varra callback functions Task Queue-la vandhu wait pannum.
+3. **Callback Queue (Task / Macrotask Queue):**
+* Holds completed callbacks from timers and I/O tasks like `setTimeout` and `setInterval`, waiting to be executed.
 
 
 4. **Microtask Queue:**
-* `Promise` (.then/catch), `async/await` execution ellam inga dhaan pogum. Idhukku Callback Queue-ai vida **highest priority** irukkum.
+* Stores callbacks from resolved Promises (`.then()`, `.catch()`, `.finally()`), `async/await`, and `queueMicrotask()`. This queue has a **higher priority** than the Callback Queue.
 
 
-5. **Event Loop (Traffic Police):**
-* Call Stack kaaliyaa irukkaa-nu check pannite irukkum.
-* Call Stack empty aana udane, mudhala **Microtask Queue**-la irukkura tasks-ai Stack-ku push pannum.
-* Adhum kaali aana apram dhaan **Callback Queue**-la irundhu task-ai Stack-ku eduthu pogum.
+5. **The Event Loop (Coordinator):**
+* It continuously monitors the Call Stack and the queues. As soon as the **Call Stack becomes completely empty**, it pushes all callbacks from the **Microtask Queue** first to the Call Stack. Only after the Microtask Queue is completely drained does it pick and push tasks from the **Callback Queue**."
 
 
 
