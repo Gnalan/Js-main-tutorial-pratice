@@ -390,6 +390,70 @@ console.log("summmmmm",sum)
 // let result =[...new Set(numbers)]
 // result.unshift(5)
 
+
+// இன்டர்வியூவில் கேட்கும் முக்கியமான கேள்விகள் மற்றும் அதன் ஒருவரி காரணங்கள்:
+
+// ---
+
+// ### 1. `+` vs `-` (ஸ்ட்ரிங் மற்றும் எண்கள்)
+
+// * **`console.log("10" + 10)`** $\rightarrow$ `"1010"`
+// *(காரணம்: `+` இருக்கும்போது ஒரு ஸ்ட்ரிங் வந்தாலும் Concatenation நடக்கும்)*
+// * **`console.log(10 + 10)`** $\rightarrow$ `20`
+// *(காரணம்: இரண்டும் எண்கள் என்பதால் வழக்கமான கூட்டல்)*
+// * **`console.log("10" - 5)`** $\rightarrow$ `5`
+// *(காரணம்: `-` ஆப்பரேட்டருக்கு ஸ்ட்ரிங் வேலை கிடையாது, அதனால் நம்பராக மாறும்)*
+// * **`console.log("10" * "2")`** $\rightarrow$ `20`
+// *(காரணம்: பெருக்கல் மற்றும் வகுத்தலுக்கும் நம்பராகவே மாறும்)*
+
+// ---
+
+// ### 2. இடமிருந்து வலம் (Left to Right)
+
+// * **`console.log(10 + 20 + "30")`** $\rightarrow$ `"3030"`
+// *(முதலில் `10 + 20 = 30`, பிறகு `30 + "30"` இணையும்)*
+// * **`console.log("10" + 20 + 30)`** $\rightarrow$ `"102030"`
+// *(முதலில் `"10" + 20 = "1020"`, பிறகு `"1020" + 30` இணையும்)*
+
+// ---
+
+// ### 3. Boolean, null, undefined
+
+// * **`console.log(true + false)`** $\rightarrow$ `1`
+// *(`true` = 1, `false` = 0)*
+// * **`console.log(10 + null)`** $\rightarrow$ `10`
+// *(`null` என்பது கணிதத்தில் 0)*
+// * **`console.log(10 + undefined)`** $\rightarrow$ `NaN`
+// *(`undefined` நம்பராக மாறாது, அதனால் Not a Number)*
+
+// ---
+
+// ### 4. Arrays மற்றும் Objects
+
+// * **`console.log([] + [])`** $\rightarrow$ `""` (வெற்று ஸ்ட்ரிங்)
+// *(Array-கள் ஸ்ட்ரிங்காக மாறும்போது காலியாகும்)*
+// * **`console.log([] + {})`** $\rightarrow$ `"[object Object]"`
+// *(`""` உடன் Object இணைகிறது)*
+// * **`console.log([1, 2] + [3, 4])`** $\rightarrow$ `"1,23,4"`
+// *(இரண்டும் ஸ்ட்ரிங்காக மாறி ஒட்டிக்கொள்ளும்)*
+
+// ---
+
+// ### 5. சமநிலை (`==` vs `===`)
+
+// * **`console.log(null == undefined)`** $\rightarrow$ `true`
+// *(டைப் பார்க்காதபோது இரண்டும் ஒன்றுதான்)*
+// * **`console.log(null === undefined)`** $\rightarrow$ `false`
+// *(வெவ்வேறு டேட்டா டைப்)*
+// * **`console.log(NaN == NaN)`** $\rightarrow$ `false`
+// *(ஜாவாஸ்கிரிப்ட்டில் `NaN` தனக்குத்தானே சமமாக இருக்காது)*
+// * **`console.log([] == 0)`** $\rightarrow$ `true`
+// *(வெற்று Array நம்பராக மாறும்போது 0 ஆகும், `0 == 0`)*
+
+// ---
+
+// **ஒரே வரி ரூல்:** `+` வந்தால் மட்டுமே ஸ்ட்ரிங் இணைக்கும் (Concatenate). `-`, `*`, `/` வந்தால் ஆட்டோமேட்டிக்காக எண்களாக மாறிவிடும்.
+
 // task on fetch data and hide, show details
 
 import {Text,View,StyleSheet,Button,FlatList,Pressable} from 'react-native'
