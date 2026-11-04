@@ -402,35 +402,34 @@ Step 4: Release AAB Build செய்தல்Bashcd android
 #### குறியீடு (Code Example):
 
 ```javascript
-const callApisSequentially = async () => {
+
+import axios from "axios"; // அல்லது const axios = require("axios");
+
+const callApisSequentiallyWithAxios = async () => {
   // முதல் API
   try {
-    const res1 = await fetch("https://api.example.com/one");
-    const data1 = await res1.json();
-    console.log("API 1 Success:", data1);
+    const res1 = await axios.get("https://api.example.com/one");
+    console.log("API 1 Success:", res1.data);
   } catch (error) {
     console.log("API 1 Failed, but continuing:", error.message);
   }
 
   // இரண்டாவது API (முதல் API ஃபெயிலானாலும் இது இயங்கும்)
   try {
-    const res2 = await fetch("https://api.example.com/two");
-    const data2 = await res2.json();
-    console.log("API 2 Success:", data2);
+    const res2 = await axios.get("https://api.example.com/two");
+    console.log("API 2 Success:", res2.data);
   } catch (error) {
     console.log("API 2 Failed, but continuing:", error.message);
   }
 
   // மூன்றாவது API (இரண்டாவது ஃபெயிலானாலும் இது இயங்கும்)
   try {
-    const res3 = await fetch("https://api.example.com/three");
-    const data3 = await res3.json();
-    console.log("API 3 Success:", data3);
+    const res3 = await axios.get("https://api.example.com/three");
+    console.log("API 3 Success:", res3.data);
   } catch (error) {
     console.log("API 3 Failed:", error.message);
   }
 };
-
 ```
 
 ---
@@ -444,22 +443,28 @@ const callApisSequentially = async () => {
 #### குறியீடு (Code Example):
 
 ```javascript
-const callAllApisTogether = async () => {
-  const api1 = fetch("https://api.example.com/one").then((res) => res.json());
-  const api2 = fetch("https://api.example.com/two").then((res) => res.json());
-  const api3 = fetch("https://api.example.com/three").then((res) => res.json());
+import axios from "axios";
 
+const callAllApisTogetherWithAxios = async () => {
+  // 1. மூன்று API கால்களையும் தொடங்குதல் (await போடாமல் Promise-ஆக அனுப்ப வேண்டும்)
+  const api1 = axios.get("https://api.example.com/one");
+  const api2 = axios.get("https://api.example.com/two");
+  const api3 = axios.get("https://api.example.com/three");
+
+  // 2. Promise.allSettled மூலம் மூன்றும் முடியும் வரை காத்திருத்தல்
   const results = await Promise.allSettled([api1, api2, api3]);
 
+  // 3. முடிவுகளை ஒவ்வொன்றாக சரிபார்த்தல்
   results.forEach((result, index) => {
     if (result.status === "fulfilled") {
-      console.log(`API ${index + 1} Success:`, result.value);
+      // Success response: axios-ன் response object-ல் உள்ள data
+      console.log(`API ${index + 1} Success:`, result.value.data);
     } else {
-      console.log(`API ${index + 1} Failed:`, result.reason);
+      // Error response: axios எரர் விவரம்
+      console.log(`API ${index + 1} Failed:`, result.reason?.message || result.reason);
     }
   });
 };
-
 ```
 
 ---
