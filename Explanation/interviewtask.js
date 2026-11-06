@@ -548,6 +548,63 @@ const styles=StyleSheet.create({
 //       }
 //   }
 //      return secondLargest === -Infinity ? null : secondLargest
+
+
+
+
+// Online JavaScript compiler (editor)
+// Write and run JavaScript online using this JS editor.
+
+// function primeNumbers(n){
+//   if(n>100) return;
+//   console.log(n);
+//   primeNumbers(n+1)
+// }
+// primeNumbers(1)
+
+// function isprime(num,divisor=2){
+//   if(num<=1) return false;
+//   if(divisor*divisor>num) return true
+//   if(num% divisor===0) return false
+//   return isprime(num,divisor+1)
+// }
+
+// function getprime(current=2,max=1000){
+//   if(current>max)return
+//   if(isprime(current)){
+//     console.log(current,"prime number")
+//   }
+//   getprime(current+1,max)
+// }
+// getprime()
+
+// Matrix 1:
+// [1, 2, 3]
+// [4, 5, 6]
+// [7, 8, 9]
+
+// Matrix 2:
+// [9, 8, 7]
+// [6, 5, 4]
+// [3, 2, 1]
+
+const matrix1=[
+[1, 2, 3],
+[4, 5, 6],
+[7, 8, 9]
+]
+const matrix2=[
+[9, 8, 7],
+[6, 5, 4],
+[3, 2, 1]
+]
+const result=matrix1.map((row,i)=>row.map((val,j)=>val+matrix2[i][j]));
+console.log("result",result)
+
+
+
+
+
   
   
 // }
