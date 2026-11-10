@@ -600,12 +600,116 @@ const matrix2=[
 ]
 const result=matrix1.map((row,i)=>row.map((val,j)=>val+matrix2[i][j]));
 console.log("result",result)
-
-
-
-
-
   
   
 // }
 // console.log(findSecondnum(1,2,3,4))
+
+
+
+// Online JavaScript compiler (editor)
+// Write and run JavaScript online using this JS editor.
+
+// THere is a u shaped buiilding which have east wing , north wing and west wing now west wing each wing hase right nad left and on the first flower theri are 60 rooms and the numbering start from east wing and from left 1 and goes till  10 and then goes to right of east wing and start from 11 and end at 20  and it carries on till 60 and building has 5 floor i want you build alogrithm to search the address of the room if room number is given
+// per rooms=60 ,total =300,20 below east
+
+funtion getRoomAddress(roomNumber){
+  const Total_Rooms=300;
+  const Rooms_Per_Floor=60;
+  if(roomNumber<1 ||roomNumber>Total_Rooms ){
+    return 'Invalid room number'
+  }
+  const floor=Math.ceil(roomNumber)
+  const result=((roomNumber-1)% Rooms_Per_Floor)+1;
+  let wing='';
+  let side='';
+  if(result<=20){
+    wing='East Wing';
+    side=result<=10?'Left':'Right'
+  } else  if(result<=40){
+    wing='North Wing';
+    side=result<=20?'Left':'Right
+  }else {
+    wing='West Wing';
+    side=result<=50?'Left':'Right
+  }
+  return;
+  
+  
+}
+console.log(getRoomAddress())
+
+// ***************************************************************************
+
+
+
+// Car component has two child component called stearing and wheel  , Steering takes the value from the user and wheel print the value
+
+import { StyleSheet, Text, View,TextInput } from 'react-native';
+import React,{useState} from 'react'
+const Steering=({onValueChange})=>{
+  return(
+    <View style={styles.box}>
+    <Text>steering component</Text>
+    <TextInput
+    placeholder="enter steering"
+    onChangeText={onValueChange}
+    style={styles.input}
+    placeholderTextColor={"grey"}
+    />
+    </View>
+  )
+}
+const Wheel=({direction})=>{
+  return(
+    <View style={styles.box}>
+      <Text>steering component</Text>
+      <Text style={styles.value}>current value: {direction|| 'none'}</Text>
+    </View>
+  )
+}
+  
+  const Car=()=>{
+    const[direction,setDirection]=useState('')
+  return (
+    <View style={styles.container}>
+      <Text>car dashboard</Text>
+      <Steering onValueChange={setDirection}/>
+      <Wheel direction={direction}/>
+  
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  box:{
+    marginVertical:5,padding:14,
+  },
+  input:{borderWidth:1,borderColor:"#888",padding:5,borderRadius:5,marginTop:5,fontFamily:"bold",fontSize:10},
+  value:{marginTop:5,color:"#000"},
+});
+export default  Car;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
